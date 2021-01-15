@@ -1,0 +1,14 @@
+["other/"]
+description = "Tags that don't fit into one of the other categories."
+
+[art-exchange]
+description = "Of or related to the [http://www.scp-wiki.net/art-exchange-hub Annual Holiday Art Exchange]."
+
+[af2014]
+description = "Of or related to the [http://scp-wiki.wikidot.com/april-fools-2014 Super Cute Pets!] 2014 April Fool's prank."
+
+[international]
+description = "Applicable if the tale or SCP article was translated from one of the recognized translation sites. Don't add this tag if the article //was// translated to another language."
+
+[poetry]
+description = "Applicable if the page consists significantly of a form of poetry, with elements such as meter and rhyme."

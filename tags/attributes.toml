@@ -1,3 +1,7 @@
+["attributes/"]
+description = """This list is intended as a guide to attribute tags, or secondary tags on SCP articles. When choosing tags for an article, keep in mind that you want to keep the list as short as possible; the goal should be to choose tags that are already being used, rather than create a new one. If staff should determine that a new tag is necessary, they can always retroactively tag articles as necessary. If you would like to suggest a new tag, please do so in the discussion thread for this page.
+
+The following tags are SCP Article attribute tags, and should only be used on SCP pages, not tales."""
 requires = [ "scp" ]
 
 [acoustic]

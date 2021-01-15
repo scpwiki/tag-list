@@ -1,0 +1,133 @@
+[scp]
+description = "All SCP articles from the main blocks, [http://scp-wiki.wikidot.com/scp-001 001 proposals], [http://scp-wiki.wikidot.com/joke-scps jokes] (-J), [http://scp-wiki.wikidot.com/archived-scps archives] (-ARC), and [http://scp-wiki.wikidot.com/scp-ex explained] (-EX) articles should be tagged with //scp//."
+
+[goi-format]
+description = "Anomaly or SCP has been written up from the perspective of a specific Group of Interest, and conforms to the format(s) laid out in that GoI's hub page. Mutually exclusive with 'tale' and 'scp'."
+
+[joke]
+description = "Pages which are considered 'jokes' or explicitly 'out-of-universe'. This may be applied to //scp//, //goi-format//, or //tale// pages. See [http://scp-wiki.wikidot.com/joke-scps Joke SCPs] for more information on Joke pages."
+
+[archived]
+description = "Pages which have been archived due to having been superseded, obsoleted, or inactivity. These pages should also be moved to the {{archived:}} category so they retain the 'archived page' notice and are locked from edits. See [http://scp-wiki.wikidot.com/archived-scps Archived Pages] for more information on archival."
+
+[explained]
+description = "[http://scp-wiki.wikidot.com/scp-ex Explained] SCPs are a special sub-type of //scp//, and should be added to -EX articles as appropriate. Explained articles should also be tagged with their standard object class tag, or //esoteric-class// if the format does not specify a standard object class."
+
+[001-proposal]
+description = "This is the tag for the articles proposing a possible [http://www.scp-wiki.net/scp-001 SCP-001] object. SCPs tagged with this tag should also be tagged with their standard object class tag, or //esoteric-class// if applicable."
+
+[tale]
+description = "//tale// pages are stories, narratives, and transcripts that are written in a non-scientific manner, as well as incident logs, interviews, and reports that are not directly linked to any //scp// page. These may not necessarily be about any particular //scp//, and may not even be about a //scp// that exists, but should be about the Foundation or otherwise within the SCP Foundation universe. Compare to //creepypasta// below."
+
+[supplement]
+description = "//supplement// pages are defined as pages which require context from their parent page to understand. These pages should also have their parent page set to their originating article in order to maintain relevance and automatically create breadcrumb navigation. A page should only be tagged as //supplement// if they were created by the original author of the page, or with the original author's permission. Documents that are tributes or parodies should be tagged as //tale// instead, even if they are in the format of a log or transcript."
+
+[experiment]
+description = "This tag should only be used on //supplement// pages for pages that are primarily experiment logs (see: [http://scp-wiki.wikidot.com/SCP-914 SCP-914] >> [http://scp-wiki.wikidot.com/Experiment-Log-914 Experiment Log 914]). This tag **should not** be used on //scp// pages, even if they have extensive experiment logs."
+
+[exploration]
+description = "This tag should only be used on //supplement// pages for pages that are primarily exploration logs. This tag **should not** be used on //scp// pages, even if they have extensive exploration logs."
+
+[fragment]
+description = "This tag should only be used on pages which are parented to and dependent on other pages. Pages of this type should be in the {{fragment:}} category and are exempt from deletion as long as their parent exists on the wiki. If they are orphaned or their parent is deleted, they are eligible for a summary deletion."
+
+[incident]
+description = "This tag should only be used on //supplement// pages for pages that are primarily incident logs or transcripts (see: [http://scp-wiki.wikidot.com/SCP-555 SCP-555] >> [http://scp-wiki.wikidot.com/Incident-Log-555-1 Incident Log 555-1]). This tag **should not** be used on //scp// pages, even if they have extensive incident logs."
+
+[interview]
+description = "This tag should only be used on //supplement// pages for pages that are primarily interview transcripts (see: [http://scp-wiki.wikidot.com/SCP-277 SCP-277] >> [http://scp-wiki.wikidot.com/277interview Interview 277-A]). This tag **should not** be used on //scp// pages, even if they have extensive interview transcripts."
+
+[splash]
+description = "//splash// pages are used as 'cover pages' for certain articles. (see: [http://scp-wiki.wikidot.com/SCP-902 SCP-902] >> [http://scp-wiki.wikidot.com/902-warning SCP-902 Warning]."
+
+[creepypasta]
+description = "//creepypasta// are //tale// pages that are unrelated to the SCP Foundation, and usually take the form of urban myths or campfire stories. A //creepypasta// page must be tagged with //tale// and is only appropriate for the SCP website if it's an original //creepypasta// by the posting author; we are not a repository for unattributed //creepypasta//."
+
+[audio]
+description = "//audio// pages are pages with one or more audio files attached."
+
+[video]
+description = "//video// pages are pages with one or more video files attached."
+
+[collaboration]
+description = "//collaboration// pages are those pages that are or were open to additions from any member, with the caveat that staff and the original author reserve the right to modify or delete entries found to be subpar, or close entries entirely. //collaboration// is a subtag, and should be applied in parallel to either //tale//, //creepypasta// or //scp//."
+
+[co-authored]
+description = "//co-authored// pages are the result of two or more authors working together, but **are not open to additions from other members**. This differs from the //collaboration// tag above. //co-authored// is a subtag, and should be applied in parallel to either //tale//, //creepypasta// or //scp//."
+
+[contest]
+description = "//contest// pages are pages created for the purpose of community contests. This should be used in conjunction with //hub// in the case of entry listings, and should not be used on the entries themselves. These contests are only created by staff or with staff permission."
+
+[author]
+description = "This tag should be used for author profile pages. There should only be a single author profile page for each qualifying site member."
+
+[guide]
+description = "These pages are writing guides, helpful hints, or other pages intended to assist authors contributing to the site. Guides are only tagged by staff, or with staff permission. See also //essay//."
+
+[required]
+description = "//required// pages are guides that are part of the required reading for joining the SCP Wiki."
+
+[essay]
+description = "//essay// pages contain useful information on specific topics that may be helpful to authors writing related articles, but are different from a //guide// in that essays are subjective and reflect the author's personal opinion."
+
+[artwork]
+description = "//artwork// pages host collections of Foundation-related artwork created by community members. Pages tagged with //artwork// are subject to voting and deletion by the community."
+
+[hub]
+description = "//hub// pages are pages with a large number of links to related pages. All of the SCP series pages are //hub// pages, as are the tale index and various other pages around the site. As it is a major page tag, hubs may not have other major tags (e.g. //scp// or //tale//), with the exception of //contest// pages. Tale hubs should additionally be tagged with the //_tale-hub// page."
+
+[site]
+description = "//site// pages are hub pages  that document specific Foundation facilities, and provide information such as the objects stored at the site, site history, assigned personnel, etc. "
+
+[orphaned]
+description = "//orphaned// pages, usually //supplement// pages, are ones whose parent pages have been deleted, and no longer serve any purpose. Very rarely an //orphaned// page will have enough merit to be revised as a standalone //tale//, but they are usually eventually deleted by site moderators. //orphaned// is only used by staff; if you believe a page has been //orphaned//, please contact a staff member."
+
+[sandbox]
+description = "In the very distant past, sandboxes on the main site were allowed. This was before the number of members became so big that the amount of sandboxes would create a total mess on the wiki. **Please note that personal sandboxes are no longer allowed on the main site.** The SCP Sandbox wiki at http://scp-sandbox-3.wikidot.com/ should be used for article drafts. Only staff may authorize new sandboxes on the site."
+
+[workbench]
+description = "Workbenches are pages created by mods and admins to allow them to monitor certain pages using Wikidot's modules. While you're free to use those same monitors on your //author// page, **please do not create any workbench pages unless you're a moderator or admin**, or have received explicit permission from them to do so."
+
+[template]
+description = "Template pages are for pages which are included by other pages for technical or aesthetic purposes."
+
+[component]
+description = "Component pages are templates which allow insertion of modular elements. "
+
+[theme]
+description = "Theme pages are templates which modify the page's header, styling, and look and feel."
+
+ * --[scp-fuel]
+description = "//scp-fuel// is used for pages that contain "SCP Fuel" images and/or fragments, which are free to use by anyone who wants to incorporate them into new //scp// or //tale// pages.-- Main-site SCP Fuel pages are no longer in use. Please see the [http://visual-records.wikidot.com/ SCP Visual Records Wiki] for inspirational material."
+
+[admin]
+description = "//admin// pages, as the name suggest, have some sort of official significance. They should only be created by staff."
+
+[forum]
+description = "//forum// pages are those required for internal functioning of Wikidot's forum system. They should only be created by staff."
+
+[redirect]
+description = "//redirect// pages are those which redirect the user to a different page. They should only be created by staff or with explicit staff permission."
+
+[news]
+description = "//news// pages contain, well, news about the SCP Foundation in the broadest sense of the word, ranging from new artwork by fans to recently posted successful articles and everything in between. May also be used for formal announcements by staff (in as far as those aren't done on the main page or in the forum.)"
+
+[featured]
+description = "Reserved by staff for designating [http://scp-wiki.wikidot.com/featured-scp-archive Featured Articles] and [http://scp-wiki.wikidot.com/featured-tale-archive Featured Tales]."
+
+[prize-feature]
+description = "Reserved by staff for designating articles featured by the winner of a site contest."
+
+[event-featured]
+description = "Reserved by staff for designating articles featured on special event days such as International Talk Like a Pirate Day."
+
+[metadata]
+description = "Reserved by staff for designating pages with meta information about articles."
+
+ * [# _<group-of-interest-tag>] - All groups of interest have an associated hidden tag, with the same name (e.g. //serpents-hand// becomes //_serpents-hand//), which designates that a //goi-format// article is a GoI format for this particular group of interest.
+
+[_other]
+description = "For GoI format articles written for a group of interest which does not have a tag. See above."
+
+[_tale-hub]
+description = "Utilized in conjunction with the //hub// tag to designate that this hub hosts //tale// articles."

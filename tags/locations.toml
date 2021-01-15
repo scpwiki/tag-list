@@ -1,0 +1,21 @@
+["locations/"]
+description = "Tags indicating that a tale or SCP article takes place in a specific location that isn't a Foundation Site or installation."
+
+[alagadda]
+description = "The kingdom of Alagadda"
+
+[backdoor-soho]
+description = "The city of Backdoor Soho"
+
+[hy-brasil]
+description = "The island of Hy-Brasil"
+
+[la-rue-macabre]
+description = "The free port of La Rue Macabre"
+
+[three-portlands]
+description = "The city of Three Portlands"
+
+[wanderers-library]
+description = "The Wanderer's Library"
+

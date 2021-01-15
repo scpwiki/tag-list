@@ -1,0 +1,125 @@
+["contests/"]
+description = "Tags for all contests."
+
+[1000]
+description = "An entry to the [http://www.scp-wiki.net/forum/t-376556 SCP-1000 Contest]."
+
+[2000]
+description = "An entry to the [http://scp-wiki.wikidot.com/scp2000contesthub SCP-2000 Contest]."
+
+[3000]
+description = "An entry to the [http://scp-wiki.wikidot.com/scp3000contesthub SCP-3000 Contest]."
+
+[4000]
+description = "An entry to the [http://scp-wiki.wikidot.com/scp4000contesthub SCP-4000 Contest]."
+
+[5000]
+description = "An entry to the [http://scp-wiki.wikidot.com/scp5000contesthub SCP-5000 Contest]."
+
+[173fest]
+description = "An entry to the [http://www.scp-wiki.net/173-festival 173 Festival]."
+
+[cliche2019]
+description = "An entry to [[[http://www.scp-wiki.net/cliche-con-2019 |Cliche-Con 2019]]]."
+
+[collab-con2019]
+description = "An entry to [[[http://www.scp-wiki.net/collaboration-contest |Collab-Con 2019]]]."
+
+[af2016]
+description = "An entry to the [http://www.scp-wiki.net/an-incredibly-important-announcement Crack Fiction Contest] 2016 April Fool's prank."
+
+[art2017]
+description = "An entry to the [http://www.scp-wiki.net/social-media-art-contest 2017 Art Contest]."
+
+[d-con2016]
+description = "An entry to the [http://scp-wiki.wikidot.com/d-class-contest 2016 D-Class Contest]."
+
+[dc2014]
+description = "An entry to the [http://scp-wiki.wikidot.com/Dystopia-Contest 2014 Dystopia Contest]."
+
+[doomsday2018]
+description = "An entry to the [http://scp-wiki.wikidot.com/doomsday-contest 2018 Doomsday Contest]."
+
+[exquisite-corpse2020]
+description = "An entry to the [http://scp-wiki.wikidot.com/exquisite-corpse-contest 2020 Exquisite Corpse Contest]."
+
+[five-questions]
+description = "An entry to the [http://scp-wiki.wikidot.com/five-questions Five Questions Contest]."
+
+[gbc09]
+description = "An entry to [http://www.scp-wiki.net/gears-birthday-contest-2009 2009 Gears' Birthday Contest]."
+
+[goi2014]
+description = "An entry to the [http://scp-wiki.wikidot.com/goi-contest-2014 2014 Groups of Interest Contest]."
+
+[halloween2018]
+description = "An entry to the [http://scp-wiki.wikidot.com/halloween-contest-2018 2018 Halloween Contest]."
+
+[hc2012]
+description = "An entry to the [http://scp-wiki.wikidot.com/halloween-contest 2012 Halloween Contest]."
+
+[hiscon2017]
+description = "An entry to the [http://www.scp-wiki.net/history-contest 2017 History Contest]."
+
+[jam-con2018]
+description = "An entry to the [http://www.scp-wiki.net/72-hour-jam-contest 2018 72 Hour Jam Contest]."
+
+[_dark-and-stormy]
+description = "An entry to the 'Dark and Stormy' category of the 2018 72 Hour Jam Contest."
+requires = [ "jam-con2018" ]
+
+[_murder-mystery]
+description = "An entry to the 'Murder Mystery' category of the 2018 72 Hour Jam Contest."
+requires = [ "jam-con2018" ]
+
+[_tropical]
+description = "An entry to the 'Tropical' category of the 2018 72 Hour Jam Contest."
+requires = [ "jam-con2018" ]
+
+[jam-con2019]
+description = "An entry to the [http://www.scp-wiki.net/144-hour-jam-contest 2019 144-Hour Jam Contest]."
+
+[_shaggy-dog]
+description = "An entry to the 'Shaggy Dog' category of the 2019 144 Hour Jam Contest."
+requires = [ "jam-con2019" ]
+
+[_pulp-fiction]
+description = "An entry to the 'Pulp Fiction' category of the 2019 144 Hour Jam Contest."
+requires = [ "jam-con2019" ]
+
+[_all-a-dream]
+description = "An entry to the 'All a Dream' category of the 2019 144 Hour Jam Contest."
+requires = [ "jam-con2019" ]
+
+[jam-con2020]
+description = "An entry to the [http://www.scp-wiki.net/144-hour-jam-contest-two 2020 144-Hour Jam Contest]."
+
+[_explosions]
+description = "An entry to the 'Explosions' category of the 2020 144 Hour Jam Contest."
+requires = [ "jam-con2020" ]
+
+[_delicious]
+description = "An entry to the 'Delicious' category of the 2020 144 Hour Jam Contest."
+requires = [ "jam-con2020" ]
+
+[_meets-the-eye]
+description = "An entry to the 'Meets the Eye' category of the 2020 144 Hour Jam Contest."
+requires = [ "jam-con2020" ]
+
+[mtf2016]
+description = "An entry to the [http://www.scp-wiki.net/mobile-task-force-contest 2016 Mobile Task Force Contest]."
+
+[nyc2013]
+description = "An entry to the [http://scp-wiki.wikidot.com/new-years-contest 2013 New Year's Canon Contest]."
+
+[rei2015]
+description = "An entry to the [http://www.scp-wiki.net/reimagining-contest 2015 Reimagining Contest]."
+
+[sc2015]
+description = "An entry to the [http://www.scp-wiki.net/short-works-contest 2015 Short Works Contest]."
+
+[tc2013]
+description = "An entry to the [http://scp-wiki.wikidot.com/time-contest 2013 Time Contest]."
+
+[uac2014]
+description = "An entry to the [http://scp-wiki.wikidot.com/under-appreciated-contest 2014 Under-Appreciated SCPs Contest]."

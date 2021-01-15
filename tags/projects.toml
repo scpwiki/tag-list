@@ -1,0 +1,8 @@
+["projects/"]
+description = "Tags for site-wide collaborative projects."
+
+[project-crossover]
+description = "Of or related to [http://scp-wiki.wikidot.com/crossoverprojectindex Project Crossover]."
+
+[game-day]
+description = "Of or related to the [http://scp-wiki.wikidot.com/gamedayindex Game Day] project."

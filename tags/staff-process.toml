@@ -1,0 +1,18 @@
+["staff-process/"]
+description = "These tags are added only used by staff, and are intended to designate articles under staff process."
+
+[in-rewrite]
+description = "This is a temporary tag that may be placed on an article //by members of the Rewrite Team// only. It indicates the article is currently being rewritten and should be removed when said rewrite is posted. It should only be placed on articles where for reasons of site history, the original article will not be deleted before the rewrite is posted."
+
+[in-deletion]
+description = "This is a temporary tag that may be placed on an article //by members of staff// only. It indicates the article is currently being voted on for deletion. It should only be placed on articles where a deletion vote has been started. Other tags should be removed when this tag is added to a page. Remove if deletion is permanently cancelled for whatever reason."
+
+[_cc]
+description = "This tag indicates that all images on the page in question have been demonstrated to be fully compliant with current licensing policy. __This tag should **only** be added by a member of the Licensing team__. This tag conflicts with _image."
+
+[_image]
+description = "This is a temporary tag that the tagging team applies to new articles that include one or more images, irrespective of whatever licensing information is provided by the author. This tag acts as an indicator to the Licensing team that there are images whose license status need to be confirmed and/or verified. Licensing will remove the _image tag and replace it with the _cc tag (or, if images are removed, no tag at all) when appropriate."
+
+[_licensebox]
+description = "A tag for designating that an article has a standard license info block that is tracked on the [http://scp-wiki.wikidot.com/licensing-master-list Licensing Master List]."
+
