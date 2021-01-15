@@ -1,0 +1,624 @@
+
+[[[attributes]]]
+
+
+[acoustic]
+description = "SCP is composed of, affects, generates, or is propagated by sound waves. Compare with //auditory// and //vibration//."
+
+[adaptive]
+description = "SCP adapts to stimuli in an anomalous manner."
+
+[addictive]
+description = "SCP causes desire or addictive behavior in affected subjects."
+
+[airborne]
+description = "SCP lives in, moves through, or spreads through the air."
+
+[alive]
+description = "SCP is alive, meaning it exhibits the biological traits of //metabolism//, //reaction//, and //reproduction//. See the Tag [http://05command.wikidot.com/tech-hub-tag FAQ] for more information."
+
+[amorphous]
+description = "SCP lacks a set form or shape, or constantly changes shape. Mutually exclusive with //metamorphic//. The tag is commonly applied to SCPs that are defined as a "blob", "cloud", or "undifferentiated mass"."
+
+[animal]
+description = "SCP is or exhibits traits of animal life."
+
+[antimemetic]
+description = "SCP is or involves the use of (an) antimeme(s) to suppress knowledge and/or understanding of an idea or concept, including itself. Contrast with //memetic//."
+
+[apian]
+description = "SCP is or exhibits traits of apian, or bee-like animals. Use in conjunction with //animal// or //insect// if appropriate."
+
+[appliance]
+description = "SCP is or resembles a household or domestic appliance. Use in conjunction with //electrical// or //electronic// if appropriate."
+
+[aquatic]
+description = "SCP lives in, moves through, or spreads through water."
+
+[arachnid]
+description = "SCP is or exhibits traits of arachnid, or spider-like animals. Use in conjunction with //animal// if appropriate."
+
+[arboreal]
+description = "SCP is or exhibits traits of arboreal, or tree-like plants. Use in conjunction with //plant// if appropriate."
+
+[arthropod]
+description = "SCP is or exhibits traits of arthropods, or animals with exoskeletons, segmented bodies, and jointed appendages."
+
+[artistic]
+description = "SCP is a work of art, exhibits artistic properties, or has artistic significance. This is superseded by //musical//, //sculpture//, or //statue//."
+
+[artifact]
+description = "SCP is or was originally created by humans. Superseded by and mutually exclusive with tags such as //appliance//, //tool//, //weapon//, //vehicle//, etc."
+
+[auditory]
+description = "SCP is triggered by, activated by, or affects the sense of hearing. Distinct from //acoustic//."
+
+[automaton]
+description = "SCP is a device or construct designed to operate on its own. Should be applied to anything that can be described as a "robot". Supersedes //mechanical//."
+
+[autonomous]
+description = "SCP activates/operates on its own in an anomalous fashion. Only applicable to objects that normally do not activate on their own. Mutually exclusive with //alive//."
+
+[avian]
+description = "SCP is or exhibits traits of avian, or bird-like animals. Use in conjunction with //animal// if appropriate."
+
+[bacteria]
+description = "SCP is, resembles, or exhibits traits of a bacterial life-form. Supersedes //contagion// if appropriate."
+
+[biohazard]
+description = "SCP poses a hazard to humans or the environment as a result of biological function, or is a biological hazard."
+
+[biological]
+description = "SCP exhibits biological traits. Please see the [http://05command.wikidot.com/tech-hub-tag FAQ] for more details."
+
+[bovine]
+description = "SCP is or exhibits traits of bovine, or cattle-like animals. Use in conjunction with //animal// if appropriate."
+
+[building]
+description = "SCP is, is a part of, or otherwise is related or affects a building, defined as a structure intended for human occupation. Supersedes //structure//."
+
+[cadaver]
+description = "SCP is, affects, or related to corpses, carcasses, or any dead organic matter. Use with //skeletal// or //reanimation// if appropriate."
+
+[cactaceous]
+description = "SCP is or exhibits traits of cacti, or plants of the family //Cactaceae//. Use in conjunction with //plant// if appropriate.="
+
+[canine]
+description = "SCP is or exhibits traits of canine, or dog-like animals. Use in conjunction with //animal// if appropriate."
+
+[carnivorous]
+description = "SCP is or exhibits traits of carnivorous animals."
+
+[cervine]
+description = "SCP is or exhibits traits of cervine, or deer-like animals. Also includes elk and moose. Use in conjunction with //animal// if appropriate."
+
+[cephalopodic]
+description = "SCP is or exhibits traits of cephalopods, or animals including the cuttlefish, octopus, and squid. Use in conjunction with //animal// if appropriate."
+
+[cetacean]
+description = "SCP is or exhibits traits of cetacean, or whale-like animals. Use in conjunction with //animal// if appropriate."
+
+[chelonian]
+description = "SCP is or exhibits traits of chelonian, or terrapin-, tortoise-, or turtle-like animals. Use in conjunction with //animal// if appropriate."
+
+[chemical]
+description = "SCP is an anomalous chemical compound or produces chemical compounds in an anomalous way."
+
+[city]
+description = "SCP is a city, town, or other settlement intended for human occupation. Should only be used if a significant portion of the city is considered anomalous."
+
+[clay]
+description = "SCP is primarily or significantly composed of clay."
+
+[clockwork]
+description = "SCP operates primarily via clockworks, defined as mechanical devices constructed primarily using toothed wheels and/or powered by a mainspring. Supersedes //mechanical//."
+
+[clothing]
+description = "SCP is an artifact primarily intended to be worn for protection or comfort, including armor and protective helmets. Supersedes //artifact//, mutually exclusive with //jewelry//."
+
+[cognitohazard]
+description = "SCP is hazardous to subjects when recorded by any of the traditional 5 senses. Should be used in conjunction with //auditory//, //gustatory//, //olfactory//, //tactile// or //visual//."
+
+[compulsion]
+description = "SCP causes compulsive behavior in subjects, or otherwise causes subjects to do things they normally would not. See Tag [http://05command.wikidot.com/tech-hub-tag FAQ] for extended clarifications."
+
+[computer]
+description = "SCP is a computational device or affects computational devices. Should be used in conjunction with //electronic// or //mechanical// as appropriate. Supersedes //artifact// and //appliance//."
+
+[concept]
+description = "SCP is or affects a purely non-physical concept. Should not be used in conjunction with tags describing physical qualities."
+
+[contagion]
+description = "SCP is a contagious agent, or exhibits contagious spread. Superseded by //bacteria//, //memetic//, or //virus//."
+
+[container]
+description = "SCP is meant to hold or otherwise contain other material or objects, including decorative vases and other similar objects. Supersedes //artifact//."
+
+[corrosive]
+description = "SCP exhibits corrosive properties."
+
+[currency]
+description = "SCP is, is related to, affects, or is activated by money or other objects primarily intended to be used as a medium of exchange."
+
+[crystalline]
+description = "SCP is or exhibits traits of crystals."
+
+[cube]
+description = "SCP is cubical. Should only be used where the entire SCP is cubical or composed of cubes, rather than SCPs in which only one or more components are cubical."
+
+[dental]
+description = "SCP is or deals with teeth, or the practice of dentistry."
+
+[document]
+description = "SCP is a textual document of some sort. Includes books."
+
+[dinosaurian]
+description = "SCP is or relates to a non-avian dinosaur."
+
+[ectoentropic]
+description = "SCP violates the first and/or second law of [http://en.wikipedia.org/wiki/Thermodynamics thermodynamics] by generating matter and/or energy in a fashion that directly violates entropy. Applies to anything that produces energy or matter in an unexplained way. Generally mutually exclusive with //extradimensional//."
+
+[electrical]
+description = "SCP generates, stores, or uses electric energy."
+
+[electromagnetic]
+description = "SCP generates, stores, or uses electromagnetic energy or fields."
+
+[electronic]
+description = "SCP is, or resembles, an electronic device."
+
+[empathic]
+description = "SCP is capable of reading or conveying emotion, feelings, or sensations. Compare with //telepathic//."
+
+[engraved]
+description = "SCP is, or has carvings and/or engravings."
+
+[entropic]
+description = "SCP is, exhibits traits of, or is related to entropy or entropic decay."
+
+[equine]
+description = "SCP is or exhibits traits of equine, or horse-like animals. Use in conjunction with //animal// if appropriate."
+
+[exchange]
+description = "SCP involves or is triggered by some form of exchange of physical or intangible goods, including but not limited to bartering and monetary trade."
+
+[extradimensional]
+description = "SCP is of extradimensional origin, moves or propagates extradimensionally, and/or enables extradimensional travel. Generally mutually exclusive with //ectoentropic//."
+
+[extraterrestrial]
+description = "SCP originates or is found in outer space, and/or enables or exhibits extraterrestrial travel."
+
+[extremity]
+description = "SCP is or affects specific extremities. Use regardless of species."
+
+[feline]
+description = "SCP is or is related to feline, or cat-like animals. Use in conjunction with //animal// if appropriate."
+
+[fire]
+description = "SCP is composed of fire, is related to fire, or enables the process of combustion."
+
+[food]
+description = "SCP is primarily intended to be an edible object or substance."
+
+[formic]
+description = "SCP is or exhibits traits of formic, or ant-like animals. Use in conjunction with //animal// or //insect// if appropriate."
+
+[foundation-made]
+description = "SCP was created, intentionally or otherwise, by the SCP Foundation itself. Note that only the objects whose creation resulted directly from specific actions of the Foundation are applicable. This excludes phenomena which formed spontaneously at a Foundation site due to the area's routine exposure to a large number of contained anomalies."
+
+[fungus]
+description = "SCP is or exhibits traits of fungal life-forms."
+
+[furniture]
+description = "SCP is or resembles a piece of furniture."
+
+[future]
+description = "SCP is from the future or was otherwise temporally displaced from a later time frame into an earlier one. Often used in conjunction with //temporal//."
+
+[game]
+description = "SCP is, is used in, is activated by, or is otherwise related to one or more games, defined as a method of play or a sport -- especially a competitive one -- that can be won or lost by skill, strength, or luck. Use in conjunction with //sport// if appropriate."
+
+[gaseous]
+description = "SCP is or generates a gas."
+
+[genetic]
+description = "SCP is related to, or functions primarily via genetic encoding and decoding."
+
+[geological]
+description = "SCP is or affects natural geological formations (such as caves, cliffs, mountains, valleys, or volcanoes) or significant geological events (such as earthquakes, landslides, or sinkholes). Superseded by //planet//."
+
+[glass]
+description = "SCP is primarily or significantly composed of glass."
+
+[gravity]
+description = "SCP affects or is significantly affected by gravitational force."
+
+[gustatory]
+description = "SCP is triggered by, activated by, or affects the sense of taste."
+
+[hallucination]
+description = "SCP induces hallucinations in subjects. Often used in conjunction with //auditory// or //visual//."
+
+[historical]
+description = "SCP affects or is prominent in historical events, or has historical significance."
+
+[hive-mind]
+description = "SCP exhibits traits of an external hive-mind."
+
+[hostile]
+description = "SCP exhibits directed hostility towards personnel or subjects above and beyond that of instinctual or predatory behavior."
+
+[humanoid]
+description = "SCP is humanoid, or exhibits traits of humanoids."
+
+[immobile]
+description = "SCP cannot be moved via any means known by the Foundation."
+
+[indestructible]
+description = "SCP cannot be destroyed via any means known by the Foundation."
+
+[infohazard]
+description = "SCP has an effect that is triggered when it is described or referred to. See Tag [http://05command.wikidot.com/tech-hub-tag FAQ] for extended clarifications."
+
+[interactive]
+description = "SCP or article has interactive elements that requires user input or interaction."
+
+[insect]
+description = "SCP is or is related to insects. (This **does not** includes spiders, which should be tagged as //arachnid//.) Use in conjunction with //animal// if appropriate."
+
+[inscribed]
+description = "SCP has inscriptions on it, usually in the form of words or numbers. Superseded by //engraved// and //document//."
+
+[inscription]
+description = "SCP is an inscription, meaning it takes the form of written or carved words or numbers."
+
+[instrument]
+description = "SCP is an instrument, or a tool intended for either delicate, scientific, or measuring work."
+
+[intangible]
+description = "SCP is intangible in a manner that precludes definition as a gas."
+
+[invertebrate]
+description = "SCP exhibits traits of invertebrates, or animals lacking spinal columns. Superceded by specific invertebrate tags, such as //arthropod// or //insect//."
+
+[jewelry]
+description = "SCP is an object primarily intended to be worn in a decorative manner. Supersedes //artifact// and mutually exclusive with //clothing//."
+
+[k-class-scenario]
+description = "SCP is involved in or capable of instigating one or more K-Class End of the World scenarios. Should only be used in articles that specifically name a type of K-Class scenario."
+
+[key]
+description = "SCP is a standard key, or otherwise intended to unlock one or more devices or containers."
+
+[knowledge]
+description = "SCP absorbs, stores, generates, grants, or possesses knowledge that is anomalous, or through an anomalous process. This include SCPs capable of accurate predictions. Compare with //telepathic//."
+
+[language]
+description = "SCP imparts or exhibits an anomalous language."
+
+[lepidopteran]
+description = "SCP is or exhibits traits of lepidopteran, or butterfly-, moth- or skipper-like animals. Use in conjunction with //insect// and //animal// if appropriate."
+
+[leporine]
+description = "SCP is or exhibits traits of leporine, or rabbit- or hare-like animals. Use in conjunction with //animal// if appropriate."
+
+[light]
+description = "SCP is triggered, activated, or propagated by or otherwise related to the presence or absence of visible light."
+
+[liquid]
+description = "SCP is or generates a liquid."
+
+[location]
+description = "SCP is a unique geographical location. Superseded by //city//."
+
+[loop]
+description = "SCP exhibits or is engaged in a repeating loop of activity."
+
+[magnetic]
+description = "SCP is magnetic or exhibits traits of magnetic charge and/or attraction."
+
+[map]
+description = "SCP is a map, has a map, or otherwise exhibits visual representations in the manner of a map."
+
+[mathematical]
+description = "SCP is, or affects, a number, number system, mathematical equation, or otherwise has mathematical significance."
+
+[mechanical]
+description = "SCP operates primarily in a mechanical manner, or is a mechanical device. Superseded by //automaton// or //clockwork// as appropriate."
+
+[media]
+description = "SCP is, or is contained on, one or more items of fixed or removable analog or digital media, such as a tape, record, disc, or drive. Supersedes //artifact//."
+
+[medical]
+description = "SCP is used or intended for use as a medical device, or otherwise has medical significance outside of pathology."
+
+[memetic]
+description = "SCP is a memetic agent, or exhibits traits of [http://scp-wiki.wikidot.com/Understanding-Memetics memetic propagation]. Supersedes //contagion// and used in conjunction with //cognitohazard//. See Tag [http://05command.wikidot.com/tech-hub-tag FAQ] for extended clarifications."
+
+[memory-affecting]
+description = "SCP imparts memories, changes memories, or removes memories in sentient beings, such as human subjects. Compare with //mind-affecting//."
+
+[meta]
+description = "SCP affects or is affected by its documentation, or requires containment procedures regarding the way it is documented. See Tag [http://05command.wikidot.com/tech-hub-tag FAQ] for extended clarifications."
+
+[metallic]
+description = "SCP is a metal, or is completely or significantly composed of metal or metallic substances."
+
+[metamorphic]
+description = "SCP changes its form or shape, often to mimic the form or shape of other objects or entities. Mutually exclusive with //amorphous//, often used to describe "shapeshifters" or "mimics"."
+
+[meteorological]
+description = "SCP is, affects, or is affected by significant weather elements."
+
+[microscopic]
+description = "SCP is too small to be seen or otherwise meaningfully observed by the naked eye."
+
+[military]
+description = "SCP is military equipment, part or member of a military unit, or otherwise has military significance. Use in conjunction with //weapon// if appropriate."
+
+[mimetic]
+description = "SCP exhibits anomalous mimicry. Use in conjunction with //acoustic//, //metamorphic//, //visual//, or other sensory attribute(s) as appropriate."
+
+[mind-affecting]
+description = "SCP affects the thinking of subjects, which can include behavior and overall intelligence. See Tag [http://05command.wikidot.com/tech-hub-tag FAQ] for extended clarifications, and compare with //memory-affecting//."
+
+[miniature]
+description = "SCP is much smaller than objects it resembles."
+
+[mobile]
+description = "SCP is capable of movement by anomalous means. Generally only applies to objects or entities that are normally incapable of movement. Compare with //teleportation//."
+
+[moon]
+description = "SCP is, or related to, or affects a natural satellite or moon, which may or may not be our moon. Use in conjunction with //satellite// if appropriate."
+
+[murine]
+description = "SCP is or exhibits traits of murine, or mouse-like or rat-like animals. Use in conjunction with //animal// if appropriate."
+
+[musical]
+description = "SCP is, generates, or is generated by musical compositions. Supersedes and overrides //artistic//."
+
+[narrative]
+description = "SCP is, is related to, or propagates via narrative information or documents."
+
+[neurological]
+description = "SCP directly or indirectly affects the neurological system of subjects. Only applicable in situations where objective neurological changes are confirmed, as opposed to a simple change of behavior in the subject. Compare to //mind-affecting//."
+
+[nocturnal]
+description = "SCP is triggered by, activated by, or otherwise is only significantly active at night."
+
+[observational]
+description = "SCP has properties that are triggered or suppressed when directly or indirectly observed. These properties may or may not also be //cognitohazards//."
+
+[ocular]
+description = "SCP resembles, is related to, or affects eyes."
+
+[olfactory]
+description = "SCP exhibits anomalous scent, is propagated through smell, or affects the sense of smelling."
+
+[omnivorous]
+description = "SCP exhibits omnivorous traits."
+
+[online]
+description = "SCP is available on, utilizes or is dependent on a connection to the internet. Use in conjunction with //computer// or //electronic// if appropriate."
+
+[ontokinetic]
+description = "SCP is capable of manipulating reality (aka "reality-bending") through anomalous means. Supersedes //ectoentropic//."
+
+[ophidian]
+description = "SCP is or exhibits traits of ophidian, or snake-like animals. Use in conjunction with //animal// if appropriate."
+
+[organic]
+description = "SCP exhibits organic traits or composition. See Tag [http://05command.wikidot.com/tech-hub-tag FAQ] for extended clarifications."
+
+[ovine]
+description = "SCP is or exhibits traits of ovine, or sheep-like animals. Use in conjunction with //animal// if appropriate."
+
+[paradox]
+description = "SCP generates, exhibits, or is involved in paradoxical events or situations."
+
+[parasitic]
+description = "SCP exhibits traits of parasitic or parasitoid organisms."
+
+[performance]
+description = "SCP is or is used in a performance art, such as a dance or play."
+
+[physics]
+description = "SCP affects or violates particular physical laws. Generally superseded by //ectoentropic//, //electrical//, //magnetic//, etc. when appropriate."
+
+[photographic]
+description = "SCP is or deals with photography, or a photograph as part of the primary anomaly."
+
+[piscine]
+description = "SCP is or exhibits traits of piscine, or fish-like animals. Use in conjunction with //animal// if appropriate."
+
+[plant]
+description = "SCP is a plant or exhibits plant-like traits."
+
+[planet]
+description = "SCP is, resembles, or affects a planet, which may or may not be our planet."
+
+[polyhedral]
+description = "SCP is a polyhedron, or a three-dimensional shape with flat faces and straight edges. //polyhedral// is superceded by //cube//."
+
+[portal]
+description = "SCP is an opening or doorway that exhibits inconsistent connectivity. Often used in conjunction with //extradimensional// and/or //spacetime//."
+
+[predatory]
+description = "SCP exhibits predatory behavior."
+
+[predictive]
+description = "SCP is capable of imparting information or acting in a predictive manner. Generally supersedes //knowledge//."
+
+[probability]
+description = "SCP alters or manipulates the probability of certain events or outcomes."
+
+[radioactive]
+description = "SCP emits radiation or affects radioactivity."
+
+[ranine]
+description = "SCP is or exhibits traits of ranine, or frog-like animals. Use in conjunction with //animal// if appropriate."
+
+[reanimation]
+description = "SCP has been restored or restores others, either whole or in part, to life from a clinically dead state. Use in conjunction with //cadaver// if appropriate."
+
+[recording]
+description = "SCP is or contains an audio and/or visual recording. Compare with //media//."
+
+[religious]
+description = "SCP is associated with or otherwise has significance to one or more organized religions."
+
+[reproductive]
+description = "SCP anomalously affects or interferes with the normal biological reproductive processes of an organism (which may include humans), or has anomalous biological reproductive methods other than that covered by //parasitic// or //self-replication//."
+
+[reptilian]
+description = "SCP is or exhibits traits of reptilian, or reptile-like animals. Use in conjunction with //animal// if appropriate."
+
+[ritual]
+description = "SCP is or is triggered or activated through ritualistic behavior."
+
+[sapient]
+description = "SCP exhibits sapient traits, such as the ability to grasp philosophical concepts. Usually but not always used in conjunction with //sentient//."
+
+[satellite]
+description = "SCP is a natural or artificial satellite orbiting a celestial body."
+
+[sciurine]
+description = "SCP is or exhibits traits of sciurine, or squirrel-like animals. Use in conjunction with //animal// if appropriate."
+
+[sculpture]
+description = "SCP is or was a three-dimensional piece of artwork. To be considered a //sculpture//, the object in question must have been formed, carved, or molded. Supersedes //artistic// and is superseded and overridden by //statue//."
+
+[selachian]
+description = "SCP is or exhibits traits of selacian, or shark-like animals. Also includes rays and skates. Must be used in conjunction with //piscine//, may be used in conjunction with //animal// if appropriate."
+
+[self-repairing]
+description = "SCP exhibits an anomalous ability restore or repair itself to functional condition."
+
+[self-replicating]
+description = "SCP exhibits an anomalous ability to replicate other than via biological reproduction."
+
+[sensory]
+description = "SCP affects sensory perception. Generally used in conjunction with //auditory//, //gustatory//, //olfactory//, //tactile//, and/or //visual//."
+
+[sexual]
+description = "SCP includes or affects sexual organs, sexual activities, or concepts related to sex."
+
+[sentient]
+description = "SCP exhibits sentient traits, such as self-awareness and cognitive deduction."
+
+[shadow]
+description = "SCP is triggered, activated, or otherwise significantly affected by shadows cast by subjects."
+
+[simian]
+description = "SCP is or exhibits traits of simian, or ape-like animals. Use in conjunction with //animal// if appropriate."
+
+[skeletal]
+description = "SCP is, is a component of, or affects the skeletal tissue of an organism. "skeleton" is defined as the structural support tissue of a multi-celled organism, and includes both bones and cartilage."
+
+[sleep]
+description = "SCP is somehow related to the sleep cycle of subjects."
+
+[spacetime]
+description = "SCP warps space-time, or affects or violates laws of space-time."
+
+[species]
+description = "SCP describes an entire species, rather than one or more individuals. In the context of the Foundation, this should be specifically used to describe living SCPs that can reproduce biologically and maintain their anomalous properties."
+
+[sphere]
+description = "SCP is spherical. Should only be used where the entire SCP is spherical or composed of spheres, rather than SCPs in which only one or more components are spherical."
+
+[sport]
+description = "SCP is, is used in, is activated by, or is otherwise related to one or more sports, defined as an activity involving physical exertion and skill in which one or more individuals compete against other individuals or teams. Should also be tagged with //game//. Equipment or gear specifically or exclusively used in sporting events should also be tagged with //clothing// or //tool//, as appropriate."
+
+[statue]
+description = "SCP is or was a statue. A statue is defined as a free-standing, full-body //sculpture// of a person or animal. //statue// supersedes and overrides //sculpture//; the two should not be used together."
+
+[stone]
+description = "SCP is composed primarily of stone (meaning concreted earthy or mineral matter) or rock."
+
+[structure]
+description = "SCP is an artificial or natural structure not intended for human occupation."
+
+[subterranean]
+description = "SCP is located or operates wholly or significantly underground, defined as below the surface of the Earth. Does not apply objects that are simply contained underground for safety or convenience."
+
+[sun]
+description = "SCP is, is related to, or affects a sun, which may or may not be our sun."
+
+[swarm]
+description = "SCP exhibits swarm behavior."
+
+[tactile]
+description = "SCP is activated by, triggered by, or affects the sense of touch. Note that this refers specifically to the sense of touch, not simply something that can activate by touching something else."
+
+[telekinetic]
+description = "SCP can manipulate objects or initiate or affect reactions through anomalous means."
+
+[telepathic]
+description = "SCP can transfer information via anomalous means."
+
+[teleportation]
+description = "SCP can move without occupying intervening space or otherwise displace itself via anomalous means that preclude normal movement."
+
+[temporal]
+description = "SCP affects, or is otherwise related to the passage of time."
+
+[thermal]
+description = "SCP is activated by, triggered by, or propagates via changes in temperature. This includes both increases and decreases in temperature."
+
+[thermodynamic]
+description = "SCP affects, or is otherwise significantly related to the laws of thermodynamics. Supersedes //physics//."
+
+[timepiece]
+description = "SCP is, or a major component of, an instrument or mechanism designed to measure time. Supersedes //artifact//. Should be used in conjunction with //clockwork// or //mechanical// if appropriate."
+
+[tool]
+description = "SCP is, or was primarily intended to be, used as a tool. Supersedes //artifact//."
+
+[toxic]
+description = "SCP induces chemical toxicity in subjects."
+
+[toy]
+description = "SCP is, or was primarily intended to be, used as a toy. Supersedes //artifact//."
+
+[transfiguration]
+description = "SCP alters the shape or substance of subjects in an anomalous manner."
+
+[transmission]
+description = "SCP transmits information, typically via radio waves or other electromagnetic means."
+
+[uncontained]
+description = "SCP is neither fully nor partially contained. This should only be applied to SCPs where no instances are contained at all and does not apply if the Foundation successfully contains one or more instances."
+
+[ursine]
+description = "SCP is or exhibits traits of ursine, or bear-like animals. Should be used in conjunction with //animal//."
+
+[vehicle]
+description = "SCP is or is intended to be used as a vehicle. Supersedes //artifact//."
+
+[vermian]
+description = "SCP is or exhibits traits of vermian, or worm-like animals. Should be used in conjunction with //animal//."
+
+[vibration]
+description = "SCP generates anomalous vibrations or other repetitive movement. Compare with //acoustic//."
+
+[virus]
+description = "SCP exhibits traits of viral agents. Use in conjunction with //biological// or //computer//. Supersedes //contagion//."
+
+[visual]
+description = "SCP is triggered by, activated by, or affects the sense of sight. Often used in conjunction with //cognitohazard// or //sensory//."
+
+[vulpine]
+description = "SCP is or exhibits traits of vulpine, or fox-like animals. Use in conjunction with //animal// if appropriate."
+
+[weapon]
+description = "SCP is or is intended to be used as a weapon. Supersedes //artifact//."
+
+[wooden]
+description = "SCP is composed primarily or significantly of wood or wood-like material. Should not be used to describe living, unmodified plants that happen to be composed of wood."
+
+[xenarthran]
+description = "SCP is or exhibits traits of xenarthran animals, including anteaters, armadillos, and sloths. Use in conjunction with //animal// if appropriate."
+
+[]
+
