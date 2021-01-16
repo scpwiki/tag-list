@@ -1,7 +1,7 @@
 ["object-classes/"]
 description = "All SCP articles tagged as scp should also be tagged with the appropriate tag for their object class or esoteric-class if it does not have one, if its object class cannot be determined from the article's contents, or if it has a non-standard object class. Legacy articles that are dual-classed (such as safe/euclid) are tagged with both of their constituent classes; however, as this is no longer allowed, it is only for posterity until all such articles are updated or deleted."
 requires = [ "scp" ]
-conflicts = [ [ "safe", "euclid", "keter", "thaumiel", "neutralized", "esoteric-class" ] ]
+max = 1
 
 [safe]
 description = "SCP is Safe."

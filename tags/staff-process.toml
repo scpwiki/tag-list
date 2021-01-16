@@ -9,10 +9,14 @@ description = "This is a temporary tag that may be placed on an article //by mem
 
 [_cc]
 description = "This tag indicates that all images on the page in question have been demonstrated to be fully compliant with current licensing policy. __This tag should **only** be added by a member of the Licensing team__. This tag conflicts with _image."
+supersedes = [ "_image" ]
 
 [_image]
 description = "This is a temporary tag that the tagging team applies to new articles that include one or more images, irrespective of whatever licensing information is provided by the author. This tag acts as an indicator to the Licensing team that there are images whose license status need to be confirmed and/or verified. Licensing will remove the _image tag and replace it with the _cc tag (or, if images are removed, no tag at all) when appropriate."
+conflicts = [ "_cc" ]
 
 [_licensebox]
 description = "A tag for designating that an article has a standard license info block that is tracked on the [http://scp-wiki.wikidot.com/licensing-master-list Licensing Master List]."
 
+[admin]
+description = "//admin// pages, as the name suggest, have some sort of official significance. They should only be created by staff."

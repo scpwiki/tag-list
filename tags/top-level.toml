@@ -1,0 +1,86 @@
+["top-level/"]
+description = "All pages on the wiki should have exactly one top-level tag that determines what kind of page it is."
+max = 1
+
+[[section]]
+name = "Fictional works"
+description = "The following tags are for pages that contain fiction."
+
+[scp]
+description = "All SCP articles from the main blocks, [http://scp-wiki.wikidot.com/scp-001 001 proposals], [http://scp-wiki.wikidot.com/joke-scps jokes] (-J), [http://scp-wiki.wikidot.com/archived-scps archives] (-ARC), and [http://scp-wiki.wikidot.com/scp-ex explained] (-EX) articles should be tagged with //scp//."
+requires = [ [ "object-class/" ] ]
+
+[goi-format]
+description = "The page has been written up from the perspective of a specific Group of Interest, and conforms to the format(s) laid out in that GoI's hub page."
+
+[tale]
+description = "Any fiction that is set in the SCP universe but is not an SCP, GoI Format, Site page or supplement."
+
+[supplement]
+description = "//supplement// pages are defined as pages which require context from their parent page to understand. These pages should also have their parent page set to their originating article in order to maintain relevance and automatically create breadcrumb navigation. A page should only be tagged as //supplement// if they were created by the original author of the page, or with the original author's permission. Documents that are tributes or parodies should be tagged as //tale// instead, even if they are in the format of a log or transcript."
+
+[site]
+description = "//site// pages are hub pages that document specific Foundation facilities, and provide information such as the objects stored at the site, site history, assigned personnel, etc. "
+
+[[section]]
+name = "Information pages"
+description = "These pages contain information about the site or the writing process."
+
+[guide]
+description = "These pages are writing guides, helpful hints, or other pages intended to assist authors contributing to the site. Guides are only tagged by staff, or with staff permission. See also //essay//."
+
+[essay]
+description = "//essay// pages contain useful information on specific topics that may be helpful to authors writing related articles, but are different from a //guide// in that essays are subjective and reflect the author's personal opinion."
+
+[news]
+description = "//news// pages contain  news about the SCP Foundation in the broadest sense of the word, ranging from new artwork by fans to recently posted successful articles and everything in between. May also be used for formal announcements by staff (in as far as those aren't done on the main page or in the forum.)"
+
+[[section]]
+name = "Vanity pages"
+description = "Pages for a creator to showcase their body of work. I couldn't think of another name for this section. Please rename it."
+
+[author]
+description = "This tag should be used for author profile pages. There should only be a single author profile page for each qualifying site member."
+
+[artwork]
+description = "//artwork// pages host collections of Foundation-related artwork created by community members. Pages tagged with //artwork// are subject to voting and deletion by the community."
+
+[[section]]
+name = "Import pages"
+description = "These pages are designed to be imported onto other pages."
+
+[template]
+description = "A page that is designed to be imported onto other pages via the {{@@[[include]]@@}} syntax in order to add new design, style or functionality."
+
+[component]
+description = "An 'internal template' page that is designed only to be imported into other //component// or //template// pages, but not used directly by authors."
+conflicts = [ "template" ]
+
+[theme]
+description = "Theme pages are templates that modify the general look and feel of a page."
+supersedes = [ "template" ]
+
+[fragment]
+description = "A page that is designed to be imported onto a single page, and contains content for that page only. They should be parented to that page. Pages of this type should be in the {{fragment:}} category and are exempt from deletion as long as their parent exists on the wiki. If they are orphaned or their parent is deleted, they are eligible for a summary deletion."
+
+[[section]]
+name = "Internal pages"
+description = "Pages created for internal use."
+
+[forum]
+description = "//forum// pages are those required for internal functioning of Wikidot's forum system. They should only be created by staff."
+
+[splash]
+description = "//splash// pages are used as 'cover pages' for certain articles. (see: [http://scp-wiki.wikidot.com/SCP-902 SCP-902] >> [http://scp-wiki.wikidot.com/902-warning SCP-902 Warning]."
+
+[[section]]
+name = "Other pages"
+
+[hub]
+description = "//hub// pages are pages with a large number of links to related pages. All of the SCP series pages are //hub// pages, as are the tale index and various other pages around the site. As it is a major page tag, hubs may not have other major tags (e.g. //scp// or //tale//), with the exception of //contest// pages. Tale hubs should additionally be tagged with the //_tale-hub// page."
+
+[workbench]
+description = "Workbenches are pages created by mods and admins to allow them to monitor certain pages using Wikidot's modules. While you're free to use those same monitors on your //author// page, **please do not create any workbench pages unless you're a moderator or admin**, or have received explicit permission from them to do so."
+
+[sandbox]
+description = "In the very distant past, sandboxes on the main site were allowed. This was before the number of members became so big that the amount of sandboxes would create a total mess on the wiki. **Please note that personal sandboxes are no longer allowed on the main site.** The SCP Sandbox wiki at http://scp-sandbox-3.wikidot.com/ should be used for article drafts. Only staff may authorize new sandboxes on the site."
