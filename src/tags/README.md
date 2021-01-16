@@ -56,11 +56,17 @@ Name | Property
 
 ## Defining individual tags
 
-A tag should be defined with properties that indicate to users what it is, and properties that indicate to Wikijump what to do with it.
+Tags are defined by specifying its name as the title of a new table. It can
+optionally contain additional properties.
+
+Tags should only contain alphanumeric characters (`A-Z`, `a-z`, `0-9`), `_`,
+and `-`.
+
+However, a tag can be defined named `*` (which will need to be wrapped in quotes, so the final table definition would be `["*"]`), which defines a wildcard tag, allowing any arbitrary undefined tag to be created. Properties set on the wildcard tag apply to all undefined tags (as opposed to being applied to all tags).
 
 Name | Defintion | Implementation recommendation
 --- | --- | ---
-**description** | Definition of this tag. | The description is shown when adding a tag, and the tag is suggested.
+**description** | Definition of this tag. | The description is shown when adding a tag, and when the tag is suggested.
 **permissions** | An inline table containing permissions. The keys can be: <ul><li>`add`: determines who can add this tag</li><li>`remove`: determines who can remove this tag</li><li>`modify`: determines who can add or remove _any_ tag on a page tagged with this</li></ul> The value for each is a string corresponding to a group of users: currently one of `"anyone"`, `"author"`, or `"staff"`; though more groups have yet to be defined. Permissions defined on a tag override permissions defined on a category; this is the only time that using `"anyone"` is useful. Bear in mind that if only staff can add a tag, allowing anyone to remove it is not recommended, as a malicious user could repeatedly remove it and create extra work. | A user who is not in the indicated group cannot perform that action on the tag.
 
 A tag can be defined with the following properties that indicate its relationship with other tags.
@@ -78,6 +84,6 @@ Where a property is a list of tags, a nested list is interpreted as 'at least on
 
 Where a tag ends in a forwards-slash, it is interpreted as a category name and means 'all tags from this category'. Those tags are joined by AND, unless the category name is in a nested list, in which case they are joined by OR. (For example, `requires = [ "category/" ]` means 'requires all tags from `category`', whereas `requires = [ [ "category/" ] ]` means 'requires at least one tag from `category`').
 
-If a tag name is "\*", it refers to all tags; this is probably only useful with `conflicts` to indicate that this tag should only ever be by itself.
+If a tag name in a list of tags is `"\*"`, it refers to the wildcard tag and hence to all undefined tags. If a tag name in a list of tags is `"\*/"`, it refers to all defined tags; this is probably only useful with `conflicts` to indicate that this tag should only ever be by itself.
 
 Where possible, validation should prompt the user to make a change; it should not create or destroy information without the user's consent e.g. removing a tag is bad, but replacing a tag with one that contains it is fine if the user initiated that process.
