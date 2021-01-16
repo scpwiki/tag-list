@@ -1,3 +1,5 @@
+["major/"]
+description = "Major page tags that are not top-level tags."
 
 [joke]
 description = "Pages which are considered 'jokes' or explicitly 'out-of-universe'. This may be applied to //scp//, //goi-format//, or //tale// pages. See [http://scp-wiki.wikidot.com/joke-scps Joke SCPs] for more information on Joke pages."
@@ -53,9 +55,6 @@ description = "//required// pages are guides that are part of the required readi
 [redirect]
 description = "//redirect// pages are those which redirect the user to a different page. They should only be created by staff or with explicit staff permission."
 
-[news]
-description = "//news// pages contain, well, news about the SCP Foundation in the broadest sense of the word, ranging from new artwork by fans to recently posted successful articles and everything in between. May also be used for formal announcements by staff (in as far as those aren't done on the main page or in the forum.)"
-
 [featured]
 description = "Reserved by staff for designating [http://scp-wiki.wikidot.com/featured-scp-archive Featured Articles] and [http://scp-wiki.wikidot.com/featured-tale-archive Featured Tales]."
 
@@ -67,12 +66,6 @@ description = "Reserved by staff for designating articles featured on special ev
 
 [metadata]
 description = "Reserved by staff for designating pages with meta information about articles."
-
-[_<group-of-interest-tag>]
-description = "All groups of interest have an associated hidden tag, with the same name (e.g. //serpents-hand// becomes //_serpents-hand//), which designates that a //goi-format// article is a GoI format for this particular group of interest."
-
-[_other]
-description = "For GoI format articles written for a group of interest which does not have a tag. See above."
 
 [_tale-hub]
 description = "Utilized in conjunction with the //hub// tag to designate that this hub hosts //tale// articles."

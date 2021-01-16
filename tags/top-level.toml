@@ -11,7 +11,8 @@ description = "All SCP articles from the main blocks, [http://scp-wiki.wikidot.c
 requires = [ [ "object-class/" ] ]
 
 [goi-format]
-description = "The page has been written up from the perspective of a specific Group of Interest, and conforms to the format(s) laid out in that GoI's hub page."
+description = "The page has been written up from the perspective of a specific Group of Interest, and conforms to the format(s) laid out in that GoI's hub page. GoI Formats should also be tagged with the tag of their GoI, as well as the underscore tag for the GoI format."
+requires = [ [ "goi-format/" ] ]
 
 [tale]
 description = "Any fiction that is set in the SCP universe but is not an SCP, GoI Format, Site page or supplement."
