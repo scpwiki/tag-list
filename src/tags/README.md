@@ -31,9 +31,9 @@ Name | Description
 **description** | A description of this category and why it contains the tags it does.
 **max** | The maximum number of tags a page can have from this category.
 
-A category can be split up into sections. Sections do not affect the functionality of tags, and it is not possible to select an entire section of tags (unlike categories). Sections only affect the tag documentation.
+A category can be split up into sections. Sections do not affect the functionality of tags, only the documentation. It is not possible to select an entire section of tags (unlike categories) in a tag relationship property.
 
-Create a new section with `[[section]]`. All tags that come after it, up until the next `[[section]]`, will be in that section. A tag that is defined before any section will not be in a section.
+Create a new section with `[[section]]`. All tags that come after it, up until the next `[[section]]`, must be defined as `[section.<name of tag>]` (otherwise they will not be in the section). For example:
 
 ```toml
 ["my-category/"]
@@ -44,7 +44,7 @@ description = "..."
 [[section]]
 name = "More tags"
 
-[tag-2]
+[section.tag-2]
 ```
 
 Sections can have the following properties:
