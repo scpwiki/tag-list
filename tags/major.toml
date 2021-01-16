@@ -1,5 +1,6 @@
 ["major/"]
-description = "Major page tags that are not top-level tags."
+name = "Major Page Tags"
+description = "Miscellaneous major page tags that are not top-level tags."
 
 [joke]
 description = "Pages which are considered 'jokes' or explicitly 'out-of-universe'. This may be applied to //scp//, //goi-format//, or //tale// pages. See [http://scp-wiki.wikidot.com/joke-scps Joke SCPs] for more information on Joke pages."

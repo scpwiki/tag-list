@@ -1,4 +1,5 @@
 ["other/"]
+name = "Other tags"
 description = "Tags that don't fit into one of the other categories."
 
 [art-exchange]
@@ -12,3 +13,9 @@ description = "Applicable if the tale or SCP article was translated from one of 
 
 [poetry]
 description = "Applicable if the page consists significantly of a form of poetry, with elements such as meter and rhyme."
+
+[project-crossover]
+description = "Of or related to [http://scp-wiki.wikidot.com/crossoverprojectindex Project Crossover]."
+
+[game-day]
+description = "Of or related to the [http://scp-wiki.wikidot.com/gamedayindex Game Day] project."

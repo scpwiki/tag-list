@@ -1,4 +1,5 @@
 ["locations/"]
+name = "Locations"
 description = "Tags indicating that a tale or SCP article takes place in a specific location that isn't a Foundation Site or installation."
 
 [alagadda]

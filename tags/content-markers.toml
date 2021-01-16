@@ -1,4 +1,5 @@
 ["content-markers/"]
+name = "Content Markers"
 description = "Tags for noting specific content."
 
 [adult]

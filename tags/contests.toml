@@ -1,4 +1,5 @@
 ["contests/"]
+name = "Contests"
 description = "Tags for all contests."
 
 [1000]

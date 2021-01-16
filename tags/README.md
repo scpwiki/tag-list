@@ -51,8 +51,8 @@ Sections can have the following properties:
 
 Name | Property
 --- | ---
-**Name** | The name of the section.
-**Description** | The description of the section.
+**name** | The name of the section.
+**description** | The description of the section.
 
 ## Defining individual tags
 

@@ -1,4 +1,5 @@
 ["tale-series/"]
+name = "Tale Series"
 description = "Tags for long tale series, that may or may not have a Hub."
 
 [classical-revival]

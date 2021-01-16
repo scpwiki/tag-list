@@ -1,5 +1,6 @@
 ["staff-process/"]
-description = "These tags are added only used by staff, and are intended to designate articles under staff process."
+name = "Staff Process"
+description = "These tags are added only used by SCP Wiki staff, and are intended to designate articles under staff process."
 permissions = { add = "staff", remove = "staff" }
 
 [in-rewrite]

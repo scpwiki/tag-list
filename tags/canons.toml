@@ -1,5 +1,6 @@
 ["canons/"]
-description = "Tags for canons from the Canon Hub."
+name = "Canons"
+description = "Tags for canons from the Canon Hub and the articles that take place in their setting."
 
 [aiad]
 description = "Of or related to the [http://scp-wiki.wikidot.com/aiad-homescreen AIAD] canon."

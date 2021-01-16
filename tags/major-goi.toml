@@ -1,4 +1,5 @@
 ["major-goi/"]
+name = "Major GoIs"
 description = "These tags are used to designate pages that prominently feature a major Group of Interest, and can be applied to any fictional page type."
 
 [alexylva]

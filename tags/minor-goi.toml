@@ -1,4 +1,5 @@
 ["minor-goi/"]
+name = "Minor GoIs"
 description = "These tags are used to designate pages that prominently feature a minor Group of Interest, and can be applied to any fictional page type."
 
 [arcadia]

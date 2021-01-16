@@ -1,4 +1,5 @@
 ["characters/"]
+name = "Characters"
 description = "Tags indicating that a specific character has a significant presence within the article. See [http://www.scp-wiki.net/forum/t-1938874/character-tags this thread] for further details."
 
 [51174]

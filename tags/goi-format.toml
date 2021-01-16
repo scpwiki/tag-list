@@ -1,5 +1,7 @@
 ["goi-format/"]
+name = "GoI Formats"
 description = "These are tags for GoI formats that describe which GoI the page is formatted for. There should be one tag for each GoI; however, only GoIs for which GoI Format articles exist are listed here. If there is a GoI Format article in the format of a GoI that does not have a tag, it should be tagged //_other//. Additionally, if the corresponding tag for a GoI format does not exist but there is an article that should have it, please contact staff to request it."
+requires = [ "goi-format" ]
 
 [_alexylva]
 description = "An article following the Alexylva Universiy format."

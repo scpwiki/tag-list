@@ -1,4 +1,5 @@
 ["top-level/"]
+name = "Top Level"
 description = "All pages on the wiki should have exactly one top-level tag that determines what kind of page it is."
 max = 1
 
