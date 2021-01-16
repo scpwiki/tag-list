@@ -56,22 +56,28 @@ Name | Property
 
 ## Defining individual tags
 
-Each tag has a property for its definition, and also properties that determine its relationship with other tags.
-
-This list also contains implementation recommendations for tag validation. Where possible, validation should prompt the user to make a change; it should not create or destroy information without the user's consent e.g. removing a tag is bad, but replacing a tag with one that contains it is fine if the user initiated that process.
+A tag should be defined with properties that indicate to users what it is, and properties that indicate to Wikijump what to do with it.
 
 Name | Defintion | Implementation recommendation
---- | ---
+--- | --- | ---
 **description** | Definition of this tag. | The description is shown when adding a tag, and the tag is suggested.
-**requires** | Tags this tag requires. A circular dependency should be considered a configuration error. One-way relationship. | Addition of the tag is blocked unless all required tags are present.
-**similar** | Conceptually-similar tags, or tags that might be required by this tag in a certain context but not all contexts, or tags that are commonly added with this tag. One-way relationship. | The user is prompted to consider adding these tags. The prompt should not imply that the tag _should_ be added, or that the tag suggestion is based on the content of the article; it should encourage the user to read the tag's description and ascertain for themself whether or not it applies.
-**related** | Tags that this tag is related to, in ways that do not imply that the tags should or should not be applied together. One-way relationship. |
-**dissimilar** | Opposite-meaning or mildy-conflicting tags that this tag is not recommended to be used together with. Two-way relationship. | A warning appears that prompts the user to consider removing tags.
-**conflicts** | Tags that this tag must not be used together with. A tag cannot conflict with itself. Two-way relationship. | Addition of this tag will be blocked if all of these tags are present; if the tag is already present somehow, then new tag changes cannot be saved until the conflict is resolved.
-**supersedes** | Tags that this tag overrides or conceptually contains. A superseded tag should be treated as a conflicting tag if this tag is present. Two-way relationship. | If such a tag is present, it should be removed automatically when this tag is added.
+**permissions** | An inline table containing permissions. The keys can be: <ul><li>`add`: determines who can add this tag</li><li>`remove`: determines who can remove this tag</li><li>`modify`: determines who can add or remove _any_ tag on a page tagged with this</li></ul> The value for each is a string corresponding to a group of users: currently one of `"anyone"`, `"author"`, or `"staff"`; though more groups have yet to be defined. Permissions defined on a tag override permissions defined on a category; this is the only time that using `"anyone"` is useful. Bear in mind that if only staff can add a tag, allowing anyone to remove it is not recommended, as a malicious user could repeatedly remove it and create extra work. | A user who is not in the indicated group cannot perform that action on the tag.
+
+A tag can be defined with the following properties that indicate its relationship with other tags.
+
+Name | Defintion | Implementation recommendation
+--- | --- | ---
+**requires** | A list of tags this tag requires. A circular dependency should be considered a configuration error. One-way relationship. | Addition of the tag is blocked unless all required tags are present.
+**similar** | A list of conceptually-similar tags, or tags that might be required by this tag in a certain context but not all contexts, or tags that are commonly added with this tag. One-way relationship. | The user is prompted to consider adding these tags. The prompt should not imply that the tag _should_ be added, or that the tag suggestion is based on the content of the article; it should encourage the user to read the tag's description and ascertain for themself whether or not it applies.
+**related** | A list of tags that this tag is related to, in ways that do not imply that the tags should or should not be applied together. One-way relationship. |
+**dissimilar** | A list of opposite-meaning or mildy-conflicting tags that this tag is not recommended to be used together with. Two-way relationship. | A warning appears that prompts the user to consider removing tags.
+**conflicts** | A list of tags that this tag must not be used together with. A tag cannot conflict with itself. Two-way relationship. | Addition of this tag will be blocked if all of these tags are present; if the tag is already present somehow, then new tag changes cannot be saved until the conflict is resolved.
+**supersedes** | A list of tags that this tag overrides or conceptually contains. A superseded tag should be treated as a conflicting tag if this tag is present. Two-way relationship. | If such a tag is present, it should be removed automatically when this tag is added.
 
 Where a property is a list of tags, a nested list is interpreted as 'at least one of these'.
 
 Where a tag ends in a forwards-slash, it is interpreted as a category name and means 'all tags from this category'. Those tags are joined by AND, unless the category name is in a nested list, in which case they are joined by OR. (For example, `requires = [ "category/" ]` means 'requires all tags from `category`', whereas `requires = [ [ "category/" ] ]` means 'requires at least one tag from `category`').
 
 If a tag name is "\*", it refers to all tags; this is probably only useful with `conflicts` to indicate that this tag should only ever be by itself.
+
+Where possible, validation should prompt the user to make a change; it should not create or destroy information without the user's consent e.g. removing a tag is bad, but replacing a tag with one that contains it is fine if the user initiated that process.
