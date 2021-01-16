@@ -1,0 +1,38 @@
+> This page has a comprehensive list of tags available on the wiki.  For help with actually deciding which tags to use, please refer to the [[[tech-hub-tag | tag guide]]].
+
+When choosing tags for an article, keep in mind that you want to keep the list as short as possible; the goal should be to choose tags that are already being used, rather than create a new one. If staff should determine that a new tag is necessary, they can always retroactively tag articles as necessary. If you would like to suggest a new tag, please do so in the [http://scp-wiki.wikidot.com/forum/c-51015/proposals-and-policy stickied tag suggestion thread].
+
+[[tabview]]
+<% [
+  "top-level", "major",
+  "object-classes", "attributes",
+  "major-goi", "minor-goi", "goi-format",
+  "canons", "tale-series", "characters", "locations",
+  "content-markers", "staff-process", "contests", "other"
+].forEach(categoryName => {
+  category = categories[categoryName]; %>
+[[tab <%= category.name ? category.name : categoryName %>]]
+++ <%= category.name ? category.name : categoryName %>
+
+<%= category.description %>
+
+<%= category.requirements %>
+
+<% Object.values(category.tags).forEach((tagName, tag) => { %>
+**[http://scp-wiki.wikidot.com/system:page-tags/tag/<%= tagName %> <%= tagName %>]** <%= tag.description ? `- ${tag.description}` : "" %>
+<% }) %>
+
+<% category.section.forEach(section => { %>
+
++++ <%= section.name ? section.name : "Unnamed section" %>
+
+<%= section.description %>
+
+<% Object.values(section.tags).forEach((tagName, tag) => { %>
+**[http://scp-wiki.wikidot.com/system:page-tags/tag/<%= tagName %> <%= tagName %>]** <%= tag.description ? `- ${tag.description}` : "" %>
+<% }) %>
+
+<% }) %>
+[[/tab]]
+<% }) %>
+[[/tabview]]
