@@ -1,0 +1,20 @@
+{
+  "name": "tag-list",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "standardx src/**/*.ts",
+    "fix": "standardx src/**/*.ts --fix"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
+    "eslint": "^7.18.0",
+    "html-loader": "^1.3.2",
+    "standardx": "^7.0.0",
+    "typescript": "^4.1.3",
+    "webpack": "^5.15.0",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
