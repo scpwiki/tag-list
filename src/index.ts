@@ -23,6 +23,8 @@ const defaults = {
   }).join("\n")
 }
 
+let template = ""
+
 document.body.innerHTML = html;
 
 const templateBox = el<HTMLTextAreaElement>("template")
@@ -33,4 +35,5 @@ const outputBox = el<HTMLTextAreaElement>("output")
 
 templateBox.addEventListener("input", event => {
   template = templateBox.value
+  // TODO Regenerate the output if the defintions are valid
 })
