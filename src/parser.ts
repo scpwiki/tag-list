@@ -1,47 +1,54 @@
 import { parse } from "toml"
+import {
+  Array, Dictionary, Intersect, Literal, Number, Partial, Static, String, Union
+} from "runtypes"
 
 /* Types for processed tag configuration objects */
 
-type TagName = string
-type TagCategoryName = string
+const TagPermissionsGroupRuntype = Union(
+  Literal("anyone"), Literal("author"), Literal("staff")
+)
 
-type TagPermissionsGroup = "anyone" | "author" | "staff"
+const TagPermissionsRuntype = Partial({
+  add: TagPermissionsGroupRuntype,
+  remove: TagPermissionsGroupRuntype,
+  modify: TagPermissionsGroupRuntype
+})
 
-type TagPermissions = {
-  add?: TagPermissionsGroup
-  remove?: TagPermissionsGroup
-  modify?: TagPermissionsGroup
-}
+const TagRelationshipListRuntype = Array(Union(String, Array(String)))
 
-type TagRelationshipList = (
-  (TagName | TagCategoryName) | (TagName | TagCategoryName)[]
-)[]
+const TagRelationshipsRuntype = Partial({
+  requires: TagRelationshipListRuntype,
+  similar: TagRelationshipListRuntype,
+  related: TagRelationshipListRuntype,
+  dissimilar: TagRelationshipListRuntype,
+  conflicts: TagRelationshipListRuntype,
+  supersedes: TagRelationshipListRuntype
+})
+type TagRelationships = Static<typeof TagRelationshipsRuntype>
 
-type TagRelationshipProperties = {
-  requires?: TagRelationshipList
-  similar?: TagRelationshipList
-  related?: TagRelationshipList
-  dissimilar?: TagRelationshipList
-  conflicts?: TagRelationshipList
-  supersedes?: TagRelationshipList
-}
+const TagDefinitionsRuntype = Intersect(
+  Dictionary(
+    Partial({
+      description: String,
+      permissions: String // XXX is this right?
+    }),
+    "string"
+  ),
+  TagRelationshipsRuntype
+)
+type TagDefinitions = Static<typeof TagDefinitionsRuntype>
 
-type TagDefinitions = {
-  [tag: string]: {
-    description?: string
-    permissions?: string
-  } & TagRelationshipProperties
-}
+const TagCategoryPropertiesRuntype = Partial({
+  name: String,
+  description: String,
+  max: Number,
+  permissions: TagPermissionsRuntype
+})
+type TagCategoryProperties = Static<typeof TagCategoryPropertiesRuntype>
 
-type TagCategoryProperties = {
-  name?: string
-  description?: string
-  max?: number
-  permissions?: TagPermissions
-}
-
-type TagCategory = TagCategoryProperties & TagRelationshipProperties & {
-  id: TagCategoryName
+type TagCategory = TagCategoryProperties & TagRelationships & {
+  id: string
   tags: TagDefinitions
   sections: {
     name?: string
@@ -52,12 +59,28 @@ type TagCategory = TagCategoryProperties & TagRelationshipProperties & {
 
 /* Types for unprocessed category configuration as written in the TOML spec */
 
-type TagCategoryConfig = TagCategoryProperties & {
-  section?: ({
-    name?: string
-    description?: string
-  } & TagDefinitions)[]
-} & TagDefinitions & TagRelationshipProperties
+const TagCategoryConfigRuntype = Intersect(
+  // Properties of the category
+  TagCategoryPropertiesRuntype,
+  // Base relationship properties applied to tags in the category
+  TagRelationshipsRuntype,
+  // Tags not in a section
+  TagDefinitionsRuntype,
+  // Tag sections
+  Partial({
+    section: Array(
+      Intersect(
+        // Properties of the section
+        Partial({
+          name: String,
+          description: String
+        }),
+        // Tags in the section
+        TagDefinitionsRuntype
+      )
+    )
+  })
+)
 
 /**
  * Parses and validates tags from TOML configuration.
@@ -65,5 +88,5 @@ type TagCategoryConfig = TagCategoryProperties & {
  * @param config - The body of a single tag category configuration file.
  */
 export function parseConfig (config: string): TagCategory {
-  const category: unknown = parse(config)
+  const category = TagCategoryConfigRuntype.check(parse(config))
 }
