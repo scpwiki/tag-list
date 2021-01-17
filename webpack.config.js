@@ -1,7 +1,7 @@
 const path = require("path")
 const TerserPlugin = require("terser-webpack-plugin")
-const CleanPlugin = require("clean-webpack-plugin")
-const HtmlPlugin = require("html-webpack-plugin")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -10,14 +10,19 @@ module.exports = {
     ? { devtool: "eval-source-map" }
     : {}
   ),
+  entry: path.resolve(__dirname, "./src/index.ts"),
   output: {
-    filename: "3211.js",
+    filename: "tag-list.js",
     path: path.resolve(__dirname, "./dist/")
+  },
+  devServer: {
+    compress: true
   },
   module: {
     rules: [
       { test: /\.ts$/, use: "babel-loader" },
-      { test: /\.html$/, use: "html-loader" }
+      { test: /\.html$/, use: "html-loader" },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] }
     ]
   },
   resolve: { extensions: [".ts", ".js"] },
@@ -27,7 +32,7 @@ module.exports = {
     usedExports: true
   },
   plugins: [
-    new CleanPlugin(),
-    new HtmlPlugin()
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin()
   ]
 }
