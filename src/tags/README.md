@@ -27,7 +27,7 @@ In addition to defaults for the relationship properties below, tag categories ca
 
 Name | Description
 --- | ---
-**name** | The name of this category in a human-readable form; will be used in a sentence of the form "all tags from {name}".
+**name** | The name of this category in a human-readable form.
 **description** | A description of this category and why it contains the tags it does.
 **max** | The maximum number of tags a page can have from this category.
 
@@ -59,10 +59,16 @@ Name | Property
 Tags are defined by specifying its name as the title of a new table. It can
 optionally contain additional properties.
 
+### Naming tags
+
+The following tag names are reserved: `name`, `description`.
+
 Tags should only contain alphanumeric characters (`A-Z`, `a-z`, `0-9`), `_`,
 and `-`.
 
 However, a tag can be defined named `*` (which will need to be wrapped in quotes, so the final table definition would be `["*"]`), which defines a wildcard tag, allowing any arbitrary undefined tag to be created. Properties set on the wildcard tag apply to all undefined tags (as opposed to being applied to all tags).
+
+### Tag properties
 
 Name | Defintion | Implementation recommendation
 --- | --- | ---
