@@ -1,6 +1,7 @@
 import { parse } from "toml"
 import {
-  Array, Dictionary, Intersect, Literal, Number, Partial, Static, String, Union
+  Array as ArrayRT, Dictionary, Intersect, Literal, Number, Partial, Static,
+  String, Union
 } from "runtypes"
 
 /* Types for processed tag configuration objects */
@@ -15,7 +16,7 @@ const TagPermissionsRuntype = Partial({
   modify: TagPermissionsGroupRuntype
 })
 
-const TagRelationshipListRuntype = Array(Union(String, Array(String)))
+const TagRelationshipListRuntype = ArrayRT(Union(String, ArrayRT(String)))
 
 const TagRelationshipsRuntype = Partial({
   requires: TagRelationshipListRuntype,
@@ -66,7 +67,7 @@ const TagCategoryCategoryConfigRuntype = Intersect(
   TagRelationshipsRuntype
 )
 
-const TagCategorySectionConfigRuntype = Array(
+const TagCategorySectionConfigRuntype = ArrayRT(
   Intersect(
     // Properties of the section
     Partial({
@@ -94,26 +95,69 @@ const TagCategoryConfigRuntype = Intersect(
 )
 
 /**
+ * Error type for invalid TOML documents, unrelated to tag specifics.
+ */
+export class TomlParseError extends Error {
+  constructor (message: string) {
+    super(message)
+    this.name = "TomlParseError"
+  }
+}
+
+/**
+ * Error type for invalid tag config.
+ */
+export class ConfigParseError extends Error {
+  constructor (message: string) {
+    super(message)
+    this.name = "ConfigParseError"
+  }
+}
+
+/**
+ * Recursively converts an object with a null prototype to one with an object
+ * protoype.
+ */
+function setObjectPrototype (nullObject: any) {
+  if (typeof nullObject === "object") {
+    if (Array.isArray(nullObject)) {
+      nullObject.forEach(value => setObjectPrototype(value))
+    } else {
+      Object.setPrototypeOf(nullObject, Object.prototype)
+      for (const key in nullObject) {
+        setObjectPrototype(nullObject[key])
+      }
+    }
+  }
+}
+
+/**
  * Parses and validates tags from TOML configuration.
  *
  * @param config - The body of a single tag category configuration file.
  */
 export function parseConfig (config: string): TagCategory {
+  let rawCategoryConfig: any
+  let categoryConfig: Static<typeof TagCategoryConfigRuntype>
+
   // Validate TOML
   try {
-    parse(config)
+    rawCategoryConfig = parse(config)
   } catch (error) {
-    console.log(error)
-    throw new Error("TOML parse error") // TODO more details
+    throw new TomlParseError("TOML parse error") // TODO more details
   }
+
+  // The TOML parser returns objects with a null prototype, which runtypes
+  // erroneously interprets as being equal to null
+  setObjectPrototype(rawCategoryConfig)
 
   // Validate primitive category config shape
   try {
-    TagCategoryConfigRuntype.check(parse(config))
+    categoryConfig = TagCategoryConfigRuntype.check(rawCategoryConfig)
   } catch (error) {
-    throw new Error("Config spec error") // TODO more details
+    console.error(error)
+    throw new ConfigParseError("Config spec error") // TODO more details
   }
-  const categoryConfig = TagCategoryConfigRuntype.check(parse(config))
 
   // Check that there is exactly one property ending in a slash
   const categoryKeys = Object.keys(categoryConfig).filter(
@@ -121,7 +165,7 @@ export function parseConfig (config: string): TagCategory {
   )
   if (categoryKeys.length !== 1) {
     const received = categoryKeys.length ? categoryKeys.join(", ") : "none"
-    throw new Error(
+    throw new ConfigParseError(
       `Config must define exactly one tag category, received: ${received}`
     )
   }
@@ -135,7 +179,7 @@ export function parseConfig (config: string): TagCategory {
     )
     delete categoryConfig[categoryName]
   } catch (error) {
-    throw new Error("Category definition does not match the spec")
+    throw new ConfigParseError("Category definition does not match the spec")
   }
 
   // Check that if section exists, it is a list of sections
@@ -146,7 +190,7 @@ export function parseConfig (config: string): TagCategory {
     )
     delete categoryConfig.section
   } catch (error) {
-    throw new Error("Sections definition does not match the spec")
+    throw new ConfigParseError("Sections definition does not match the spec")
   }
 
   // Remaining properties are tags that are not in a section
@@ -154,7 +198,7 @@ export function parseConfig (config: string): TagCategory {
   try {
     categoryTags = TagDefinitionsRuntype.check(categoryConfig)
   } catch (error) {
-    throw new Error("Tags definition does not match the spec")
+    throw new ConfigParseError("Tags definition does not match the spec")
   }
 
   const category: TagCategory = {
