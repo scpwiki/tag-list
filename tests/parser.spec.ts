@@ -37,7 +37,7 @@ describe("config parser", () => {
 
   it("parses a minimal config", () => {
     expect(parseConfig("['category/']")).toEqual(
-      { id: "category/", sections: [], tags: [] }
+      { id: "category/", sections: [], tags: {} }
     )
   })
 
@@ -47,5 +47,12 @@ describe("config parser", () => {
 
   it("fails if more than one category is configured", () => {
     expect(() => parseConfig("['1/']\n['2/']")).toThrow(ConfigParseError)
+  })
+
+  it("fails when unexpected values are passed", () => {
+    expect(() => parseConfig(`
+      ['category/']
+      permissions = { add = 'XXX' }
+    `)).toThrow(ConfigParseError)
   })
 })

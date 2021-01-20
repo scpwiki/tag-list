@@ -185,10 +185,14 @@ export function parseConfig (config: string): TagCategory {
   // Check that if section exists, it is a list of sections
   let categorySections: Static<typeof TagCategorySectionConfigRuntype>
   try {
-    categorySections = TagCategorySectionConfigRuntype.check(
-      categoryConfig.section
-    )
-    delete categoryConfig.section
+    if ("section" in categoryConfig) {
+      categorySections = TagCategorySectionConfigRuntype.check(
+        categoryConfig.section
+      )
+      delete categoryConfig.section
+    } else {
+      categorySections = []
+    }
   } catch (error) {
     throw new ConfigParseError("Sections definition does not match the spec")
   }
