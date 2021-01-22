@@ -28,25 +28,25 @@ When choosing tags for an article, keep in mind that you want to keep the list a
   "content-markers/", "staff-process/", "contests/", "other/"
 ].forEach(categoryName => {
   const category = getCategory(categoryName); %>
-[[tab <%= category.name ? category.name : categoryName %>]]
-++ <%= category.name ? category.name : categoryName %>
+[[tab <%- category.name ? category.name : categoryName %>]]
+++ <%- category.name ? category.name : categoryName %>
 
-<%= category.description %>
+<%- category.description %>
 
-<%= category.requirements %>
+<%- category.requirements %>
 
 <% Object.entries(category.tags).forEach(([tagName, tag]) => { %>
-**[http://scp-wiki.wikidot.com/system:page-tags/tag/<%= tagName %> <%= tagName %>]** <%= tag.description || tag.requirements ? `-- ${tag.description} ${tag.requirements}` : "" %>
+**[http://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description || tag.requirements ? "--" : "" %> <%- tag.description %> <%- tag.requirements %>
 <% }) %>
 
 <% category.sections.forEach(section => { %>
 
-+++ <%= section.name ? section.name : "Unnamed section" %>
++++ <%- section.name ? section.name : "Unnamed section" %>
 
-<%= section.description %>
+<%- section.description %>
 
 <% Object.entries(section.tags).forEach(([tagName, tag]) => { %>
-**[http://scp-wiki.wikidot.com/system:page-tags/tag/<%= tagName %> <%= tagName %>]** <%= tag.description || tag.requirements ? `-- ${tag.description} ${tag.requirements}` : "" %>
+**[http://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description || tag.requirements ? "--" : "" %> <%- tag.description %> <%- tag.requirements %>
 <% }) %>
 
 <% }) %>
