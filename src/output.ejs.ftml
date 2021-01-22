@@ -21,13 +21,13 @@ When choosing tags for an article, keep in mind that you want to keep the list a
 
 [[tabview]]
 <% [
-  "top-level", "major",
-  "object-classes", "attributes",
-  "major-goi", "minor-goi", "goi-format",
-  "canons", "tale-series", "characters", "locations",
-  "content-markers", "staff-process", "contests", "other"
+  "top-level/", "major/",
+  "object-classes/", "attributes/",
+  "major-goi/", "minor-goi/", "goi-format/",
+  "canons/", "tale-series/", "characters/", "locations/",
+  "content-markers/", "staff-process/", "contests/", "other/"
 ].forEach(categoryName => {
-  category = categories[categoryName]; %>
+  const category = getCategory(categoryName); %>
 [[tab <%= category.name ? category.name : categoryName %>]]
 ++ <%= category.name ? category.name : categoryName %>
 
@@ -35,17 +35,17 @@ When choosing tags for an article, keep in mind that you want to keep the list a
 
 <%= category.requirements %>
 
-<% Object.values(category.tags).forEach((tagName, tag) => { %>
+<% Object.entries(category.tags).forEach(([tagName, tag]) => { %>
 **[http://scp-wiki.wikidot.com/system:page-tags/tag/<%= tagName %> <%= tagName %>]** <%= tag.description || tag.requirements ? `-- ${tag.description} ${tag.requirements}` : "" %>
 <% }) %>
 
-<% category.section.forEach(section => { %>
+<% category.sections.forEach(section => { %>
 
 +++ <%= section.name ? section.name : "Unnamed section" %>
 
 <%= section.description %>
 
-<% Object.values(section.tags).forEach((tagName, tag) => { %>
+<% Object.entries(section.tags).forEach(([tagName, tag]) => { %>
 **[http://scp-wiki.wikidot.com/system:page-tags/tag/<%= tagName %> <%= tagName %>]** <%= tag.description || tag.requirements ? `-- ${tag.description} ${tag.requirements}` : "" %>
 <% }) %>
 

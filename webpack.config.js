@@ -25,7 +25,10 @@ module.exports = {
       { test: /\.css$/, use: ['style-loader', 'css-loader'] }
     ]
   },
-  resolve: { extensions: [".ts", ".js"] },
+  resolve: {
+    extensions: [".ts", ".js"],
+    fallback: { fs: false, path: false }
+  },
   optimization: {
     minimize: process.env.NODE_ENV === "production",
     minimizer: [ new TerserPlugin({ extractComments: false }) ],
