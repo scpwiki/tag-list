@@ -16,25 +16,6 @@ requires = [ "scp" ]
 description = "This is the tag for the articles proposing a possible [http://www.scp-wiki.net/scp-001 SCP-001] object. SCPs tagged with this tag should also be tagged with their standard object class tag, or //esoteric-class// if applicable."
 requires = [ "scp" ]
 
-[experiment]
-description = "This tag should only be used on //supplement// pages for pages that are primarily experiment logs (see: [http://scp-wiki.wikidot.com/SCP-914 SCP-914] >> [http://scp-wiki.wikidot.com/Experiment-Log-914 Experiment Log 914]). This tag **should not** be used on //scp// pages, even if they have extensive experiment logs."
-requires = [ "supplement" ]
-conflicts = [ "scp" ]
-
-[exploration]
-description = "This tag should only be used on //supplement// pages for pages that are primarily exploration logs. This tag **should not** be used on //scp// pages, even if they have extensive exploration logs."
-requires = [ "supplement" ]
-conflicts = [ "scp" ]
-
-[incident]
-description = "This tag should only be used on //supplement// pages for pages that are primarily incident logs or transcripts (see: [http://scp-wiki.wikidot.com/SCP-555 SCP-555] >> [http://scp-wiki.wikidot.com/Incident-Log-555-1 Incident Log 555-1]). This tag **should not** be used on //scp// pages, even if they have extensive incident logs."
-requires = [ "supplement" ]
-conflicts = [ "scp" ]
-
-[interview]
-description = "This tag should only be used on //supplement// pages for pages that are primarily interview transcripts (see: [http://scp-wiki.wikidot.com/SCP-277 SCP-277] >> [http://scp-wiki.wikidot.com/277interview Interview 277-A]). This tag **should not** be used on //scp// pages, even if they have extensive interview transcripts."
-requires = [ "supplement" ]
-conflicts = [ "scp" ]
 
 [creepypasta]
 description = "//creepypasta// are fiction that are unrelated to the SCP Foundation, and usually take the form of urban myths or campfire stories. A //creepypasta// page must be tagged with //tale// and is only appropriate for the SCP website if it's an original //creepypasta// by the posting author; we are not a repository for unattributed //creepypasta//."
@@ -70,3 +51,23 @@ description = "Reserved by staff for designating pages with meta information abo
 
 [_tale-hub]
 description = "Utilized in conjunction with the //hub// tag to designate that this hub hosts //tale// articles."
+
+[[section]]
+name = "Supplement pages"
+description = "Tags that describe the content of a //supplement// page."
+
+[section.experiment]
+description = "This supplement contains primarily experiment logs (see: [http://scp-wiki.wikidot.com/SCP-914 SCP-914] >> [http://scp-wiki.wikidot.com/Experiment-Log-914 Experiment Log 914]). This tag **should not** be used on //scp// pages, even if they have extensive experiment logs."
+requires = [ "supplement" ]
+
+[section.exploration]
+description = "This supplement contains primarily exploration logs. This tag **should not** be used on //scp// pages, even if they have extensive exploration logs."
+requires = [ "supplement" ]
+
+[section.incident]
+description = "This supplement contains primarily incident logs or transcripts (see: [http://scp-wiki.wikidot.com/SCP-555 SCP-555] >> [http://scp-wiki.wikidot.com/Incident-Log-555-1 Incident Log 555-1]). This tag **should not** be used on //scp// pages, even if they have extensive incident logs."
+requires = [ "supplement" ]
+
+[section.interview]
+description = "This supplement contains primarily interview transcripts (see: [http://scp-wiki.wikidot.com/SCP-277 SCP-277] >> [http://scp-wiki.wikidot.com/277interview Interview 277-A]). This tag **should not** be used on //scp// pages, even if they have extensive interview transcripts."
+requires = [ "supplement" ]
