@@ -5,9 +5,9 @@
 import { Tag } from "./parser"
 
 /**
- * Constructs a string describing a tag's relationships.
+ * Constructs strings describing a tag's relationships.
  */
-export function makeRelationshipsString (tag: Tag): string {
+export function makeRelationshipsStrings (tag: Tag): string[] {
   const requires = tag.requires?.reduce<string>(
     (str, requirement, index, allRequirements) => {
       let text: string
@@ -56,5 +56,5 @@ export function makeRelationshipsString (tag: Tag): string {
       return `${str}${separator} ${text}`
     }, "Requires"
   )
-  return requires ?? ""
+  return [requires].filter((list): list is string => typeof list === "string")
 }

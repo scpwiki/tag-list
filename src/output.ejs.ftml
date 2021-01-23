@@ -13,6 +13,9 @@ http://05command.wikidot.com/some-page-i-havent-made-yet
   font-weight: bold;
   color: red;
 }
+
+#page-content ul > li { margin-top: 0.5em }
+#page-content ul > li li { margin-top: 0.25em }
 [[/module]]
 
 > This page has a comprehensive list of tags available on the wiki.  For help with actually deciding which tags to use, please refer to the [[[tech-hub-tag | tag guide]]].
@@ -33,10 +36,13 @@ When choosing tags for an article, keep in mind that you want to keep the list a
 
 <%- category.description %>
 
-<%- category.requirements %>
+<%- category._relationships %>
 
 <% Object.entries(category.tags).forEach(([tagName, tag]) => { -%>
-* **[http://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description || tag.requirements ? "--" : "" %> <%- tag.description %> <%- tag.requirements %>
+* **[http://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description ? `-- ${tag.description}` : "" %>
+<% tag._relationships.forEach(relationship => { -%>
+ * //<%- relationship %>//
+<% }) -%>
 <% }) %>
 
 <% category.sections.forEach(section => { %>
@@ -46,7 +52,10 @@ When choosing tags for an article, keep in mind that you want to keep the list a
 <%- section.description %>
 
 <% Object.entries(section.tags).forEach(([tagName, tag]) => { -%>
-* **[http://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description || tag.requirements ? "--" : "" %> <%- tag.description %> <%- tag.requirements %>
+* **[http://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description ? `-- ${tag.description}` : "" %>
+<% tag._relationships.forEach(relationship => { -%>
+ * //<%- relationship %>//
+<% }) -%>
 <% }) %>
 
 <% }) %>

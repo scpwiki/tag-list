@@ -27,8 +27,8 @@ const TagRelationshipsRuntype = Partial({
   dissimilar: TagRelationshipListRuntype,
   conflicts: TagRelationshipListRuntype,
   supersedes: TagRelationshipListRuntype,
-  // Stores final relationships summary string
-  _relationships: String
+  // Stores final relationships summary strings
+  _relationships: ArrayRuntype(String)
 })
 type TagRelationships = Static<typeof TagRelationshipsRuntype>
 
@@ -60,7 +60,7 @@ export type TagCategory = TagCategoryProperties & TagRelationships & {
     description?: string
     tags: TagDefinitions
   }[]
-  _relationships?: string
+  _relationships?: string[]
 }
 
 /* Types for unprocessed category configuration as written in the TOML spec */

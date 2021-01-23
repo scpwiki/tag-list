@@ -5,7 +5,7 @@ import { render } from "ejs"
 import {
   parseConfig, TagCategory, TomlParseError, ConfigParseError
 } from "./parser"
-import { makeRelationshipString } from "./documentation"
+import { makeRelationshipsStrings } from "./documentation"
 
 /**
  * Gets an element of known ID and tag that is assumed to exist.
@@ -73,6 +73,14 @@ definitionsBox.addEventListener("input", () => {
     }
     return
   }
+  Object.values(definition.tags).forEach(tag => {
+    tag._relationships = makeRelationshipsStrings(tag)
+  })
+  definition.sections.forEach(section => {
+    Object.values(section.tags).forEach(tag => {
+      tag._relationships = makeRelationshipsStrings(tag)
+    })
+  })
   definitions[definition?.id] = definition
   makeDefinitionsList()
   makeOutput()
