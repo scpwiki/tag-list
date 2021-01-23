@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "standardx src/**/*.ts",
     "fix": "standardx src/**/*.ts --fix",
-    "start": "NODE_ENV=development webpack serve --config webpack.config.js --open",
+    "start": "NODE_ENV=development webpack serve --config webpack.config.js --open --open-page webpack-dev-server/",
     "build": "NODE_ENV=production webpack --config webpack.config.js",
     "tests": "jest"
   },

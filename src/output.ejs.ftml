@@ -35,8 +35,8 @@ When choosing tags for an article, keep in mind that you want to keep the list a
 
 <%- category.requirements %>
 
-<% Object.entries(category.tags).forEach(([tagName, tag]) => { %>
-**[http://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description || tag.requirements ? "--" : "" %> <%- tag.description %> <%- tag.requirements %>
+<% Object.entries(category.tags).forEach(([tagName, tag]) => { -%>
+* **[http://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description || tag.requirements ? "--" : "" %> <%- tag.description %> <%- tag.requirements %>
 <% }) %>
 
 <% category.sections.forEach(section => { %>
@@ -45,8 +45,8 @@ When choosing tags for an article, keep in mind that you want to keep the list a
 
 <%- section.description %>
 
-<% Object.entries(section.tags).forEach(([tagName, tag]) => { %>
-**[http://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description || tag.requirements ? "--" : "" %> <%- tag.description %> <%- tag.requirements %>
+<% Object.entries(section.tags).forEach(([tagName, tag]) => { -%>
+* **[http://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description || tag.requirements ? "--" : "" %> <%- tag.description %> <%- tag.requirements %>
 <% }) %>
 
 <% }) %>

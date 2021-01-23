@@ -77,6 +77,8 @@ definitionsBox.addEventListener("input", () => {
   makeOutput()
 })
 
+window.addEventListener("load", makeDefinitionsList)
+
 /**
  * Generates the Wikitext output from the given data, or reports errors that
  * are preventing it from generating correctly.
@@ -117,18 +119,26 @@ function makeOutput (): void {
  * Generates the list of received category definitions
  */
 function makeDefinitionsList (): void {
-  el("tags-received").innerHTML = Object.entries(definitions).map(
-    ([categoryName, category]) => {
-      categoryName = categoryName.slice(0, -1)
-      const sections = category.sections.length
-      const tags = Object.keys(category.tags).length
-      const totalTags = category.sections.reduce((count, section) => {
-        return count + Object.keys(section.tags).length
-      }, 0) + tags
-      return `<li>
-        Category ${categoryName}:
-        ${tags} tags and ${sections} sections for a total of ${totalTags} tags
-      </li>`
-    }
-  ).join("")
+  let total = 0
+  if (Object.keys(definitions).length > 0) {
+    el("tags-received").innerHTML = Object.entries(definitions).map(
+      ([categoryName, category]) => {
+        categoryName = categoryName.slice(0, -1)
+        const sections = category.sections.length
+        const tags = Object.keys(category.tags).length
+        const totalTags = category.sections.reduce((count, section) => {
+          return count + Object.keys(section.tags).length
+        }, 0) + tags
+        total += totalTags
+        return `<li>
+          Category ${categoryName}:
+          ${tags} tags and ${sections} sections
+          for a total of ${totalTags} tags
+        </li>`
+      }
+    ).join("")
+  } else {
+    el("tags-received").innerHTML = "<li>none so far</li>"
+  }
+  el("total-tags").innerHTML = total.toString()
 }
