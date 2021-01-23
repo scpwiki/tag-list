@@ -26,20 +26,22 @@ const TagRelationshipsRuntype = Partial({
   related: TagRelationshipListRuntype,
   dissimilar: TagRelationshipListRuntype,
   conflicts: TagRelationshipListRuntype,
-  supersedes: TagRelationshipListRuntype
+  supersedes: TagRelationshipListRuntype,
+  // Stores final relationships summary string
+  _relationships: String
 })
 type TagRelationships = Static<typeof TagRelationshipsRuntype>
 
-const TagDefinitionsRuntype = Dictionary(
-  Intersect(
-    Partial({
-      description: String,
-      permissions: String // XXX is this right?
-    }),
-    TagRelationshipsRuntype
-  ),
-  "string"
+const TagRuntype = Intersect(
+  Partial({
+    description: String,
+    permissions: String // XXX is this right?
+  }),
+  TagRelationshipsRuntype
 )
+export type Tag = Static<typeof TagRuntype>
+
+const TagDefinitionsRuntype = Dictionary(TagRuntype, "string")
 type TagDefinitions = Static<typeof TagDefinitionsRuntype>
 
 const TagCategoryPropertiesRuntype = Partial({
@@ -58,6 +60,7 @@ export type TagCategory = TagCategoryProperties & TagRelationships & {
     description?: string
     tags: TagDefinitions
   }[]
+  _relationships?: string
 }
 
 /* Types for unprocessed category configuration as written in the TOML spec */

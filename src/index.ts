@@ -5,6 +5,7 @@ import { render } from "ejs"
 import {
   parseConfig, TagCategory, TomlParseError, ConfigParseError
 } from "./parser"
+import { makeRelationshipString } from "./documentation"
 
 /**
  * Gets an element of known ID and tag that is assumed to exist.
@@ -59,7 +60,7 @@ templateBox.addEventListener("input", () => {
 definitionsBox.addEventListener("input", () => {
   const config = definitionsBox.value
   definitionsBox.value = ""
-  let definition
+  let definition: TagCategory
   try {
     definition = parseConfig(config)
   } catch (error) {
