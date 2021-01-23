@@ -52,14 +52,16 @@ const TagCategoryPropertiesRuntype = Partial({
 })
 type TagCategoryProperties = Static<typeof TagCategoryPropertiesRuntype>
 
+type TagCategorySections = {
+  name?: string
+  description?: string
+  tags: TagDefinitions
+}[]
+
 export type TagCategory = TagCategoryProperties & TagRelationships & {
   id: string
   tags: TagDefinitions
-  sections: {
-    name?: string
-    description?: string
-    tags: TagDefinitions
-  }[]
+  sections: TagCategorySections
   _relationships?: string[]
 }
 
@@ -188,12 +190,21 @@ export function parseConfig (config: string): TagCategory {
   }
 
   // Check that if section exists, it is a list of sections
-  let categorySections: Static<typeof TagCategorySectionConfigRuntype>
+  let categorySections: TagCategorySections
   try {
     if ("section" in categoryConfig) {
       categorySections = TagCategorySectionConfigRuntype.check(
         categoryConfig.section
-      )
+      ).map(sectionConfig => {
+        const name = sectionConfig.name
+        const description = sectionConfig.description
+        // Remove these non-tag properties (this is why they are reserved)
+        delete sectionConfig.name
+        delete sectionConfig.description
+        // Remaining properties are tags
+        const tags = sectionConfig
+        return { name, description, tags }
+      })
       delete categoryConfig.section
     } else {
       categorySections = []
@@ -210,20 +221,30 @@ export function parseConfig (config: string): TagCategory {
     throw new ConfigParseError("Tags definition does not match the spec")
   }
 
+  // Check that relationship properties do not have nested lists if they do not
+  // support it
+  Object.entries(<TagDefinitions>Object.assign(
+    {}, categoryTags, ...categorySections.map(s => s.tags)
+  )).forEach(([tagName, tag]) => {
+    (<const>["similar", "related", "dissimilar", "supersedes"]).forEach(
+      property => {
+        if (!tag[property]) {
+          return
+        }
+        if (tag[property]?.some(r => Array.isArray(r))) {
+          throw new ConfigParseError(
+            `Property ${property} on ${tagName} cannot contain a nested list`
+          )
+        }
+      }
+    )
+  })
+
   const category: TagCategory = {
     id: categoryName,
     ...categoryCategoryConfig,
     tags: categoryTags,
-    sections: categorySections.map(sectionConfig => {
-      const name = sectionConfig.name
-      const description = sectionConfig.description
-      // Remove these non-tag properties (this is why they are reserved)
-      delete sectionConfig.name
-      delete sectionConfig.description
-      // Remaining properties are tags
-      const tags = sectionConfig
-      return { name, description, tags }
-    })
+    sections: categorySections
   }
 
   return category

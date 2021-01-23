@@ -86,7 +86,7 @@ Name | Defintion | Implementation recommendation
 **conflicts** | A list of tags that this tag must not be used together with. A tag cannot conflict with itself. Two-way relationship. | Addition of this tag will be blocked if all of these tags are present; if the tag is already present somehow, then new tag changes cannot be saved until the conflict is resolved.
 **supersedes** | A list of tags that this tag overrides or conceptually contains. A superseded tag should be treated as a conflicting tag if this tag is present. Two-way relationship. | If such a tag is present, it should be removed automatically when this tag is added.
 
-Where a property is a list of tags, a nested list is interpreted as 'at least one of these'.
+For the properties `requires` and `conflicts`, a nested list is interpreted as 'at least one of these'. The other properties do not support this feature and must be defined as a list of strings.
 
 Where a tag ends in a forwards-slash, it is interpreted as a category name and means 'all tags from this category'. Those tags are joined by AND, unless the category name is in a nested list, in which case they are joined by OR. (For example, `requires = [ "category/" ]` means 'requires all tags from `category`', whereas `requires = [ [ "category/" ] ]` means 'requires at least one tag from `category`').
 

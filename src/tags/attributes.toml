@@ -166,7 +166,7 @@ description = "SCP is a contagious agent or exhibits contagious spread."
 
 [container]
 description = "SCP is meant to hold or otherwise contain other material or objects, including decorative vases and other similar objects."
-supersedes = "artifact"
+supersedes = [ "artifact" ]
 
 [corrosive]
 description = "SCP exhibits corrosive properties."
@@ -332,7 +332,7 @@ description = "SCP is intangible in a manner that precludes definition as a gas.
 description = "SCP exhibits traits of invertebrates or animals lacking spinal columns."
 
 [jewelry]
-description = "SCP is an object primarily intended to be worn in a decorative manner. Supersedes //artifact// and mutually exclusive with //clothing//."
+description = "SCP is an object primarily intended to be worn in a decorative manner."
 supersedes = [ "artifact" ]
 conflicts = [ "clothing" ]
 

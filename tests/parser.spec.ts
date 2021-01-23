@@ -55,4 +55,12 @@ describe("config parser", () => {
       permissions = { add = 'XXX' }
     `)).toThrow(ConfigParseError)
   })
+
+  it("fails when a flat relationship property contains a nested list", () => {
+    expect(() => parseConfig(`
+      ['c/']
+      [tag-1]
+      related = [["tag-2"]]
+    `)).toThrow(ConfigParseError)
+  })
 })
