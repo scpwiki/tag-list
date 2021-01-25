@@ -102,7 +102,7 @@ export function makeRelationshipsStrings (
  * @param definitions - The definitions of all tag categories in use.
  * @returns An array of the constructed strings.
  */
-function makeRelationshipsStringsForTag (
+export function makeRelationshipsStringsForTag (
   tag: Tag,
   tagName: string,
   definitions: { [category: string]: TagCategory }

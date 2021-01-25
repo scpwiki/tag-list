@@ -1,52 +1,49 @@
-import { makeRelationshipsStrings } from "../src/documentation"
+import { makeRelationshipsStringsForTag } from "../src/documentation"
 import { getTargets } from "../src/documentation"
-import { Tag } from "../src/parser"
+import { TagCategory } from "../src/parser"
 
-describe("requirements string generator", () => {
-  it("generates requirement strings", () => {
-    const expectations: [Tag, string[]][] = [
-      [{}, []],
-      [{ requires: ["t"] }, ["Requires 't'"]],
-      [{ requires: ["t1", "t2"] }, ["Requires 't1', and 't2'"]],
-      [
-        { requires: ["t1", "t2", ["t3", "t4"]] },
-        ["Requires 't1'; 't2'; and either 't3', or 't4'"]
-      ],
-      [
-        { requires: [["t1", "t2", "t3"], ["t4", "t5"]] },
-        ["Requires any of 't1', 't2', or 't3'; and either 't4', or 't5'"]
-      ],
-      [
-        { requires: ["c/"] },
-        ["Requires all tags from category 'c'"]
-      ],
-      [
-        { requires: ["t", "c/"] },
-        ["Requires 't', and all tags from category 'c'"]
-      ],
-      [
-        { requires: [["c/"]] },
-        ["Requires any of category 'c'"]
-      ],
-      [
-        { requires: [["t", "c/"]] },
-        ["Requires either 't', or any of category 'c'"]
-      ],
-      [
-        { requires: ["t1", ["t2", "t3"], "c1/", ["c2/", "t4", "c3/"]] },
-        [[
+describe("relationship string generator", () => {
+  it("generates relationship strings", () => {
+    const c1 = {
+      config: <TagCategory>{
+        id: "c1",
+        tags: {
+          t1: { requires: ["t1"] },
+          t2: { requires: ["t1", "t2"] },
+          t3: { requires: ["t1", "t2", ["t3", "t4"]] },
+          t4: { requires: [["t1", "t2", "t3"], ["t4", "t5"]] },
+          t5: { requires: ["c1/"] },
+          t6: { requires: ["t1", "c1/"] },
+          t7: { requires: [["c1/"]] },
+          t8: { requires: [["t1", "c1/"]] },
+          t9: { requires: ["t1", ["t2", "t3"], "c1/", ["c2/", "t4", "c3/"]] },
+          t10: { requires: [["t1"]] }
+        },
+        sections: []
+      },
+      strings: {
+        t1: ["Requires 't1'"],
+        t2: ["Requires 't1', and 't2'"],
+        t3: ["Requires 't1'; 't2'; and either 't3', or 't4'"],
+        t4: ["Requires any of 't1', 't2', or 't3'; and either 't4', or 't5'"],
+        t5: ["Requires all tags from category 'c1'"],
+        t6: ["Requires 't1', and all tags from category 'c1'"],
+        t7: ["Requires any of category 'c1'"],
+        t8: ["Requires either 't1', or any of category 'c1'"],
+        t9: [[
           "Requires 't1';",
           "either 't2', or 't3';",
           "all tags from category 'c1';",
           "and any of category 'c2', 't4', or any of category 'c3'"
-        ].join(" ")]
-      ],
-      [ { requires: [["t"]] }, ["Requires 't'"] ],
-      [ { requires: [["c/"]] }, ["Requires any of category 'c'"] ],
-    ]
+        ].join(" ")],
+        t10: ["Requires 't1'"]
+      }
+    }
 
-    expectations.forEach(e => {
-      expect(makeRelationshipsStrings(e[0])).toEqual(e[1])
+    Object.keys(c1.config.tags).forEach(tagName => {
+      expect(makeRelationshipsStringsForTag(
+        c1.config.tags[tagName], tagName, { c1: c1.config }
+      )).toEqual(c1.strings[tagName])
     })
   })
 })
