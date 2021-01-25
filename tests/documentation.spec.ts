@@ -1,4 +1,5 @@
 import { makeRelationshipsStrings } from "../src/documentation"
+import { getTargets } from "../src/documentation"
 import { Tag } from "../src/parser"
 
 describe("requirements string generator", () => {
@@ -47,5 +48,23 @@ describe("requirements string generator", () => {
     expectations.forEach(e => {
       expect(makeRelationshipsStrings(e[0])).toEqual(e[1])
     })
+  })
+})
+
+describe("function that checks if a tag targets another", () => {
+  it("returns the tag name if it does target", () => {
+    expect(
+      getTargets({ requires: ["t1", ["t2"]] }, "t1", "requires")("")
+    ).toEqual("")
+  })
+  it("returns the tag name in an array if it is targeted in an array", () => {
+    expect(
+      getTargets({ requires: ["t1", ["t2"]] }, "t2", "requires")("")
+    ).toEqual([""])
+  })
+  it("returns null if it doesn't target", () => {
+    expect(
+      getTargets({ requires: ["t1", ["t2"]] }, "t3", "requires")("")
+    ).toEqual(null)
   })
 })

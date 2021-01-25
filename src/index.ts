@@ -73,14 +73,6 @@ definitionsBox.addEventListener("input", () => {
     }
     return
   }
-  Object.values(definition.tags).forEach(tag => {
-    tag._relationships = makeRelationshipsStrings(tag)
-  })
-  definition.sections.forEach(section => {
-    Object.values(section.tags).forEach(tag => {
-      tag._relationships = makeRelationshipsStrings(tag)
-    })
-  })
   definitions[definition?.id] = definition
   makeDefinitionsList()
   makeOutput()
@@ -94,6 +86,8 @@ window.addEventListener("load", makeDefinitionsList)
  */
 function makeOutput (): void {
   outputErrors.innerHTML = ""
+  // Generate relationship strings for each tag
+  makeRelationshipsStrings(definitions)
   let output
   try {
     output = render(template, {
