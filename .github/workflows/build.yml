@@ -17,7 +17,7 @@ jobs:
     - name: Test
       run: npm run tests
     - name: Deploy
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/main'
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
