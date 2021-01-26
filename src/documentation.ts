@@ -211,7 +211,10 @@ function makeRelationshipStringForTag (
   // relationship; backwardsTags is a list of tags that target this tag with
   // the inverse relationship.
   // Unify them into a single list of targets
-  const targets = [...forwardsTags, ...backwardsTags]
+  const targets = [...forwardsTags, ...backwardsTags].filter(
+    // Strip duplicates
+    (target, index, targets) => targets.indexOf(target) === index
+  )
 
   // If there are no targets, there is obviously no string to construct
   if (targets.length === 0) {
