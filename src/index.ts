@@ -257,7 +257,7 @@ function setState (
         if (indicator.textContent === emojis[state]) {
           indicator.textContent = ""
         }
-      }, 1000)
+      }, 2000)
     }
   })
 }
