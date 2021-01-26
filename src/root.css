@@ -1,0 +1,30 @@
+main {
+  font-size: 0.8rem;
+  font-family: Verdana, Arial, sans-serif;
+}
+
+h2 {
+  letter-spacing: 1px;
+  font-size: 150%;
+  font-family: "Trebuchet MS", Trebuchet, Verdana, Arial, sans-serif;
+  font-weight: normal;
+  line-height: 100%;
+}
+
+textarea, input {
+  flex: 1;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  margin: 0 0.5rem;
+}
+
+.errors {
+  color: red;
+}

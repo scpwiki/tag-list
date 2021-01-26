@@ -1,0 +1,27 @@
+["tale-series/"]
+name = "Tale Series"
+description = "Tags for long tale series, that may or may not have a Hub."
+
+[classical-revival]
+description = "Of or related to the [http://scp-wiki.wikidot.com/classicalrevivalindex Classical Revival] stories."
+
+[collector-tale]
+description = "Of or related to the Tales of Mr. Collector. (See also: //[http://scp-wiki.wikidot.com/system:page-tags/tag/mister mister]//)"
+
+[kiryu-labs]
+description = "Of or related to the [http://scp-wiki.wikidot.com/kiryu-labs-hub Kiryu Labs] series."
+
+[mister]
+description = "Of or related to the "Little Misters" series of anomalous individuals."
+
+[olympia]
+description = "Of or related to the [http://scp-wiki.wikidot.com/Olympia-Project Olympia Project]."
+
+[orientation]
+description = "Of or related to the Orientation series."
+
+[project-thaumiel]
+description = "Of or related to [http://scp-wiki.wikidot.com/thaumiel Project Thaumiel]."
+
+[team-bird]
+description = "Of or related to [http://scp-wiki.wikidot.com/bird Team Bird]."

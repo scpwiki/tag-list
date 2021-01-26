@@ -1,0 +1,73 @@
+["major/"]
+name = "Major Page Tags"
+description = "Miscellaneous major page tags that are not top-level tags."
+
+[joke]
+description = "Pages which are considered 'jokes' or explicitly 'out-of-universe'. This may be applied to //scp//, //goi-format//, or //tale// pages. See [http://scp-wiki.wikidot.com/joke-scps Joke SCPs] for more information on Joke pages."
+
+[archived]
+description = "Pages which have been archived due to having been superseded, obsoleted, or inactivity. These pages should also be moved to the {{archived:}} category so they retain the 'archived page' notice and are locked from edits. See [http://scp-wiki.wikidot.com/archived-scps Archived Pages] for more information on archival."
+
+[explained]
+description = "[http://scp-wiki.wikidot.com/scp-ex Explained] SCPs are a special sub-type of //scp//, and should be added to -EX articles as appropriate. Explained articles should also be tagged with their standard object class tag, or //esoteric-class// if the format does not specify a standard object class."
+requires = [ "scp" ]
+
+[001-proposal]
+description = "This is the tag for the articles proposing a possible [http://www.scp-wiki.net/scp-001 SCP-001] object. SCPs tagged with this tag should also be tagged with their standard object class tag, or //esoteric-class// if applicable."
+requires = [ "scp" ]
+
+
+[creepypasta]
+description = "//creepypasta// are fiction that are unrelated to the SCP Foundation, and usually take the form of urban myths or campfire stories. A //creepypasta// page must be tagged with //tale// and is only appropriate for the SCP website if it's an original //creepypasta// by the posting author; we are not a repository for unattributed //creepypasta//."
+requires = [ "tale" ]
+
+[collaboration]
+description = "//collaboration// pages are those pages that are or were open to additions from any member, with the caveat that staff and the original author reserve the right to modify or delete entries found to be subpar, or close entries entirely."
+
+[co-authored]
+description = "//co-authored// pages are the result of two or more authors working together, but are not open to additions from other members."
+
+[contest]
+description = "//contest// pages are pages created for the purpose of community contests. This should be used in conjunction with //hub// in the case of entry listings, and should not be used on the entries themselves. These contests are only created by staff or with staff permission."
+requires = [ "hub" ]
+
+[required]
+description = "//required// pages are guides that are part of the required reading for joining the SCP Wiki."
+
+[redirect]
+description = "//redirect// pages are those which redirect the user to a different page. They should only be created by staff or with explicit staff permission."
+
+[featured]
+description = "Reserved by staff for designating [http://scp-wiki.wikidot.com/featured-scp-archive Featured Articles] and [http://scp-wiki.wikidot.com/featured-tale-archive Featured Tales]."
+
+[prize-feature]
+description = "Reserved by staff for designating articles featured by the winner of a site contest."
+
+[event-featured]
+description = "Reserved by staff for designating articles featured on special event days such as International Talk Like a Pirate Day."
+
+[metadata]
+description = "Reserved by staff for designating pages with meta information about articles."
+
+[_tale-hub]
+description = "Utilized in conjunction with the //hub// tag to designate that this hub hosts //tale// articles."
+
+[[section]]
+name = "Supplement pages"
+description = "Tags that describe the content of a //supplement// page."
+
+[section.experiment]
+description = "This supplement contains primarily experiment logs (see: [http://scp-wiki.wikidot.com/SCP-914 SCP-914] >> [http://scp-wiki.wikidot.com/Experiment-Log-914 Experiment Log 914]). This tag **should not** be used on //scp// pages, even if they have extensive experiment logs."
+requires = [ "supplement" ]
+
+[section.exploration]
+description = "This supplement contains primarily exploration logs. This tag **should not** be used on //scp// pages, even if they have extensive exploration logs."
+requires = [ "supplement" ]
+
+[section.incident]
+description = "This supplement contains primarily incident logs or transcripts (see: [http://scp-wiki.wikidot.com/SCP-555 SCP-555] >> [http://scp-wiki.wikidot.com/Incident-Log-555-1 Incident Log 555-1]). This tag **should not** be used on //scp// pages, even if they have extensive incident logs."
+requires = [ "supplement" ]
+
+[section.interview]
+description = "This supplement contains primarily interview transcripts (see: [http://scp-wiki.wikidot.com/SCP-277 SCP-277] >> [http://scp-wiki.wikidot.com/277interview Interview 277-A]). This tag **should not** be used on //scp// pages, even if they have extensive interview transcripts."
+requires = [ "supplement" ]

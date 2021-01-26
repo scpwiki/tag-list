@@ -1,0 +1,12 @@
+["content-markers/"]
+name = "Content Markers"
+description = "Tags for noting specific content."
+
+[adult]
+description = "Denotes mature content, view at your own discretion."
+
+[audio]
+description = "//audio// pages are pages with one or more audio files attached."
+
+[video]
+description = "//video// pages are pages with one or more video files attached."
