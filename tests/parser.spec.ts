@@ -52,7 +52,7 @@ describe("config parser", () => {
   it("fails when unexpected values are passed", () => {
     expect(() => parseConfig(`
       ['category/']
-      permissions = { add = 'XXX' }
+      description = [ "XXX" ]
     `)).toThrow(ConfigParseError)
   })
 

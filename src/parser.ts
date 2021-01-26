@@ -1,20 +1,10 @@
 import { parse } from "toml"
 import {
-  Array as ArrayRuntype, Dictionary, Intersect, Literal, Number, Partial,
+  Array as ArrayRuntype, Dictionary, Intersect, Number, Partial,
   Static, String, Union
 } from "runtypes"
 
 /* Types for processed tag configuration objects */
-
-const TagPermissionsGroupRuntype = Union(
-  Literal("anyone"), Literal("author"), Literal("staff")
-)
-
-const TagPermissionsRuntype = Partial({
-  add: TagPermissionsGroupRuntype,
-  remove: TagPermissionsGroupRuntype,
-  modify: TagPermissionsGroupRuntype
-})
 
 const TagRelationshipListRuntype = ArrayRuntype(
   Union(String, ArrayRuntype(String))
@@ -33,10 +23,7 @@ const TagRelationshipsRuntype = Partial({
 type TagRelationships = Static<typeof TagRelationshipsRuntype>
 
 const TagRuntype = Intersect(
-  Partial({
-    description: String,
-    permissions: TagPermissionsRuntype
-  }),
+  Partial({ description: String }),
   TagRelationshipsRuntype
 )
 export type Tag = Static<typeof TagRuntype>
@@ -47,8 +34,7 @@ type TagDefinitions = Static<typeof TagDefinitionsRuntype>
 const TagCategoryPropertiesRuntype = Partial({
   name: String,
   description: String,
-  max: Number,
-  permissions: TagPermissionsRuntype
+  max: Number
 })
 type TagCategoryProperties = Static<typeof TagCategoryPropertiesRuntype>
 
