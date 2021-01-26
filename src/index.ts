@@ -22,20 +22,31 @@ function el<T extends HTMLElement = HTMLElement>(id: string): T {
 
 /**
  * Reports an error back to the user.
+ *
+ * @param source - The section from which this error originates.
+ * @param primer - A string with which to prefix the error message.
+ * @param error - The error itself.
  */
-function reportError (primer: string, error: Error) {
+function reportError (
+  source: "template" | "definitions" | "output",
+  primer: string,
+  error?: Error
+) {
   // TODO Pipe this back to the UI
   console.log(primer, error)
 }
 
 const numberOfTagFiles = 15
+// const site = "http://05command.wikidot.com"
+const site = "http://scp-sandbox-3.wikidot.com"
+const page = "tag-list-manifest"
 
 // Generate code URLs for the config, assuming the template is first
 const defaultsUrls = {
-  template: "http://05command.wikidot.com/master-tag-list/code/1",
-  defintions: Array.from({ length: numberOfTagFiles }).map((_, index) => {
-    return `http://05command.wikidot.com/master-tag-list/code/${index + 2}`
-  }).join("\n")
+  template: `${site}/${page}/code/1`,
+  definitions: Array.from({ length: numberOfTagFiles }).map((_, index) => {
+    return `${site}/${page}/code/${index + 2}`
+  })
 }
 
 // Track the value of the page template
@@ -47,38 +58,87 @@ document.body.innerHTML = html;
 
 const templateBox = el<HTMLTextAreaElement>("template")
 const templateUrlBox = el<HTMLInputElement>("template-url")
+const templateUrlButton = el<HTMLButtonElement>("template-url-button")
 const definitionsBox = el<HTMLTextAreaElement>("definitions")
 const definitionsUrlsBox = el<HTMLTextAreaElement>("definitions-urls")
+const definitionsUrlsButton = el<HTMLButtonElement>("definitions-urls-button")
+const definitionsErrors = el<HTMLDivElement>("definitions-errors")
 const outputBox = el<HTMLTextAreaElement>("output")
 const outputErrors = el<HTMLParagraphElement>("output-errors")
 
 templateBox.addEventListener("input", () => {
+  setState(["template", "output"], "waiting")
   template = templateBox.value
+  setState(["template"], "done")
   makeOutput()
+})
+
+templateUrlButton.addEventListener("click", () => {
+  setState(["template", "output"], "waiting")
+  void fetchUrls([templateUrlBox.value]).then(template => {
+    templateBox.value = template[0]
+    setState(["template"], "done")
+    templateBox.dispatchEvent(new Event("input"))
+  })
 })
 
 definitionsBox.addEventListener("input", () => {
+  setState(["definitions", "output"], "waiting")
+  definitionsErrors.innerHTML = ""
   const config = definitionsBox.value
   definitionsBox.value = ""
-  let definition: TagCategory
   try {
-    definition = parseConfig(config)
+    addCategory(config)
   } catch (error) {
-    if (error instanceof TomlParseError) {
-      reportError("Couldn't read TOML", error)
-    } else if (error instanceof ConfigParseError) {
-      reportError("Config doesn't match specification", error)
-    } else {
-      throw error
-    }
+    setState(["definitions", "output"], "failed")
+    definitionsErrors.innerHTML = (<Error>error).message ?? "Unknown error"
     return
   }
-  definitions[definition?.id] = definition
-  makeDefinitionsList()
+  setState(["definitions"], "done")
   makeOutput()
 })
 
-window.addEventListener("load", makeDefinitionsList)
+definitionsUrlsButton.addEventListener("click", () => {
+  setState(["definitions", "output"], "waiting")
+  definitionsErrors.innerHTML = ""
+  const errors: Error[] = []
+  void fetchUrls(definitionsUrlsBox.value.split("\n")).then(configs => {
+    configs.forEach(config => {
+      try {
+        addCategory(config)
+      } catch (error) {
+        errors.push(<Error>error)
+      }
+    })
+    if (errors.length === 0) {
+      setState(["definitions"], "done")
+      makeOutput()
+    } else {
+      setState(["definitions", "output"], "failed")
+      definitionsErrors.innerHTML = `<p>Errors:</p><ul><li>${
+        errors.map(e => e.message ?? "Unknown error").join("</li><li>")
+      }</li></ul>`
+    }
+  })
+})
+
+window.addEventListener("load", () => {
+  templateUrlBox.value = defaultsUrls.template
+  definitionsUrlsBox.value = defaultsUrls.definitions.join("\n")
+  makeDefinitionsList()
+})
+
+/**
+ * Handles the parsing and subsequent addition of a tag category to the
+ * internal tag bank.
+ *
+ * @param config - The TOML config for this category.
+ */
+function addCategory(config: string): void {
+  const definition = parseConfig(config)
+  definitions[definition?.id] = definition
+  makeDefinitionsList()
+}
 
 /**
  * Generates the Wikitext output from the given data, or reports errors that
@@ -105,6 +165,7 @@ function makeOutput (): void {
         )
       }
     })
+    setState(["output"], "done")
   } catch (error) {
     if (error instanceof Error) {
       // Strip EJS-specific error trace
@@ -114,6 +175,7 @@ function makeOutput (): void {
       outputErrors.innerHTML = `Error: ${String(error)}`
     }
     output = ""
+    setState(["output"], "failed")
   }
   outputBox.value = output
 }
@@ -144,4 +206,58 @@ function makeDefinitionsList (): void {
     el("tags-received").innerHTML = "<li>none so far</li>"
   }
   el("total-tags").innerHTML = total.toString()
+}
+
+/**
+ * Fetches the contents of either the page template or a tag definition files
+ * from a list of URLs.
+ *
+ * @param urls - A list of URLs to fetch.
+ * @param callback - A callback that will be called with the text content of
+ * each URL.
+ * @returns A promise that resolves to a list of contents of the requested
+ * resources.
+ */
+async function fetchUrls (urls: string[]): Promise<string[]> {
+  // A CORS proxy is required to access the code blocks.
+  // CodeTabs CORS Proxy is used here:
+  // https://codetabs.com/cors-proxy/cors-proxy.html
+  // This proxy has a limit of 5 requests per second, so a 200ms delay will be
+  // inserted between each request.
+  let delay = 0
+  const delayIncrement = 200
+  return await Promise.all(urls.map(async url => {
+    delay += delayIncrement
+    return new Promise(func => setTimeout(func, delay)).then(async () => {
+      return await (
+        await fetch(`https://api.codetabs.com/v1/proxy/?quest=${url}`)
+      ).text()
+    })
+  }))
+}
+
+/**
+ * Sets the state of one of the sections of the generator, which indicates
+ * whether it's doing something or if it's finished.
+ *
+ * @param targets - A list of sections to set the state of.
+ * @param state - The state to set.
+ */
+function setState (
+  targets: ("template" | "definitions" | "output")[],
+  state: "waiting" | "done" | "failed"
+): void {
+  const emojis = { waiting: "\u23f3", done: "\u2705", failed: "\u274c" }
+  targets.forEach(target => {
+    const indicator = el(`${target}-state`)
+    indicator.textContent = emojis[state]
+    if (state !== "waiting") {
+      // Reset the indicator after a beat, unless it has changed
+      setTimeout(() => {
+        if (indicator.textContent === emojis[state]) {
+          indicator.textContent = ""
+        }
+      }, 1000)
+    }
+  })
 }

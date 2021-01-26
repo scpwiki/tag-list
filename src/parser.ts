@@ -35,7 +35,7 @@ type TagRelationships = Static<typeof TagRelationshipsRuntype>
 const TagRuntype = Intersect(
   Partial({
     description: String,
-    permissions: String // XXX is this right?
+    permissions: TagPermissionsRuntype
   }),
   TagRelationshipsRuntype
 )
@@ -105,8 +105,8 @@ const TagCategoryConfigRuntype = Intersect(
  * Error type for invalid TOML documents, unrelated to tag specifics.
  */
 export class TomlParseError extends Error {
-  constructor (message: string) {
-    super(message)
+  constructor (firstLine: string, line: number, column: number) {
+    super(`TOML error in file ${firstLine}, line ${line} column ${column}`)
     this.name = "TomlParseError"
   }
 }
@@ -115,8 +115,8 @@ export class TomlParseError extends Error {
  * Error type for invalid tag config.
  */
 export class ConfigParseError extends Error {
-  constructor (message: string) {
-    super(message)
+  constructor (message: string, categoryName: string) {
+    super(`${message} in category ${categoryName}`)
     this.name = "ConfigParseError"
   }
 }
@@ -151,7 +151,7 @@ export function parseConfig (config: string): TagCategory {
   try {
     rawCategoryConfig = parse(config)
   } catch (error) {
-    throw new TomlParseError("TOML parse error") // TODO more details
+    throw new TomlParseError(config.split("\n")[0], error.line, error.column)
   }
 
   // The TOML parser returns objects with a null prototype, which runtypes
@@ -163,7 +163,7 @@ export function parseConfig (config: string): TagCategory {
     categoryConfig = TagCategoryConfigRuntype.check(rawCategoryConfig)
   } catch (error) {
     console.error(error)
-    throw new ConfigParseError("Config spec error") // TODO more details
+    throw new ConfigParseError(error.message, config.split("\n")[0])
   }
 
   // Check that there is exactly one property ending in a slash
@@ -173,7 +173,8 @@ export function parseConfig (config: string): TagCategory {
   if (categoryKeys.length !== 1) {
     const received = categoryKeys.length ? categoryKeys.join(", ") : "none"
     throw new ConfigParseError(
-      `Config must define exactly one tag category, received: ${received}`
+      `Config must define exactly one tag category, received: ${received}`,
+      config.split("\n")[0]
     )
   }
   const categoryName = categoryKeys[0]
@@ -186,7 +187,9 @@ export function parseConfig (config: string): TagCategory {
     )
     delete categoryConfig[categoryName]
   } catch (error) {
-    throw new ConfigParseError("Category definition does not match the spec")
+    throw new ConfigParseError(
+      `Category properties: ${(<Error>error).message}`, categoryName
+    )
   }
 
   // Check that if section exists, it is a list of sections
@@ -210,7 +213,9 @@ export function parseConfig (config: string): TagCategory {
       categorySections = []
     }
   } catch (error) {
-    throw new ConfigParseError("Sections definition does not match the spec")
+    throw new ConfigParseError(
+      `Sections: ${(<Error>error).message}`, categoryName
+    )
   }
 
   // Remaining properties are tags that are not in a section
@@ -218,7 +223,7 @@ export function parseConfig (config: string): TagCategory {
   try {
     categoryTags = TagDefinitionsRuntype.check(categoryConfig)
   } catch (error) {
-    throw new ConfigParseError("Tags definition does not match the spec")
+    throw new ConfigParseError(`Tags: ${(<Error>error).message}`, categoryName)
   }
 
   // Check that relationship properties do not have nested lists if they do not
@@ -233,7 +238,8 @@ export function parseConfig (config: string): TagCategory {
         }
         if (tag[property]?.some(r => Array.isArray(r))) {
           throw new ConfigParseError(
-            `Property ${property} on ${tagName} cannot contain a nested list`
+            `Property ${property} on ${tagName} cannot contain a nested list`,
+            categoryName
           )
         }
       }

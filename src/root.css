@@ -8,6 +8,7 @@ h2 {
   font-size: 150%;
   font-family: "Trebuchet MS", Trebuchet, Verdana, Arial, sans-serif;
   font-weight: normal;
+  line-height: 100%;
 }
 
 textarea, input {

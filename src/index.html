@@ -1,14 +1,20 @@
 <main>
-  <h2>1.Template</h2>
+  <p>
+    This tool uses
+    <a href="https://codetabs.com/cors-proxy/cors-proxy.html">
+      CodeTabs CORS Proxy
+    </a>.
+  </p>
+  <h2>1.Template <span id="template-state"></span></h2>
   <p>Paste the EJS template for the tag list page into here:</p>
   <textarea id="template"></textarea>
   <p>Or, fetch it via URL:</p>
   <form>
     <input id="template-url"></input>
-    <button type="button">Fetch</button>
+    <button type="button" id="template-url-button">Fetch</button>
   </form>
 
-  <h2>2. Tag definitons</h2>
+  <h2>2. Tag definitions <span id="definitions-state"></span></h2>
   <p>
     Paste a tag definitions file in here. It will be removed instantly and
     will appear in the list below. Repeat for each tag file.
@@ -17,14 +23,15 @@
   <p>Or, fetch them via URL:</p>
   <form>
     <textarea id="definitions-urls"></textarea>
-    <button type="button">Fetch all</button>
+    <button type="button" id="definitions-urls-button">Fetch all</button>
   </form>
 
   <p>Tag definition files received:</p>
   <ul id="tags-received"></ul>
   <p><span id="total-tags"></span> tags in total.</p>
+  <div id="definitions-errors" class="errors"></div>
 
-  <h2>3. Output</h2>
+  <h2>3. Output <span id="output-state"></span></h2>
   <p>Copy this and paste it into the tag list documentation</p>
   <textarea id="output" readonly></textarea>
   <p id="output-errors" class="errors"></p>
