@@ -43,7 +43,15 @@ When choosing tags for an article, keep in mind that you want to keep the list a
 
 <%- category.description %>
 
-<%- category._relationships %>
+<% if (category._relationships.length > 0) { %>
+[[div class="blockquote"]]
+The following <%- category._relationships.length === 1 ? "applies" : "apply" %> to all tags in this category:
+
+<% category._relationships.forEach(relationship => { -%>
+* <%- relationship %>
+<% }) %>
+[[/div]]
+<% } %>
 
 <% Object.entries(category.tags).forEach(([tagName, tag]) => { -%>
 * **[http://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description ? `-- ${tag.description}` : "" %>

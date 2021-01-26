@@ -75,8 +75,11 @@ export function makeRelationshipsStrings (
 ): void {
   // Iterate over each of the 7 relationship types and construct strings for
   // each one
-  Object.values(definitions).forEach(category => {
-    // TODO Construct strings for the category
+  Object.entries(definitions).forEach(([categoryName, category]) => {
+    // Construct strings for the category
+    category._relationships = makeRelationshipsStringsForTag(
+      category, categoryName, definitions
+    )
     // Construct strings for loose tags
     Object.entries(category.tags).forEach(([tagName, tag]) => {
       tag._relationships = makeRelationshipsStringsForTag(
