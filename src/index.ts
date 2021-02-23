@@ -37,8 +37,7 @@ function reportError (
 }
 
 const numberOfTagFiles = 15
-// const site = "http://05command.wikidot.com"
-const site = "http://scp-sandbox-3.wikidot.com"
+const site = "http://05command.wikidot.com"
 const page = "tag-list-manifest"
 
 // Generate code URLs for the config, assuming the template is first
