@@ -36,7 +36,7 @@ function reportError (
   console.log(primer, error)
 }
 
-const numberOfTagFiles = 15
+const numberOfTagFiles = 14
 const site = "http://05command.wikidot.com"
 const page = "tag-list-manifest"
 
