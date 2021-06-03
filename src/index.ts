@@ -36,9 +36,33 @@ function reportError (
   console.log(primer, error)
 }
 
-const numberOfTagFiles = 14
-const site = "http://05command.wikidot.com"
-const page = "tag-list-manifest"
+/**
+ * Gets a parameter from the URL query, returning a default if no value is
+ * found.
+ *
+ * This function only works if the <script> tag that references the bundle
+ * contains the URL query parameters in the URL that points to the bundle, and
+ * it must also have id 'script'.
+ *
+ * @param paramName - The name of the parameter.
+ * @param defaultValue - The value to return if the parameter in the URL query
+ * is not present.
+ */
+function getQueryParam(paramName: string, defaultValue: string): string {
+  try {
+    const script = <HTMLScriptElement | null>document.getElementById("script")
+    if (!script) throw new Error("Script with #script not found")
+    const params = new URL(script.src).searchParams
+    return params.get(paramName) ?? defaultValue
+  } catch(error) {
+    console.error(error)
+    return defaultValue
+  }
+}
+
+const numberOfTagFiles = parseInt(getQueryParam("categoryCount", "0"))
+const site = getQueryParam("site", "")
+const page = getQueryParam("page", "")
 
 // Generate code URLs for the config, assuming the template is first
 const defaultsUrls = {
