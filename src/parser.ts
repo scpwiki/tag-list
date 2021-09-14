@@ -25,7 +25,7 @@ type TagRelationships = Static<typeof TagRelationshipsRuntype>
 const TagRuntype = Intersect(
   Partial({
     'description': String,
-    'description-plain': String
+    'description-plain': String.optional()
   }),
   TagRelationshipsRuntype
 )
