@@ -23,7 +23,10 @@ const TagRelationshipsRuntype = Partial({
 type TagRelationships = Static<typeof TagRelationshipsRuntype>
 
 const TagRuntype = Intersect(
-  Partial({ description: String }),
+  Partial({
+    'description': String,
+    'description-plain': String
+  }),
   TagRelationshipsRuntype
 )
 export type Tag = Static<typeof TagRuntype>
