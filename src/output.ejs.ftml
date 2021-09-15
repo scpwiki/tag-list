@@ -98,6 +98,14 @@ name = <%- JSON.stringify(tagName) %>
 description = <%- JSON.stringify(tag['description-plain'] || tag['description']) %>
 
 <% }) -%>
+<% category.sections.forEach((section) => { -%>
+<% Object.entries(section.tags).forEach(([tagName, tag]) => { -%>
+[[tags]]
+name = <%- JSON.stringify(tagName) %>
+description = <%- JSON.stringify(tag['description-plain'] || tag['description']) %>
+
+<% }) -%>
+<% }) -%>
 <% }) -%>
 [[/code]]
 [[/collapsible]]
