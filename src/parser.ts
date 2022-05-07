@@ -230,7 +230,7 @@ export function parseConfig (config: string): TagCategory {
   // Check that relationship properties do not have nested lists if they do not
   // support it
   Object.entries(<TagDefinitions>Object.assign(
-    {}, categoryTags, ...categorySections.map(s => s.tags)
+    {}, categoryTags, categorySections, ...categorySections.map(s => s.tags)
   )).forEach(([tagName, tag]) => {
     (<const>["similar", "related", "dissimilar", "supersedes"]).forEach(
       property => {
