@@ -41,16 +41,16 @@ const TagCategoryPropertiesRuntype = PartialRT({
 })
 type TagCategoryProperties = Static<typeof TagCategoryPropertiesRuntype>
 
-type TagCategorySections = {
+type TagCategorySection = {
   name?: string
   description?: string
   tags: TagDefinitions
-}[]
+} & TagRelationships
 
 export type TagCategory = TagCategoryProperties & TagRelationships & {
   id: string
   tags: TagDefinitions
-  sections: TagCategorySections
+  sections: TagCategorySection[]
   _relationships?: string[]
 }
 
