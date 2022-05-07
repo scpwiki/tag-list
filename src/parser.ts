@@ -182,20 +182,32 @@ export function parseConfig (config: string): TagCategory {
   }
 
   // Check that if section exists, it is a list of sections
-  let categorySections: TagCategorySections
+  let categorySections: TagCategorySection[]
   try {
     if ("section" in categoryConfig) {
       categorySections = TagCategorySectionConfigRuntype.check(
         categoryConfig.section
       ).map(sectionConfig => {
-        const name = sectionConfig.name
-        const description = sectionConfig.description
-        // Remove these non-tag properties (this is why they are reserved)
-        delete sectionConfig.name
-        delete sectionConfig.description
+        // Sections are set up sort of weird for a friendly-ish TOML syntax
+        // Properties that are not tags need to be plucked
+        let section: Partial<TagCategorySection> = {}
+        for(const property of <const>[
+          "name",
+          "description",
+          "requires",
+          "similar",
+          "related",
+          "dissimilar",
+          "conflicts",
+          "supersedes",
+        ]) {
+          if (sectionConfig[property] != null)
+            section = { ...section, [property]: sectionConfig[property] }
+          delete sectionConfig[property]
+        }
+
         // Remaining properties are tags
-        const tags = sectionConfig
-        return { name, description, tags }
+        return { ...section, tags: sectionConfig }
       })
       delete categoryConfig.section
     } else {
