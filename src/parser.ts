@@ -1,16 +1,16 @@
 import { parse } from "toml"
 import {
-  Array as ArrayRuntype, Dictionary, Intersect, Number, Partial,
+  Array as ArrayRT, Dictionary, Intersect, Number, Partial as PartialRT,
   Static, String, Union
 } from "runtypes"
 
 /* Types for processed tag configuration objects */
 
-const TagRelationshipListRuntype = ArrayRuntype(
-  Union(String, ArrayRuntype(String))
+const TagRelationshipListRuntype = ArrayRT(
+  Union(String, ArrayRT(String))
 )
 
-const TagRelationshipsRuntype = Partial({
+const TagRelationshipsRuntype = PartialRT({
   requires: TagRelationshipListRuntype,
   similar: TagRelationshipListRuntype,
   related: TagRelationshipListRuntype,
@@ -18,12 +18,12 @@ const TagRelationshipsRuntype = Partial({
   conflicts: TagRelationshipListRuntype,
   supersedes: TagRelationshipListRuntype,
   // Stores final relationships summary strings
-  _relationships: ArrayRuntype(String)
+  _relationships: ArrayRT(String)
 })
 type TagRelationships = Static<typeof TagRelationshipsRuntype>
 
 const TagRuntype = Intersect(
-  Partial({
+  PartialRT({
     'description': String,
     'description-plain': String
   }),
@@ -34,23 +34,23 @@ export type Tag = Static<typeof TagRuntype>
 const TagDefinitionsRuntype = Dictionary(TagRuntype, "string")
 type TagDefinitions = Static<typeof TagDefinitionsRuntype>
 
-const TagCategoryPropertiesRuntype = Partial({
+const TagCategoryPropertiesRuntype = PartialRT({
   name: String,
   description: String,
   max: Number
 })
 type TagCategoryProperties = Static<typeof TagCategoryPropertiesRuntype>
 
-type TagCategorySections = {
+type TagCategorySection = {
   name?: string
   description?: string
   tags: TagDefinitions
-}[]
+} & TagRelationships
 
 export type TagCategory = TagCategoryProperties & TagRelationships & {
   id: string
   tags: TagDefinitions
-  sections: TagCategorySections
+  sections: TagCategorySection[]
   _relationships?: string[]
 }
 
@@ -63,10 +63,10 @@ const TagCategoryCategoryConfigRuntype = Intersect(
   TagRelationshipsRuntype
 )
 
-const TagCategorySectionConfigRuntype = ArrayRuntype(
+const TagCategorySectionConfigRuntype = ArrayRT(
   Intersect(
     // Properties of the section
-    Partial({
+    PartialRT({
       name: String,
       description: String
     }),
@@ -87,7 +87,7 @@ const TagCategoryConfigRuntype = Intersect(
     "string"
   ),
   // Tag sections
-  Partial({ section: TagCategorySectionConfigRuntype })
+  PartialRT({ section: TagCategorySectionConfigRuntype })
 )
 
 /**
@@ -182,20 +182,32 @@ export function parseConfig (config: string): TagCategory {
   }
 
   // Check that if section exists, it is a list of sections
-  let categorySections: TagCategorySections
+  let categorySections: TagCategorySection[]
   try {
     if ("section" in categoryConfig) {
       categorySections = TagCategorySectionConfigRuntype.check(
         categoryConfig.section
       ).map(sectionConfig => {
-        const name = sectionConfig.name
-        const description = sectionConfig.description
-        // Remove these non-tag properties (this is why they are reserved)
-        delete sectionConfig.name
-        delete sectionConfig.description
+        // Sections are set up sort of weird for a friendly-ish TOML syntax
+        // Properties that are not tags need to be plucked
+        let section: Partial<TagCategorySection> = {}
+        for(const property of <const>[
+          "name",
+          "description",
+          "requires",
+          "similar",
+          "related",
+          "dissimilar",
+          "conflicts",
+          "supersedes",
+        ]) {
+          if (sectionConfig[property] != null)
+            section = { ...section, [property]: sectionConfig[property] }
+          delete sectionConfig[property]
+        }
+
         // Remaining properties are tags
-        const tags = sectionConfig
-        return { name, description, tags }
+        return { ...section, tags: sectionConfig }
       })
       delete categoryConfig.section
     } else {
@@ -218,7 +230,7 @@ export function parseConfig (config: string): TagCategory {
   // Check that relationship properties do not have nested lists if they do not
   // support it
   Object.entries(<TagDefinitions>Object.assign(
-    {}, categoryTags, ...categorySections.map(s => s.tags)
+    {}, categoryTags, categorySections, ...categorySections.map(s => s.tags)
   )).forEach(([tagName, tag]) => {
     (<const>["similar", "related", "dissimilar", "supersedes"]).forEach(
       property => {

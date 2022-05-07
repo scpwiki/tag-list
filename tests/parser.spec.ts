@@ -63,4 +63,44 @@ describe("config parser", () => {
       related = [["tag-2"]]
     `)).toThrow(ConfigParseError)
   })
+
+  it("supports relationships defined in categories", () => {
+    expect(parseConfig(`
+      ["category/"]
+      requires = [ "tag-1" ]
+    `)).toEqual(
+      {
+        id: "category/",
+        name: undefined,
+        description: undefined,
+        requires: ["tag-1"],
+        tags: {},
+        sections: []
+      }
+    )
+  })
+
+  it("supports relationships defined in sections", () => {
+    expect(parseConfig(`
+      ["category/"]
+      [tag-1]
+      [[section]]
+      requires = ["tag-1"]
+    `)).toEqual(
+      {
+        id: "category/",
+        name: undefined,
+        description: undefined,
+        tags: { "tag-1": {} },
+        sections: [
+          {
+            name: undefined,
+            description: undefined,
+            requires: ["tag-1"],
+            tags: {}
+          }
+        ]
+      }
+    )
+  })
 })
