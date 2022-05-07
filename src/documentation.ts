@@ -86,8 +86,12 @@ export function makeRelationshipsStrings (
         tag, tagName, definitions
       )
     })
-    // Construct strings for tags in sections
-    category.sections.forEach(section => {
+    // Construct strings for sections
+    Object.entries(category.sections).forEach(([sectionName, section]) => {
+      section._relationships = makeRelationshipsStringsForTag(
+        section, sectionName, definitions
+      )
+      // Construct strings for tags in sections
       Object.entries(section.tags).forEach(([tagName, tag]) => {
         tag._relationships = makeRelationshipsStringsForTag(
           tag, tagName, definitions
