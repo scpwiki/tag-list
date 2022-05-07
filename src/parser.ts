@@ -1,16 +1,16 @@
 import { parse } from "toml"
 import {
-  Array as ArrayRuntype, Dictionary, Intersect, Number, Partial,
+  Array as ArrayRT, Dictionary, Intersect, Number, Partial as PartialRT,
   Static, String, Union
 } from "runtypes"
 
 /* Types for processed tag configuration objects */
 
-const TagRelationshipListRuntype = ArrayRuntype(
-  Union(String, ArrayRuntype(String))
+const TagRelationshipListRuntype = ArrayRT(
+  Union(String, ArrayRT(String))
 )
 
-const TagRelationshipsRuntype = Partial({
+const TagRelationshipsRuntype = PartialRT({
   requires: TagRelationshipListRuntype,
   similar: TagRelationshipListRuntype,
   related: TagRelationshipListRuntype,
@@ -18,12 +18,12 @@ const TagRelationshipsRuntype = Partial({
   conflicts: TagRelationshipListRuntype,
   supersedes: TagRelationshipListRuntype,
   // Stores final relationships summary strings
-  _relationships: ArrayRuntype(String)
+  _relationships: ArrayRT(String)
 })
 type TagRelationships = Static<typeof TagRelationshipsRuntype>
 
 const TagRuntype = Intersect(
-  Partial({
+  PartialRT({
     'description': String,
     'description-plain': String
   }),
@@ -34,7 +34,7 @@ export type Tag = Static<typeof TagRuntype>
 const TagDefinitionsRuntype = Dictionary(TagRuntype, "string")
 type TagDefinitions = Static<typeof TagDefinitionsRuntype>
 
-const TagCategoryPropertiesRuntype = Partial({
+const TagCategoryPropertiesRuntype = PartialRT({
   name: String,
   description: String,
   max: Number
@@ -63,10 +63,10 @@ const TagCategoryCategoryConfigRuntype = Intersect(
   TagRelationshipsRuntype
 )
 
-const TagCategorySectionConfigRuntype = ArrayRuntype(
+const TagCategorySectionConfigRuntype = ArrayRT(
   Intersect(
     // Properties of the section
-    Partial({
+    PartialRT({
       name: String,
       description: String
     }),
@@ -87,7 +87,7 @@ const TagCategoryConfigRuntype = Intersect(
     "string"
   ),
   // Tag sections
-  Partial({ section: TagCategorySectionConfigRuntype })
+  PartialRT({ section: TagCategorySectionConfigRuntype })
 )
 
 /**
