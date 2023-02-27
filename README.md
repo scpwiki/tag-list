@@ -77,6 +77,23 @@ The tool will output the documentation template with all tags from the manifest
 inserted. Any errors should be reported immediately, although you may need to
 check the console for more details.
 
+## Development
+
+Install dependencies using `npm`:
+
+```
+$ npm install
+```
+
+Once this is done, the following scripts are provided as part of the local development process:
+```
+$ npm run start  # Live view local version in your browser
+$ npm run lint   # Run linter
+$ npm run fix    # Run linter in fix mode
+$ npm run tests  # Run test suite
+$ npm run build  # Create production build
+```
+
 ## Reporting issues
 
 If there are any issues with this tool, please contact the [SCP Wiki Tech
