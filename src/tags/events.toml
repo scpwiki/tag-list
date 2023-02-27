@@ -1,0 +1,243 @@
+["events/"]
+name = "Events"
+description = "Tags for all events on the wiki, including contests."
+
+[173fest]
+description = "An entry to the [https://scp-wiki.wikidot.com/173-festival 173 Festival]."
+description-plain = "An entry to the 173 Festival."
+
+[art-exchange]
+description = "Of or related to the [https://scp-wiki.wikidot.com/art-exchange-hub Annual Holiday Art Exchange]."
+description-plain = "Of or related to the Annual Holiday Art Exchange."
+
+[af2014]
+description = "Of or related to the [https://scp-wiki.wikidot.com/april-fools-2014 Super Cute Pets!] 2014 April Fool's prank."
+description-plain = "Of or related to the Super Cute Pets! 2014 April Fool's prank."
+
+[game-day]
+description = "Of or related to the [https://scp-wiki.wikidot.com/gamedayindex Game Day] project."
+description-plain = "Of or related to the Game Day project."
+
+[nightmarefest]
+description = "An entry to the unofficial [https://scp-wiki.wikidot.com/nightmarefest NIGHTMAREFEST]."
+description-plain = "An entry to the unofficial NIGHTMAREFEST."
+
+[_townhouse]
+description = "An entry to the 'Townhouse' category of the unofficial NIGHTMAREFEST."
+requires = [ "nightmarefest" ]
+
+[_the-bureaucrat]
+description = "An entry to the 'The Bureaucrat' category of the unofficial NIGHTMAREFEST."
+requires = [ "nightmarefest" ]
+
+[_graveyard-shift]
+description = "An entry to the 'Graveyard Shift' category of the unofficial NIGHTMAREFEST."
+requires = [ "nightmarefest" ]
+
+[[section]]
+name = "Contests"
+description = "Tags for contests and the articles submitted to them."
+
+[section.1000]
+description = "An entry to the [https://scp-wiki.wikidot.com/forum/t-376556 SCP-1000 Contest]."
+description-plain = "An entry to the SCP-1000 Contest."
+
+[section.2000]
+description = "An entry to the [https://scp-wiki.wikidot.com/scp2000contesthub SCP-2000 Contest]."
+description-plain = "An entry to the SCP-2000 Contest."
+
+[section.3000]
+description = "An entry to the [https://scp-wiki.wikidot.com/scp3000contesthub SCP-3000 Contest]."
+description-plain = "An entry to the SCP-3000 Contest."
+
+[section.4000]
+description = "An entry to the [https://scp-wiki.wikidot.com/scp4000contesthub SCP-4000 Contest]."
+description-plain = "An entry to the SCP-4000 Contest."
+
+[section.5000]
+description = "An entry to the [https://scp-wiki.wikidot.com/scp5000contesthub SCP-5000 Contest]."
+description-plain = "An entry to the SCP-5000 Contest."
+
+[section.6000]
+description = "An entry to the [https://scp-wiki.wikidot.com/scp6000contesthub SCP-6000 Contest]."
+description-plain = "An entry to the SCP-6000 Contest."
+
+[section.7000]
+description = "An entry to the [https://scp-wiki.wikidot.com/scp7000contesthub SCP-7000 Contest]."
+description-plain = "An entry to the SCP-7000 Contest."
+
+[section.af2016]
+description = "An entry to the [https://scp-wiki.wikidot.com/an-incredibly-important-announcement Crack Fiction Contest] 2016 April Fool's prank."
+description-plain = "An entry to the Crack Fiction Contest 2016 April Fool's prank."
+
+[section.art2017]
+description = "An entry to the [https://scp-wiki.wikidot.com/social-media-art-contest 2017 Art Contest]."
+description-plain = "An entry to the 2017 Art Contest."
+
+[section.canon2020]
+description = "An entry to the [https://scp-wiki.wikidot.com/canon-renaissance-contest 2020 Canon Renaissance Contest]."
+description-plain = "An entry to the 2020 Canon Renaissance Contest."
+
+[section.cliche2019]
+description = "An entry to [https://scp-wiki.wikidot.com/cliche-con-2019 Cliche-Con 2019]."
+description-plain = "An entry to Cliche-Con 2019."
+
+[section.coldpostcon]
+description = "An entry to [https://scp-wiki.wikidot.com/coldpostcon ColdpostCon]."
+description-plain = "An entry to ColdpostCon."
+
+[section.collab-con2019]
+description = "An entry to [https://scp-wiki.wikidot.com/collaboration-contest Collab-Con 2019]."
+description-plain = "An entry to Collab-Con 2019."
+
+[section.cupid2021]
+description = "An entry to [https://scp-wiki.wikidot.com/cupid-contest-2021 Cupid Contest 2021]."
+description-plain = "An entry to Cupid Contest 2021."
+
+[section.d-con2016]
+description = "An entry to the [https://scp-wiki.wikidot.com/d-class-contest 2016 D-Class Contest]."
+description-plain = "An entry to the 2016 D-Class Contest."
+
+[section.dc2014]
+description = "An entry to the [https://scp-wiki.wikidot.com/Dystopia-Contest 2014 Dystopia Contest]."
+description-plain = "An entry to the 2014 Dystopia Contest."
+
+[section.departmentcon2022]
+description = "An entry to the [https://scp-wiki.wikidot.com/department-contest 2022 Department Contest]."
+description-plain = "An entry to the 2022 Department Contest."
+
+[section.doomsday2018]
+description = "An entry to the [https://scp-wiki.wikidot.com/doomsday-contest 2018 Doomsday Contest]."
+description-plain = "An entry to the 2018 Doomsday Contest."
+
+[section.exquisite-corpse2020]
+description = "An entry to the [https://scp-wiki.wikidot.com/exquisite-corpse-contest 2020 Exquisite Corpse Contest]."
+description-plain = "An entry to the 2020 Exquisite Corpse Contest."
+
+[section.five-questions]
+description = "An entry to the [https://scp-wiki.wikidot.com/five-questions Five Questions Contest]."
+description-plain = "An entry to the Five Questions Contest."
+
+[section.gbc09]
+description = "An entry to [https://scp-wiki.wikidot.com/gears-birthday-contest-2009 2009 Gears' Birthday Contest]."
+description-plain = "An entry to 2009 Gears' Birthday Contest."
+
+[section.talecon10]
+description = "An entry to [https://scp-wiki.wikidot.com/the-great-short-story-contest-archives The Great Short Story Contest]."
+description-plain = "An entry to The Great Short Story Contest."
+
+[section.goi2014]
+description = "An entry to the [https://scp-wiki.wikidot.com/goi-contest-2014 2014 Groups of Interest Contest]."
+description-plain = "An entry to the 2014 Groups of Interest Contest."
+
+[section.goi2019]
+description = "An entry to the [http://scp-int.wikidot.com/international-goi-contest-2019 International Groups of Interest Contest 2019]."
+description-plain = "An entry to the International Groups of Interest Contest 2019."
+
+[section.halloween2018]
+description = "An entry to the [https://scp-wiki.wikidot.com/halloween-contest-2018 2018 Halloween Contest]."
+description-plain = "An entry to the 2018 Halloween Contest."
+
+[section.halloweencon2022]
+description = "An entry to the [https://scp-wiki.wikidot.com/halloween-con-2022 2022 Halloweencon]."
+description-plain = "An entry to the 2022 Halloweencon."
+
+[section.hc2012]
+description = "An entry to the [https://scp-wiki.wikidot.com/halloween-contest 2012 Halloween Contest]."
+description-plain = "An entry to the 2012 Halloween Contest."
+
+[section.hiscon2017]
+description = "An entry to the [https://scp-wiki.wikidot.com/history-contest 2017 History Contest]."
+description-plain = "An entry to the 2017 History Contest."
+
+[section.jam-con2018]
+description = "An entry to the [https://scp-wiki.wikidot.com/72-hour-jam-contest 2018 72 Hour Jam Contest]."
+description-plain = "An entry to the 2018 72 Hour Jam Contest."
+
+[section._dark-and-stormy]
+description = "An entry to the 'Dark and Stormy' category of the 2018 72 Hour Jam Contest."
+requires = [ "jam-con2018" ]
+
+[section._murder-mystery]
+description = "An entry to the 'Murder Mystery' category of the 2018 72 Hour Jam Contest."
+requires = [ "jam-con2018" ]
+
+[section._tropical]
+description = "An entry to the 'Tropical' category of the 2018 72 Hour Jam Contest."
+requires = [ "jam-con2018" ]
+
+[section.jam-con2019]
+description = "An entry to the [https://scp-wiki.wikidot.com/144-hour-jam-contest 2019 144-Hour Jam Contest]."
+description-plain = "An entry to the 2019 144-Hour Jam Contest."
+
+[section._shaggy-dog]
+description = "An entry to the 'Shaggy Dog' category of the 2019 144 Hour Jam Contest."
+requires = [ "jam-con2019" ]
+
+[section._pulp-fiction]
+description = "An entry to the 'Pulp Fiction' category of the 2019 144 Hour Jam Contest."
+requires = [ "jam-con2019" ]
+
+[section._all-a-dream]
+description = "An entry to the 'All a Dream' category of the 2019 144 Hour Jam Contest."
+requires = [ "jam-con2019" ]
+
+[section.jam-con2020]
+description = "An entry to the [https://scp-wiki.wikidot.com/144-hour-jam-contest-two 2020 144-Hour Jam Contest]."
+description-plain = "An entry to the 2020 144-Hour Jam Contest."
+
+[section._explosions]
+description = "An entry to the 'Explosions' category of the 2020 144 Hour Jam Contest."
+requires = [ "jam-con2020" ]
+
+[section._delicious]
+description = "An entry to the 'Delicious' category of the 2020 144 Hour Jam Contest."
+requires = [ "jam-con2020" ]
+
+[section._meets-the-eye]
+description = "An entry to the 'Meets the Eye' category of the 2020 144 Hour Jam Contest."
+requires = [ "jam-con2020" ]
+
+[section.jam-con2021]
+description = "An entry to [http://scp-wiki.wikidot.com/jam-con-2021 JamCon 2021]."
+description-plain = "An entry to JamCon 2021."
+
+[section._marine]
+description = "An entry to the 'Marine' category of JamCon 2021."
+requires = [ "jam-con2021" ]
+
+[section._corruption]
+description = "An entry to the 'Corruption' category of JamCon 2021."
+requires = [ "jam-con2021" ]
+
+[section._famouslastwords]
+description = "An entry to the '\"What could possibly go wrong?\"' category of JamCon 2021."
+requires = [ "jam-con2021" ]
+
+[section.mtf2016]
+description = "An entry to the [https://scp-wiki.wikidot.com/mobile-task-force-contest 2016 Mobile Task Force Contest]."
+description-plain = "An entry to the 2016 Mobile Task Force Contest."
+
+[section.nyc2013]
+description = "An entry to the [https://scp-wiki.wikidot.com/new-years-contest 2013 New Year's Canon Contest]."
+description-plain = "An entry to the 2013 New Year's Canon Contest."
+
+[section.rei2015]
+description = "An entry to the [https://scp-wiki.wikidot.com/reimagining-contest 2015 Reimagining Contest]."
+description-plain = "An entry to the 2015 Reimagining Contest."
+
+[section.sc2015]
+description = "An entry to the [https://scp-wiki.wikidot.com/short-works-contest 2015 Short Works Contest]."
+description-plain = "An entry to the 2015 Short Works Contest."
+
+[section.tc2013]
+description = "An entry to the [https://scp-wiki.wikidot.com/time-contest 2013 Time Contest]."
+description-plain = "An entry to the 2013 Time Contest."
+
+[section.uac2014]
+description = "An entry to the [https://scp-wiki.wikidot.com/under-appreciated-contest 2014 Under-Appreciated SCPs Contest]."
+description-plain = "An entry to the 2014 Under-Appreciated SCPs Contest."
+
+[section.memecon2021-unofficial]
+description = "An entry to the unofficial [https://scp-wiki.wikidot.com/memecon-unofficial 2021 MEMECON]."
+description-plain = "An entry to the unofficial 2021 MEMECON."

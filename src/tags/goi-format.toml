@@ -20,7 +20,7 @@ description = "An article following the Arcadia format."
 requires = [ "arcadia" ]
 
 [_are-we-cool-yet]
-description = "An article following the Are We Cool Yet? format."l
+description = "An article following the Are We Cool Yet? format."
 requires = [ "are-we-cool-yet" ]
 
 [_black-queen]
@@ -42,6 +42,10 @@ requires = [ "chicago-spirit" ]
 [_deer-college]
 description = "An article following the Deer College format."
 requires = [ "deer-college" ]
+
+[_eric]
+description = "An article following the Eric format."
+requires = [ "eric" ]
 
 [_factory]
 description = "An article following the Factory format."
@@ -67,6 +71,10 @@ requires = [ "herman-fuller" ]
 description = "An article following the Horizon Initiative format."
 requires = [ "horizon-initiative" ]
 
+[_icsut]
+description = "An article following the International Center for the Study of Unified Thaumatology."
+requires = [ "icsut" ]
+
 [_ijamea]
 description = "An article following the IJAMEA format."
 requires = [ "ijamea" ]
@@ -74,6 +82,10 @@ requires = [ "ijamea" ]
 [_la-rue-macabre]
 description = "An article following the La Rue Macabre format."
 requires = [ "la-rue-macabre" ]
+
+[_madao]
+description = "An article following the Medicea Accademia format."
+requires = [ "madao" ]
 
 [_manna-charitable-foundation]
 description = "An article following the Manna Charitable Foundation format."
@@ -83,10 +95,6 @@ requires = [ "manna-charitable-foundation" ]
 description = "An article following the Marshall, Carter and Dark format."
 requires = [ "marshall-carter-and-dark" ]
 
-[_medicea-accademia]
-description = "An article following the Medicea Accademia format."
-requires = [ "medicea-accademia" ]
-
 [_nobody]
 description = "An article following the Nobody format."
 requires = [ "nobody" ]
@@ -95,6 +103,10 @@ requires = [ "nobody" ]
 description = "An article following the Oneiroi format."
 requires = [ "oneiroi" ]
 
+[_oria]
+description = "An article following the ORIA format."
+requires = [ "oria" ]
+
 [_other]
 description = "A GoI Format following a format not associated with a tagged Group of Interest."
 
@@ -102,13 +114,13 @@ description = "A GoI Format following a format not associated with a tagged Grou
 description = "An article following the Prometheus format."
 requires = [ "prometheus" ]
 
-[_reclamation]
-description = "An article following the Reclamation format."
-requires = [ "reclamation" ]
-
 [_sapphire]
 description = "An article following the SAPPHIRE format."
 requires = [ "sapphire" ]
+
+[_sarkic]
+description = "An article following the Sarkic format."
+requires = [ "sarkic" ]
 
 [_second-hytoth]
 description = "An article following the Second Hytoth format."
@@ -126,9 +138,21 @@ requires = [ "shark-punching-center" ]
 description = "An article following the Three Moons Initiative format."
 requires = [ "three-moons-initiative" ]
 
+[_unusual-cargo]
+description = "An article following the Unusual Cargo format."
+requires = [ "unusual-cargo" ]
+
 [_unusual-incidents-unit]
 description = "An article following the Unusual Incidents Unit format."
 requires = [ "unusual-incidents-unit" ]
+
+[_valravn]
+description = "An article following the Valravn corporation format."
+requires = [ "valravn" ]
+
+[_wandsmen]
+description = "An article following the Wandsmen format."
+requires = [ "wandsmen" ]
 
 [_wilsons-wildlife]
 description = "An article following the Wilsons' Wildlife format."

@@ -1,0 +1,310 @@
+["groups/"]
+name = "Groups"
+description = "The following tags are for specific Departments or Groups of Interest."
+
+[[section]]
+name = "Departments"
+description = "These tags are used to designate pages that prominently feature a Foundation Department or Mobile Task Force."
+
+[section.abnormalities]
+description = "Of or related to the Department of Abnormalities."
+
+[section.angle-grinders]
+description = "Of or related to [https://scp-wiki.wikidot.com/mtf-theta-90-hub-page Mobile Task Force Theta-90] \"Angle Grinders\"."
+description-plain = "Of or related to Mobile Task Force Theta-90 \"Angle Grinders\"."
+
+[section.ethics-committee]
+description = "Of or related to the Foundation's Ethics Committee."
+
+[section.ettra]
+description = "Of or related to the Emergent Threat Tactical Response Authority."
+description-plain = "Of or related to the Emergent Threat Tactical Response Authority."
+
+[section.fire-suppression-dept]
+description = "Of or related to the Foundation's Fire Suppression Department."
+
+[section.folklore-dept]
+description = "Of or related to the [https://scp-wiki.wikidot.com/department-of-mythology-and-folkloristics-hub Department of Mythology and Folkloristics]."
+description-plain = "Of or related to the Foundation's Department of Mythology and Folkloristics."
+
+[section.miscommunications]
+description = "Of or related to the [https://scp-wiki.wikidot.com/domc-hub Department of Miscommunications]."
+description-plain = "Of or related to the Foundation's Department of Miscommunications."
+
+[section.pataphysics-dept]
+description = "Of or related to the Foundation's Pataphysics Department."
+
+[section.procurement-liquidation-dept]
+description= "Of or related to the Foundation's Department of Procurement and Liquidation."
+
+[section.surrealistics-dept]
+description = "Of or related to the Foundation's Department of Surrealistics."
+
+[section.tactical-theology]
+description = "Of or related to the Foundation's Department of Tactical Theology."
+
+[section.tau-5-samsara]
+description = "Of or related to Mobile Task Force Tau-5 \"Samsara\"."
+
+[section.telecom-office]
+description = "Of or related to the Foundation's [https://scp-wiki.wikidot.com/telecommunications-monitoring-office-hub Telecommunications Monitoring Office]."
+description-plain = "Of or related to the Foundation's Telecommunications Monitoring Office."
+
+[section.unreality-dept]
+description = "Of or related to the Foundation's [https://scp-wiki.wikidot.com/unreality-hub Unreality Department]."
+description-plain = "Of or related to the Foundation's Unreality Department."
+
+[[section]]
+name = "Groups of Interest"
+description = "These tags are used to designate pages that prominently feature a Group of Interest."
+
+[section.accelerate-the-future]
+description = "Of or related to Accelerate the Future."
+
+[section.alexylva]
+description = "Of or related to the [https://scp-wiki.wikidot.com/alexylva-university-hub Alexylva University] group of interest."
+description-plain = "Of or related to the Alexylva University group of interest."
+
+[section.ambrose-restaurant]
+description = "Of or related to the [https://scp-wiki.wikidot.com/ambrose-restaurant-hub Ambrose Restaurant] group of interest."
+description-plain = "Of or related to the Ambrose Restaurant group of interest."
+
+[section.anderson]
+description = "Of or related to the [https://scp-wiki.wikidot.com/anderson-robotics-hub Anderson Robotics] group of interest."
+description-plain = "Of or related to the Anderson Robotics group of interest."
+
+[section.arcadia]
+description = "Of or related to the ##purple|[https://scp-wiki.wikidot.com/arcadia-hub Arcadia]## group of interest."
+description-plain = "Of or related to the Arcadia group of interest."
+
+[section.are-we-cool-yet]
+description = "Of or related to the [https://scp-wiki.wikidot.com/are-we-cool-yet-hub Are We Cool Yet?] (AWCY) group of interest."
+description-plain = "Of or related to the Are We Cool Yet? (AWCY) group of interest."
+
+[section.asci]
+description = "Of or related to the American Secure Containment Initiative."
+
+[section.avelar]
+description = "Of or related to the Avelar Professional Products group of interest."
+
+[section.black-queen]
+description = "Of or related to the [https://scp-wiki.wikidot.com/black-queen-hub Black Queen] person or group of interest."
+description-plain = "Of or related to the Black Queen person or group of interest."
+
+[section.british-occult-service]
+description = "Of or related to the British Occult Service (MI666) group of interest."
+
+[section.broken-god]
+description = "Of or related to Mekhane, or the [https://scp-wiki.wikidot.com/church-of-the-broken-god-hub Church of the Broken God] (CotBG) group of interest."
+description-plain = "Of or related to Mekhane, or the Church of the Broken God (CotBG) group of interest."
+
+[section.brothers-of-death]
+description = "Of or related to the Brothers of Death canon or characters."
+
+[section.chaos-insurgency]
+description = "Of or related to the [https://scp-wiki.wikidot.com/chaos-insurgency-hub Chaos Insurgency] (CI) group of interest."
+description-plain = "Of or related to the Chaos Insurgency (CI) group of interest."
+
+[section.chicago-spirit]
+description = "Of or related to the [https://scp-wiki.wikidot.com/chicago-spirit Chicago Spirit] group of interest."
+description-plain = "Of or related to the Chicago Spirit group of interest."
+
+[section.children-of-the-night]
+description = "Of or related to the Children of the Night, outlined in [https://scp-wiki.wikidot.com/scp-1000 SCP-1000]."
+description-plain = "Of or related to the Children of the Night, outlined in SCP-1000."
+
+[section.children-of-the-torch]
+description = "SCP is of or related to the Children of the Torch group of interest."
+
+[section.class-of-76]
+description = "Of or related to the [https://scp-wiki.wikidot.com/remembrance Class of '76] SCPs and stories."
+description-plain = "Of or related to the Class of '76 SCPs and stories."
+
+[section.cogwork-orthodoxy]
+description = "Of or related to the Cogwork Orthodox Church faction of the Church of the Broken God group of interest."
+
+[section.daevite]
+description = "Of or related to [https://scp-wiki.wikidot.com/daevite-hub the Daevites]."
+description-plain = "Of or related to the Daevites."
+
+[section.deer-college]
+description = "Of or related to the [https://scp-wiki.wikidot.com/deer-college-hub Deer College] group of interest."
+description-plain = "Of or related to the Deer College group of interest."
+
+[section.dr-wondertainment]
+description = "Of or related to the [https://scp-wiki.wikidot.com/dr-wondertainment-hub Dr. Wondertainment] person or group of interest."
+description-plain = "Of or related to the Dr. Wondertainment person or group of interest."
+
+[section.factory]
+description = "Of or related to [https://scp-wiki.wikidot.com/factory-hub The Factory] group of interest."
+description-plain = "Of or related to The Factory group of interest."
+
+[section.fifthist]
+description = "Of or related to [https://scp-wiki.wikidot.com/fifthist-hub The Fifth Church] group of interest."
+description-plain = "Of or related to The Fifth Church group of interest."
+
+[section.gamers-against-weed]
+description = "Of or related to the [https://scp-wiki.wikidot.com/gamers-against-weed-hub Gamers Against Weed] (GAW) group of interest."
+description-plain = "Of or related to The Gamers Against Weed (GAW) group of interest."
+
+[section.giftschreiber]
+description = "Of or related to the Giftschreiber (Poison Writers) group of interest."
+
+[section.global-occult-coalition]
+description = "Of or related to the [https://scp-wiki.wikidot.com/goc-hub-page Global Occult Coalition (GOC)] group of interest."
+description-plain = "Of or related to the Global Occult Coalition (GOC) group of interest."
+
+[section.golden-horde]
+description = "Of or related to the Golden Horde group of interest."
+
+[section.greazeburger]
+description = "Of or related to the [https://scp-wiki.wikidot.com/greazeburger-incorporated-hub Greazeburger Incorporated] group of interest."
+description-plain = "Of or related to the Greazeburger Incorporated group of interest."
+
+[section.gru-division-p]
+description = "Of or related to the [https://scp-wiki.wikidot.com/gru-p-hub GRU Division P] group of interest."
+description-plain = "Of or related to the GRU Division \"P\" group of interest."
+
+[section.herman-fuller]
+description = "Of or related to the [https://scp-wiki.wikidot.com/herman-fuller-hub Herman Fuller's Circus of the Disquieting] group of interest."
+description-plain = "Of or related to the Herman Fuller's Circus of the Disquieting group of interest."
+
+[section.hmfscp]
+description = "Of or related to His/Her Majesty's Foundation For The Study of Curiosities and Phantasmagoria."
+
+[section.homo-sapiens-sidhe]
+description = "Of or related to the Fae/Homo sapiens sidhe, as outlined in [https://scp-wiki.wikidot.com/from-120-s-archives-hub From 120's Archives]."
+description-plain = "Of or related to the Fae/Homo sapiens sidhe, as outlined in From 120's Archives"
+
+[section.horizon-initiative]
+description = "Of or related to [https://scp-wiki.wikidot.com/horizon-initiative-hub The Horizon Initiative] group of interest."
+description-plain = "Of or related to the Horizon Initiative group of interest."
+
+[section.icsut]
+description = "Of or related to the International Center for the Study of Unified Thaumatology, member of the GOC's Council of 108."
+
+[section.ijamea]
+description = "Of or related to the [https://scp-wiki.wikidot.com/ijamea-hub Imperial Japanese Anomalous Matters Examination Agency] group of interest."
+description-plain = "Of or related to the Imperial Japanese Anomalous Matters Examination Agency group of interest."
+
+[section.madao]
+description = "Of or related to the Italian [https://scp-wiki.wikidot.com/hub-madao Medicean Academy of Occult Art] (Medicea Accademia Dell'Arte Occulta) group of interest."
+description-plain = "Of or related to the Italian Medicean Academy of Occult Art (Medicea Accademia Dell'Arte Occulta) group of interest."
+
+[section.mages-academy]
+description = "Of or related to the German [https://scp-wiki.wikidot.com/magierakademie-hub Mages Academy] group of interest."
+description-plain = "Of or related to the German Mages Academy group of interest."
+
+[section.manna-charitable-foundation]
+description = "Of or related to the [https://scp-wiki.wikidot.com/manna-charitable-foundation-hub Manna Charitable Foundation] group of interest."
+description-plain = "Of or related to the Manna Charitable Foundation group of interest."
+
+[section.marshall-carter-and-dark]
+description = "Of or related to the [https://scp-wiki.wikidot.com/marshall-carter-and-dark-hub Marshall, Carter, and Dark Ltd.] (MC&D) group of interest."
+description-plain = "Of or related to the Marshall, Carter, and Dark Ltd. (MC&D) group of interest."
+
+[section.maxwellism]
+description = "Of or related to the Church of Maxwellism faction of the Church of the Broken God group of interest."
+
+[section.nameless]
+description = "Of or related to the Nameless, or the Fae, outlined in [https://scp-wiki.wikidot.com/scp-4000 SCP-4000]."
+description-plain = "Of or related to the Nameless, or the Fae, outlined in SCP-4000."
+
+[section.nobody]
+description = "Of or related to the \"[https://scp-wiki.wikidot.com/nobody-hub Nobody]\" person or group of interest."
+description-plain = "Of or related to the \"Nobody\" person or group of interest."
+
+[section.obearwatch]
+description = "Of or related to the Obearwatch group of interest."
+
+[section.obskura]
+description = "Of or related to the Obskura Corps group of interest."
+
+[section.oneiroi]
+description = "Of or related to the [https://scp-wiki.wikidot.com/oneiroi Oneiroi Collective] group of interest."
+description-plain = "Of or related to the Oneiroi Collective group of interest."
+
+[section.oria]
+description = "Of or related to the [https://scp-wiki.wikidot.com/oria-hub Office For The Reclamation of Islamic Artifacts (ORIA)] group of interest."
+description-plain = "Of or related to the Office For The Reclamation of Islamic Artifacts (ORIA) group of interest."
+
+[section.parawatch]
+description = "Of or related to the [https://scp-wiki.wikidot.com/parawatch-hub Parawatch Wiki] group of interest."
+description-plain = "Of or related to the Parawatch Wiki group of interest."
+
+[section.pattern-screamer]
+description = "Of or related to pattern screamers."
+
+[section.pentagram]
+description = "Of or related to Pentagram group of interest."
+
+[section.prometheus]
+description = "Of or related to the [https://scp-wiki.wikidot.com/prometheus-labs-hub Prometheus Labs] group of interest."
+description-plain = "Of or related to the Prometheus Labs group of interest."
+
+[section.sapphire]
+description = "Of or related to the French [https://scp-wiki.wikidot.com/saphir-centre SAPPHIRE] group of interest."
+description-plain = "Of or related to the French SAPPHIRE group of interest."
+
+[section.sarkic]
+description = "Of or related to the [https://scp-wiki.wikidot.com/sarkicism-hub Sarkic Cults] group of interest."
+description-plain = "Of or related to the Sarkic Cults group of interest."
+
+[section.scarlet-king]
+description = "Of or related to the The Scarlet King, or the [https://scp-wiki.wikidot.com/cotsk-hub Children of the Scarlet King] group of interest."
+description-plain = "Of or related to the The Scarlet King, or the Children of the Scarlet King group of interest."
+
+[section.second-hytoth]
+description = "Of or related to the [https://scp-wiki.wikidot.com/second-hytoth-hub Church of the Second Hytoth] group of Interest."
+description-plain = "Of or related to the Church of the Second Hytoth group of Interest."
+
+[section.serpents-hand]
+description = "Of or related to [https://scp-wiki.wikidot.com/serpent-s-hand-hub The Serpent's Hand] group of interest."
+description-plain = "Of or related to the Serpent's Hand group of interest."
+
+[section.shark-punching-center]
+description = "Of or related to the [https://scp-wiki.wikidot.com/spc-hub Shark Punching Center] group of interest."
+description-plain = "Of or related to the Shark Punching Center group of interest."
+
+[section.silicon-nornir]
+description = "Of or related to the Servants of the Silicon Nornir religion, a member of the GOC's Council of 108."
+
+[section.sugarcomb-confectionery]
+description = "Of or related to the Sugarcomb Confectionery group of interest."
+
+[section.three-moons-initiative]
+description = "Of or related to [https://scp-wiki.wikidot.com/three-moons-initiative-hub The Three Moons Initiative] group of interest."
+description-plain = "Of or related to the Three Moons Initiative group of interest."
+
+[section.totleighsoft]
+description = "Of or related to the anomalous software development corporation TotleighSoft."
+
+[section.unusual-cargo]
+description = "Of or related to the Commission on Unusual Cargo."
+description-plain = "Of or related to the Commission on Unusual Cargo."
+
+[section.unusual-incidents-unit]
+description = "Of or related to the Federal Bureau of Investigation [https://scp-wiki.wikidot.com/unusual-incidents-unit-hub Unusual Incidents Unit (UIU)] group of interest."
+description-plain = "Of or related to the Federal Bureau of Investigation Unusual Incidents Unit (UIU) group of interest."
+
+[section.valravn]
+description = "Of or related to the [https://scp-wiki.wikidot.com/valravn-corporation-hub Valravn Corporation] group of interest."
+description-plain = "Of or related to the Valravn group of interest."
+
+[section.vikander-kneed]
+description = "Of or related to the [https://scp-wiki.wikidot.com/vikander-kneed-technical-media-hub Vikander-Kneed Technical Media] group of interest."
+description-plain = "Of or related to the Vikander-Kneed Technical Media group of interest."
+
+[section.wandsmen]
+description = "Of or related to [https://scp-wiki.wikidot.com/wandsmen-hub The Wandsmen] group of interest."
+description-plain = "Of or related to The Wandsmen group of interest."
+
+[section.westhead-media]
+description = "Of or related to the Westhead Media group of interest."
+
+[section.wilsons-wildlife]
+description = "Of or related to the [https://scp-wiki.wikidot.com/wilson-s-wildlife-solutions-hub Wilson's Wildlife Solutions] group of interest."
+description-plain = "Of or related to the Wilson's Wildlife Solutions group of interest."
+
+[section.xia-dynasty]
+description = "Of or related to the Xia Dynasty."
