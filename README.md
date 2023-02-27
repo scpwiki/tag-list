@@ -1,7 +1,7 @@
 # tag-list
 
 This is the tag documentation generator for the [English-speaking branch of the
-SCP Wiki](https://scp-wiki.wikidot.com/).
+SCP Wiki](https://scpwiki.com/).
 
 The documentation generator implements (and is a proof-of-concept of) a
 [prospective interface](src/tags/README.md) for defining tags that may in the
