@@ -10,9 +10,9 @@ defined as [TOML](https://toml.io/) in order to be easily machine-readable, and
 the documentation is designed to be as human-readable as reasonably possible.
 
 You can see the [tag documentation
-generator](http://05command.wikidot.com/tag-list-manifest) and the [tag
-documentation itself](http://05command.wikidot.com/tech-hub-tag-list) in action
-on [05command](http://05command.wikidot.com/), the SCP Wiki's staff site.
+generator](https://05command.wikidot.com/tag-list-manifest) and the [tag
+documentation itself](https://05command.wikidot.com/tech-hub-tag-list) in action
+on [05command](https://05command.wikidot.com/), the SCP Wiki's staff site.
 
 This project will be deprecated with the fruition of Wikijump, which will
 contain native solutions for the problems this tool addresses.
@@ -80,4 +80,4 @@ check the console for more details.
 ## Reporting issues
 
 If there are any issues with this tool, please contact the [SCP Wiki Tech
-Team](http://05command.wikidot.com/technical-staff-main).
+Team](https://05command.wikidot.com/technical-staff-main).
