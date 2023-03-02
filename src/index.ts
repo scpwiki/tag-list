@@ -104,7 +104,7 @@ function addTemplateListeners(templateBox, templateUrlBox, templateUrlButton) {
     setState(["template", "output"], "waiting")
     template = templateBox.value
     setState(["template"], "done")
-    makeOutput()
+    makeOutputs()
   })
 
   templateUrlButton.addEventListener("click", () => {
@@ -133,7 +133,7 @@ definitionsBox.addEventListener("input", () => {
     return
   }
   setState(["definitions"], "done")
-  makeOutput()
+  makeOutputs()
 })
 
 definitionsUrlsButton.addEventListener("click", () => {
@@ -150,7 +150,7 @@ definitionsUrlsButton.addEventListener("click", () => {
     })
     if (errors.length === 0) {
       setState(["definitions"], "done")
-      makeOutput()
+      makeOutputs()
     } else {
       setState(["definitions", "output"], "failed")
       definitionsErrors.innerHTML = `<p>Errors:</p><ul><li>${
@@ -180,13 +180,24 @@ function addCategory(config: string): void {
 }
 
 /**
- * Generates the Wikitext output from the given data, or reports errors that
- * are preventing it from generating correctly.
+ * Generates all Wikitext outputs from templates.
  */
-function makeOutput(): void {
-  outputErrors.innerHTML = ""
+function makeOutputs(): void {
   // Generate relationship strings for each tag
   makeRelationshipsStrings(definitions)
+
+  // Generate for each template
+  makeOutput(_, outputHubBox, outputHubErrors)
+  makeOutput(_, outputDataBox, outputDataErrors)
+}
+
+/**
+ * Generates the Wikitext output for this template, or reports
+ * any errors that are preventing it from generating correctly.
+ */
+function makeOutput(template: string, outputBox: HTMLTextAreaElement, errors: HTMLParagraphElement): void {
+  errors.innerHTML = ""
+
   let output
   try {
     output = render(template, {
@@ -209,13 +220,15 @@ function makeOutput(): void {
     if (error instanceof Error) {
       // Strip EJS-specific error trace
       const message = error.message.split("\n").reverse()[0]
-      outputErrors.innerHTML = `Rendering error: ${message}`
+      errors.innerHTML = `Rendering error: ${message}`
     } else {
-      outputErrors.innerHTML = `Error: ${String(error)}`
+      errors.innerHTML = `Error: ${String(error)}`
     }
     output = ""
     setState(["output"], "failed")
+    throw error; // Re-raise to abort the rendering process up above
   }
+
   outputBox.value = output
 }
 
