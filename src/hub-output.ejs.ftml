@@ -56,7 +56,7 @@ The following <%- category._relationships.length === 1 ? "applies" : "apply" %> 
 <% } %>
 
 <% Object.entries(category.tags).forEach(([tagName, tag]) => { -%>
-* **[https://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description ? `-- ${tag.description}` : "" %>
+* **[https://scpwiki.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description ? `-- ${tag.description}` : "" %>
 <% tag._relationships.forEach(relationship => { -%>
  * //<%- relationship %>//
 <% }) -%>
@@ -69,7 +69,7 @@ The following <%- category._relationships.length === 1 ? "applies" : "apply" %> 
 <%- section.description %>
 
 <% Object.entries(section.tags).forEach(([tagName, tag]) => { -%>
-* **[https://scp-wiki.wikidot.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description ? `-- ${tag.description}` : "" %>
+* **[https://scpwiki.com/system:page-tags/tag/<%- tagName %> <%- tagName %>]** <%- tag.description ? `-- ${tag.description}` : "" %>
 <% tag._relationships.forEach(relationship => { -%>
  * //<%- relationship %>//
 <% }) -%>
