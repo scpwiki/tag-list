@@ -235,7 +235,7 @@ function makeOutput(template: string, outputBox: HTMLTextAreaElement, errors: HT
 /**
  * Generates the list of received category definitions
  */
-function makeDefinitionsList (): void {
+function makeDefinitionsList(): void {
   let total = 0
   if (Object.keys(definitions).length > 0) {
     el("tags-received").innerHTML = Object.entries(definitions).map(
@@ -270,7 +270,7 @@ function makeDefinitionsList (): void {
  * @returns A promise that resolves to a list of contents of the requested
  * resources.
  */
-async function fetchUrls (urls: string[]): Promise<string[]> {
+async function fetchUrls(urls: string[]): Promise<string[]> {
   // A CORS proxy is required to access the code blocks.
   // CodeTabs CORS Proxy is used here:
   // https://codetabs.com/cors-proxy/cors-proxy.html
@@ -295,7 +295,7 @@ async function fetchUrls (urls: string[]): Promise<string[]> {
  * @param targets - A list of sections to set the state of.
  * @param state - The state to set.
  */
-function setState (
+function setState(
   targets: ("template" | "definitions" | "output")[],
   state: "waiting" | "done" | "failed"
 ): void {
