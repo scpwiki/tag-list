@@ -92,8 +92,12 @@ const definitionsBox = el<HTMLTextAreaElement>("definitions")
 const definitionsUrlsBox = el<HTMLTextAreaElement>("definitions-urls")
 const definitionsUrlsButton = el<HTMLButtonElement>("definitions-urls-button")
 const definitionsErrors = el<HTMLDivElement>("definitions-errors")
-const outputBox = el<HTMLTextAreaElement>("output")
-const outputErrors = el<HTMLParagraphElement>("output-errors")
+
+const outputHubBox = el<HTMLTextAreaElement>("output-hub")
+const outputHubErrors = el<HTMLParagraphElement>("output-hub-errors")
+
+const outputDataBox = el<HTMLTextAreaElement>("output-data")
+const outputDataErrors = el<HTMLParagraphElement>("output-data-errors")
 
 function addTemplateListeners(templateBox, templateUrlBox, templateUrlButton) {
   templateBox.addEventListener("input", () => {
@@ -179,7 +183,7 @@ function addCategory(config: string): void {
  * Generates the Wikitext output from the given data, or reports errors that
  * are preventing it from generating correctly.
  */
-function makeOutput (): void {
+function makeOutput(): void {
   outputErrors.innerHTML = ""
   // Generate relationship strings for each tag
   makeRelationshipsStrings(definitions)
