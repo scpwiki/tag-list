@@ -64,11 +64,12 @@ const numberOfTagFiles = parseInt(getQueryParam("categoryCount", "0"))
 const site = getQueryParam("site", "")
 const page = getQueryParam("page", "")
 
-// Generate code URLs for the config, assuming the template is first
+// Generate code URLs for the config, assuming the templates are first
 const defaultsUrls = {
-  template: `${site}/${page}/code/1`,
+  hubTemplate: `${site}/${page}/code/1`,
+  dataTemplate: `${site}/${page}/code/2`,
   definitions: Array.from({ length: numberOfTagFiles }).map((_, index) => {
-    return `${site}/${page}/code/${index + 2}`
+    return `${site}/${page}/code/${index + 3}`
   })
 }
 
@@ -79,9 +80,14 @@ const definitions: { [category: string]: TagCategory } = {}
 
 document.body.innerHTML = html;
 
-const templateBox = el<HTMLTextAreaElement>("template")
-const templateUrlBox = el<HTMLInputElement>("template-url")
-const templateUrlButton = el<HTMLButtonElement>("template-url-button")
+const templateHubBox = el<HTMLTextAreaElement>("template-hub")
+const templateHubUrlBox = el<HTMLInputElement>("template-hub-url")
+const templateHubUrlButton = el<HTMLButtonElement>("template-hub-url-button")
+
+const templateDataBox = el<HTMLTextAreaElement>("template-data")
+const templateDataUrlBox = el<HTMLInputElement>("template-data-url")
+const templateDataUrlButton = el<HTMLButtonElement>("template-data-url-button")
+
 const definitionsBox = el<HTMLTextAreaElement>("definitions")
 const definitionsUrlsBox = el<HTMLTextAreaElement>("definitions-urls")
 const definitionsUrlsButton = el<HTMLButtonElement>("definitions-urls-button")
@@ -89,21 +95,26 @@ const definitionsErrors = el<HTMLDivElement>("definitions-errors")
 const outputBox = el<HTMLTextAreaElement>("output")
 const outputErrors = el<HTMLParagraphElement>("output-errors")
 
-templateBox.addEventListener("input", () => {
-  setState(["template", "output"], "waiting")
-  template = templateBox.value
-  setState(["template"], "done")
-  makeOutput()
-})
-
-templateUrlButton.addEventListener("click", () => {
-  setState(["template", "output"], "waiting")
-  void fetchUrls([templateUrlBox.value]).then(template => {
-    templateBox.value = template[0]
+function addTemplateListeners(templateBox, templateUrlBox, templateUrlButton) {
+  templateBox.addEventListener("input", () => {
+    setState(["template", "output"], "waiting")
+    template = templateBox.value
     setState(["template"], "done")
-    templateBox.dispatchEvent(new Event("input"))
+    makeOutput()
   })
-})
+
+  templateUrlButton.addEventListener("click", () => {
+    setState(["template", "output"], "waiting")
+    void fetchUrls([templateUrlBox.value]).then(template => {
+      templateBox.value = template[0]
+      setState(["template"], "done")
+      templateBox.dispatchEvent(new Event("input"))
+    })
+  })
+}
+
+addTemplateListeners(templateHubBox, templateHubUrlBox, templateHubUrlButton)
+addTemplateListeners(templateDataBox, templateDataUrlBox, templateDataUrlButton)
 
 definitionsBox.addEventListener("input", () => {
   setState(["definitions", "output"], "waiting")
@@ -146,7 +157,8 @@ definitionsUrlsButton.addEventListener("click", () => {
 })
 
 window.addEventListener("load", () => {
-  templateUrlBox.value = defaultsUrls.template
+  templateHubUrlBox.value = defaultsUrls.hubTemplate
+  templateDataUrlBox.value = defaultsUrls.dataTemplate
   definitionsUrlsBox.value = defaultsUrls.definitions.join("\n")
   makeDefinitionsList()
 })
