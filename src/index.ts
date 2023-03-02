@@ -73,8 +73,8 @@ const defaultsUrls = {
   })
 }
 
-// Track the value of the page template
-let template = ""
+// Track the value of the page templates
+let templates = { hub: "", data: "" }
 // Track the tag category definitions
 const definitions: { [category: string]: TagCategory } = {}
 
@@ -99,10 +99,10 @@ const outputHubErrors = el<HTMLParagraphElement>("output-hub-errors")
 const outputDataBox = el<HTMLTextAreaElement>("output-data")
 const outputDataErrors = el<HTMLParagraphElement>("output-data-errors")
 
-function addTemplateListeners(templateBox, templateUrlBox, templateUrlButton) {
+function addTemplateListeners(name, templateBox, templateUrlBox, templateUrlButton) {
   templateBox.addEventListener("input", () => {
     setState(["template", "output"], "waiting")
-    template = templateBox.value
+    templates[name] = templateBox.value
     setState(["template"], "done")
     makeOutputs()
   })
@@ -117,8 +117,8 @@ function addTemplateListeners(templateBox, templateUrlBox, templateUrlButton) {
   })
 }
 
-addTemplateListeners(templateHubBox, templateHubUrlBox, templateHubUrlButton)
-addTemplateListeners(templateDataBox, templateDataUrlBox, templateDataUrlButton)
+addTemplateListeners("hub", templateHubBox, templateHubUrlBox, templateHubUrlButton)
+addTemplateListeners("data", templateDataBox, templateDataUrlBox, templateDataUrlButton)
 
 definitionsBox.addEventListener("input", () => {
   setState(["definitions", "output"], "waiting")
@@ -187,8 +187,8 @@ function makeOutputs(): void {
   makeRelationshipsStrings(definitions)
 
   // Generate for each template
-  makeOutput(_, outputHubBox, outputHubErrors)
-  makeOutput(_, outputDataBox, outputDataErrors)
+  makeOutput(templates.hub, outputHubBox, outputHubErrors)
+  makeOutput(templates.data, outputDataBox, outputDataErrors)
 }
 
 /**
