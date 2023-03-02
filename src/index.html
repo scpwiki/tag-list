@@ -3,13 +3,21 @@
     This tool uses
     <a href="https://codetabs.com/cors-proxy/cors-proxy.html">CodeTabs CORS Proxy</a>.
   </p>
-  <h2>1. Template <span id="template-state"></span></h2>
-  <p>Paste the EJS template for the tag list page into here:</p>
-  <textarea id="template"></textarea>
-  <p>Or, fetch it via URL:</p>
+  <h2>1. Templates <span id="template-state"></span></h2>
+
+  <p>Paste the EJS template for the tag list hub page into here:</p>
+  <textarea id="template-hub"></textarea>
+
+  <p>Then, paste the EJS template for the TOML output page into here:</p>
+  <textarea id="template-toml"></textarea>
+
+  <p>Or, fetch them via URL:</p>
   <form>
-    <input id="template-url"></input>
-    <button type="button" id="template-url-button">Fetch</button>
+    <input id="template-hub-url"></input>
+    <button type="button" id="template-hub-url-button">Fetch</button>
+
+    <input id="template-toml-url"></input>
+    <button type="button" id="template-toml-url-button">Fetch</button>
   </form>
 
   <h2>2. Tag definitions <span id="definitions-state"></span></h2>
