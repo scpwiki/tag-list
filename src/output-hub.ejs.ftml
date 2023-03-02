@@ -37,7 +37,7 @@ When choosing tags for an article, keep in mind that you want to keep the list a
   "object-classes/", "attributes/",
   "groups/", "goi-format/",
   "canons/", "series/", "characters/", "locations/",
-  "content-markers/", "staff-process/", "events/", "other/"
+  "content-markers/", "staff-process/", "events/",
 ].forEach(categoryName => {
   const category = getCategory(categoryName); -%>
 [[tab <%- category.name ? category.name : categoryName %>]]
