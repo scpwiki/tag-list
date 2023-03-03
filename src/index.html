@@ -3,13 +3,21 @@
     This tool uses
     <a href="https://codetabs.com/cors-proxy/cors-proxy.html">CodeTabs CORS Proxy</a>.
   </p>
-  <h2>1.Template <span id="template-state"></span></h2>
-  <p>Paste the EJS template for the tag list page into here:</p>
-  <textarea id="template"></textarea>
-  <p>Or, fetch it via URL:</p>
+  <h2>1. Templates <span id="template-state"></span></h2>
+
+  <p>Paste the EJS template for the tag list hub page into here:</p>
+  <textarea id="template-hub"></textarea>
+
+  <p>Then, paste the EJS template for the TOML data page into here:</p>
+  <textarea id="template-data"></textarea>
+
+  <p>Or, fetch them via URL:</p>
   <form>
-    <input id="template-url"></input>
-    <button type="button" id="template-url-button">Fetch</button>
+    <input id="template-hub-url"></input>
+    <button type="button" id="template-hub-url-button">Fetch</button>
+
+    <input id="template-data-url"></input>
+    <button type="button" id="template-data-url-button">Fetch</button>
   </form>
 
   <h2>2. Tag definitions <span id="definitions-state"></span></h2>
@@ -29,8 +37,13 @@
   <p><span id="total-tags"></span> tags in total.</p>
   <div id="definitions-errors" class="errors"></div>
 
-  <h2>3. Output <span id="output-state"></span></h2>
-  <p>Copy this and paste it into the tag list documentation</p>
-  <textarea id="output" readonly></textarea>
-  <p id="output-errors" class="errors"></p>
+  <h2>3. Outputs <span id="output-state"></span></h2>
+
+  <p>Copy and paste this into the tag list hub page:</p>
+  <textarea id="output-hub" readonly></textarea>
+  <p id="output-hub-errors" class="errors"></p>
+
+  <p>Then, opy and paste this into the TOML data page:</p>
+  <textarea id="output-data" readonly></textarea>
+  <p id="output-data-errors" class="errors"></p>
 </main>

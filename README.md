@@ -1,7 +1,7 @@
 # tag-list
 
 This is the tag documentation generator for the [English-speaking branch of the
-SCP Wiki](https://scp-wiki.wikidot.com/).
+SCP Wiki](https://scpwiki.com/).
 
 The documentation generator implements (and is a proof-of-concept of) a
 [prospective interface](src/tags/README.md) for defining tags that may in the
@@ -10,9 +10,9 @@ defined as [TOML](https://toml.io/) in order to be easily machine-readable, and
 the documentation is designed to be as human-readable as reasonably possible.
 
 You can see the [tag documentation
-generator](http://05command.wikidot.com/tag-list-manifest) and the [tag
-documentation itself](http://05command.wikidot.com/tech-hub-tag-list) in action
-on [05command](http://05command.wikidot.com/), the SCP Wiki's staff site.
+generator](https://05command.wikidot.com/tag-list-manifest) and the [tag
+documentation itself](https://05command.wikidot.com/tech-hub-tag-list) in action
+on [05command](https://05command.wikidot.com/), the SCP Wiki's staff site.
 
 This project will be deprecated with the fruition of Wikijump, which will
 contain native solutions for the problems this tool addresses.
@@ -77,7 +77,24 @@ The tool will output the documentation template with all tags from the manifest
 inserted. Any errors should be reported immediately, although you may need to
 check the console for more details.
 
+## Development
+
+Install dependencies using `npm`:
+
+```
+$ npm install
+```
+
+Once this is done, the following scripts are provided as part of the local development process:
+```
+$ npm run start  # Live view local version in your browser
+$ npm run lint   # Run linter
+$ npm run fix    # Run linter in fix mode
+$ npm run tests  # Run test suite
+$ npm run build  # Create production build
+```
+
 ## Reporting issues
 
 If there are any issues with this tool, please contact the [SCP Wiki Tech
-Team](http://05command.wikidot.com/technical-staff-main).
+Team](https://05command.wikidot.com/technical-staff-main).

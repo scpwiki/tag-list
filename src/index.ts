@@ -64,46 +64,61 @@ const numberOfTagFiles = parseInt(getQueryParam("categoryCount", "0"))
 const site = getQueryParam("site", "")
 const page = getQueryParam("page", "")
 
-// Generate code URLs for the config, assuming the template is first
+// Generate code URLs for the config, assuming the templates are first
 const defaultsUrls = {
-  template: `${site}/${page}/code/1`,
+  hubTemplate: `${site}/${page}/code/1`,
+  dataTemplate: `${site}/${page}/code/2`,
   definitions: Array.from({ length: numberOfTagFiles }).map((_, index) => {
-    return `${site}/${page}/code/${index + 2}`
+    return `${site}/${page}/code/${index + 3}`
   })
 }
 
-// Track the value of the page template
-let template = ""
+// Track the value of the page templates
+let templates = { hub: "", data: "" }
 // Track the tag category definitions
 const definitions: { [category: string]: TagCategory } = {}
 
 document.body.innerHTML = html;
 
-const templateBox = el<HTMLTextAreaElement>("template")
-const templateUrlBox = el<HTMLInputElement>("template-url")
-const templateUrlButton = el<HTMLButtonElement>("template-url-button")
+const templateHubBox = el<HTMLTextAreaElement>("template-hub")
+const templateHubUrlBox = el<HTMLInputElement>("template-hub-url")
+const templateHubUrlButton = el<HTMLButtonElement>("template-hub-url-button")
+
+const templateDataBox = el<HTMLTextAreaElement>("template-data")
+const templateDataUrlBox = el<HTMLInputElement>("template-data-url")
+const templateDataUrlButton = el<HTMLButtonElement>("template-data-url-button")
+
 const definitionsBox = el<HTMLTextAreaElement>("definitions")
 const definitionsUrlsBox = el<HTMLTextAreaElement>("definitions-urls")
 const definitionsUrlsButton = el<HTMLButtonElement>("definitions-urls-button")
 const definitionsErrors = el<HTMLDivElement>("definitions-errors")
-const outputBox = el<HTMLTextAreaElement>("output")
-const outputErrors = el<HTMLParagraphElement>("output-errors")
 
-templateBox.addEventListener("input", () => {
-  setState(["template", "output"], "waiting")
-  template = templateBox.value
-  setState(["template"], "done")
-  makeOutput()
-})
+const outputHubBox = el<HTMLTextAreaElement>("output-hub")
+const outputHubErrors = el<HTMLParagraphElement>("output-hub-errors")
 
-templateUrlButton.addEventListener("click", () => {
-  setState(["template", "output"], "waiting")
-  void fetchUrls([templateUrlBox.value]).then(template => {
-    templateBox.value = template[0]
+const outputDataBox = el<HTMLTextAreaElement>("output-data")
+const outputDataErrors = el<HTMLParagraphElement>("output-data-errors")
+
+function addTemplateListeners(name, templateBox, templateUrlBox, templateUrlButton) {
+  templateBox.addEventListener("input", () => {
+    setState(["template", "output"], "waiting")
+    templates[name] = templateBox.value
     setState(["template"], "done")
-    templateBox.dispatchEvent(new Event("input"))
+    makeOutputs()
   })
-})
+
+  templateUrlButton.addEventListener("click", () => {
+    setState(["template", "output"], "waiting")
+    void fetchUrls([templateUrlBox.value]).then(template => {
+      templateBox.value = template[0]
+      setState(["template"], "done")
+      templateBox.dispatchEvent(new Event("input"))
+    })
+  })
+}
+
+addTemplateListeners("hub", templateHubBox, templateHubUrlBox, templateHubUrlButton)
+addTemplateListeners("data", templateDataBox, templateDataUrlBox, templateDataUrlButton)
 
 definitionsBox.addEventListener("input", () => {
   setState(["definitions", "output"], "waiting")
@@ -118,7 +133,7 @@ definitionsBox.addEventListener("input", () => {
     return
   }
   setState(["definitions"], "done")
-  makeOutput()
+  makeOutputs()
 })
 
 definitionsUrlsButton.addEventListener("click", () => {
@@ -135,7 +150,7 @@ definitionsUrlsButton.addEventListener("click", () => {
     })
     if (errors.length === 0) {
       setState(["definitions"], "done")
-      makeOutput()
+      makeOutputs()
     } else {
       setState(["definitions", "output"], "failed")
       definitionsErrors.innerHTML = `<p>Errors:</p><ul><li>${
@@ -146,7 +161,8 @@ definitionsUrlsButton.addEventListener("click", () => {
 })
 
 window.addEventListener("load", () => {
-  templateUrlBox.value = defaultsUrls.template
+  templateHubUrlBox.value = defaultsUrls.hubTemplate
+  templateDataUrlBox.value = defaultsUrls.dataTemplate
   definitionsUrlsBox.value = defaultsUrls.definitions.join("\n")
   makeDefinitionsList()
 })
@@ -164,13 +180,24 @@ function addCategory(config: string): void {
 }
 
 /**
- * Generates the Wikitext output from the given data, or reports errors that
- * are preventing it from generating correctly.
+ * Generates all Wikitext outputs from templates.
  */
-function makeOutput (): void {
-  outputErrors.innerHTML = ""
+function makeOutputs(): void {
   // Generate relationship strings for each tag
   makeRelationshipsStrings(definitions)
+
+  // Generate for each template
+  makeOutput(templates.hub, outputHubBox, outputHubErrors)
+  makeOutput(templates.data, outputDataBox, outputDataErrors)
+}
+
+/**
+ * Generates the Wikitext output for this template, or reports
+ * any errors that are preventing it from generating correctly.
+ */
+function makeOutput(template: string, outputBox: HTMLTextAreaElement, errors: HTMLParagraphElement): void {
+  errors.innerHTML = ""
+
   let output
   try {
     output = render(template, {
@@ -193,20 +220,22 @@ function makeOutput (): void {
     if (error instanceof Error) {
       // Strip EJS-specific error trace
       const message = error.message.split("\n").reverse()[0]
-      outputErrors.innerHTML = `Rendering error: ${message}`
+      errors.innerHTML = `Rendering error: ${message}`
     } else {
-      outputErrors.innerHTML = `Error: ${String(error)}`
+      errors.innerHTML = `Error: ${String(error)}`
     }
     output = ""
     setState(["output"], "failed")
+    throw error; // Re-raise to abort the rendering process up above
   }
+
   outputBox.value = output
 }
 
 /**
  * Generates the list of received category definitions
  */
-function makeDefinitionsList (): void {
+function makeDefinitionsList(): void {
   let total = 0
   if (Object.keys(definitions).length > 0) {
     el("tags-received").innerHTML = Object.entries(definitions).map(
@@ -241,7 +270,7 @@ function makeDefinitionsList (): void {
  * @returns A promise that resolves to a list of contents of the requested
  * resources.
  */
-async function fetchUrls (urls: string[]): Promise<string[]> {
+async function fetchUrls(urls: string[]): Promise<string[]> {
   // A CORS proxy is required to access the code blocks.
   // CodeTabs CORS Proxy is used here:
   // https://codetabs.com/cors-proxy/cors-proxy.html
@@ -266,7 +295,7 @@ async function fetchUrls (urls: string[]): Promise<string[]> {
  * @param targets - A list of sections to set the state of.
  * @param state - The state to set.
  */
-function setState (
+function setState(
   targets: ("template" | "definitions" | "output")[],
   state: "waiting" | "done" | "failed"
 ): void {
