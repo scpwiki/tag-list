@@ -272,17 +272,16 @@ function makeDefinitionsList(): void {
  */
 async function fetchUrls(urls: string[]): Promise<string[]> {
   // A CORS proxy is required to access the code blocks.
-  // CodeTabs CORS Proxy is used here:
-  // https://codetabs.com/cors-proxy/cors-proxy.html
-  // This proxy has a limit of 5 requests per second, so a 200ms delay will be
-  // inserted between each request.
+  // The wikidot.croquembouche.net CORS proxy is used here.
+  // This proxy has a limit of 60 requests per 10 seconds per IP,
+  // so a 200ms delay will be inserted between each request.
   let delay = 0
   const delayIncrement = 200
   return await Promise.all(urls.map(async url => {
     delay += delayIncrement
     return new Promise(func => setTimeout(func, delay)).then(async () => {
       return await (
-        await fetch(`https://api.codetabs.com/v1/proxy/?quest=${url}`)
+        await fetch(`https://wikidot.croquembouche.net/?url=${encodeURIComponent(url)}`)
       ).text()
     })
   }))
