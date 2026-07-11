@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCP Tag List Generator</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+
+    <main>
+      <p>
+        This tool uses the
+        <a href="https://wikidot.croquembouche.net/">wikidot.croquembouche.net</a> CORS Proxy.
+      </p>
+      <h2>1. Templates <span id="template-state"></span></h2>
+
+      <p>Paste the EJS template for the tag list hub page into here:</p>
+      <textarea id="template-hub"></textarea>
+
+      <p>Then, paste the EJS template for the TOML data page into here:</p>
+      <textarea id="template-data"></textarea>
+
+      <p>Or, fetch them via URL:</p>
+      <form>
+        <input id="template-hub-url"></input>
+        <button type="button" id="template-hub-url-button">Fetch</button>
+
+        <input id="template-data-url"></input>
+        <button type="button" id="template-data-url-button">Fetch</button>
+      </form>
+
+      <h2>2. Tag definitions <span id="definitions-state"></span></h2>
+      <p>
+        Paste a tag definitions file in here. It will be removed instantly and
+        will appear in the list below. Repeat for each tag file.
+      </p>
+      <textarea id="definitions"></textarea>
+      <p>Or, fetch them via URL:</p>
+      <form>
+        <textarea id="definitions-urls"></textarea>
+        <button type="button" id="definitions-urls-button">Fetch all</button>
+      </form>
+
+      <p>Tag definition files received:</p>
+      <ul id="tags-received"></ul>
+      <p><span id="total-tags"></span> tags in total.</p>
+      <div id="definitions-errors" class="errors"></div>
+
+      <h2>3. Outputs <span id="output-state"></span></h2>
+
+      <p>Copy and paste this into the tag list hub page:</p>
+      <textarea id="output-hub" readonly></textarea>
+      <p id="output-hub-errors" class="errors"></p>
+
+      <p>Then, copy and paste this into the TOML data page:</p>
+      <textarea id="output-data" readonly></textarea>
+      <p id="output-data-errors" class="errors"></p>
+    </main>
+  </body>
+</html>
