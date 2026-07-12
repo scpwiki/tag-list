@@ -19,9 +19,13 @@
   },
   "browserslist": "last 5 years",
   "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/jest": "^30.0.0",
     "ejs": "^6.0.1",
-    "toml": "^4.1.2",
+    "prettier": "^3.9.5",
+    "prettier-plugin-organize-imports": "^4.3.0",
     "runtypes": "^7.0.4",
+    "toml": "^4.1.2",
     "typescript": "^6.0.2",
     "vite": "^8.1.4"
   }
