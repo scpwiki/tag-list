@@ -1,7 +1,6 @@
 import { parse } from "toml"
 import {
-  Array as ArrayRT, Dictionary, Intersect, Number, Partial as PartialRT,
-  Static, String, Union
+  Array as ArrayRT, Intersect, Optional, Number, Record as RecordRT, Static, String, Union
 } from "runtypes"
 
 /* Types for processed tag configuration objects */
@@ -10,7 +9,7 @@ const TagRelationshipListRuntype = ArrayRT(
   Union(String, ArrayRT(String))
 )
 
-const TagRelationshipsRuntype = PartialRT({
+const TagRelationshipsRuntype = RecordRT({
   requires: TagRelationshipListRuntype,
   similar: TagRelationshipListRuntype,
   related: TagRelationshipListRuntype,
@@ -23,7 +22,7 @@ const TagRelationshipsRuntype = PartialRT({
 type TagRelationships = Static<typeof TagRelationshipsRuntype>
 
 const TagRuntype = Intersect(
-  PartialRT({
+  RecordRT({
     'description': String,
     'description-plain': String
   }),
@@ -31,10 +30,10 @@ const TagRuntype = Intersect(
 )
 export type Tag = Static<typeof TagRuntype>
 
-const TagDefinitionsRuntype = Dictionary(TagRuntype, "string")
+const TagDefinitionsRuntype = RecordRT(TagRuntype, "string")
 type TagDefinitions = Static<typeof TagDefinitionsRuntype>
 
-const TagCategoryPropertiesRuntype = PartialRT({
+const TagCategoryPropertiesRuntype = RecordRT({
   name: String,
   description: String,
   max: Number
@@ -66,10 +65,10 @@ const TagCategoryCategoryConfigRuntype = Intersect(
 const TagCategorySectionConfigRuntype = ArrayRT(
   Intersect(
     // Properties of the section
-    PartialRT({
+    Optional(RecordRT({
       name: String,
       description: String
-    }),
+    })),
     // Tags in the section
     TagDefinitionsRuntype
   )
@@ -77,7 +76,7 @@ const TagCategorySectionConfigRuntype = ArrayRT(
 
 const TagCategoryConfigRuntype = Intersect(
   // Properties for category, defined on a key named <category>/, AND tags
-  Dictionary(
+  Optional(RecordRT(
     Union(
       // Main category config
       TagCategoryCategoryConfigRuntype,
@@ -85,9 +84,9 @@ const TagCategoryConfigRuntype = Intersect(
       TagDefinitionsRuntype
     ),
     "string"
-  ),
+  )),
   // Tag sections
-  PartialRT({ section: TagCategorySectionConfigRuntype })
+  Optional(RecordRT({ section: TagCategorySectionConfigRuntype }))
 )
 
 /**
@@ -190,7 +189,7 @@ export function parseConfig (config: string): TagCategory {
       ).map(sectionConfig => {
         // Sections are set up sort of weird for a friendly-ish TOML syntax
         // Properties that are not tags need to be plucked
-        let section: Partial<TagCategorySection> = {}
+        let section: RecordRT<TagCategorySection> = {}
         for(const property of <const>[
           "name",
           "description",
