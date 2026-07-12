@@ -1,6 +1,6 @@
 import "./root.css"
 
-import { render } from "ejs"
+import ejs from 'ejs';
 import {
   parseConfig, TagCategory, TomlParseError, ConfigParseError
 } from "./parser"
@@ -197,7 +197,7 @@ function makeOutput(template: string, outputBox: HTMLTextAreaElement, errors: HT
 
   let output
   try {
-    output = render(template, {
+    output = ejs.render(template, {
       getCategory: (name: string) => {
         if (!name.endsWith("/")) {
           throw new Error(
