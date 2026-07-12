@@ -1,4 +1,3 @@
-import html from "./index.html"
 import "./root.css"
 
 import { render } from "ejs"
@@ -77,8 +76,6 @@ const defaultsUrls = {
 let templates = { hub: "", data: "" }
 // Track the tag category definitions
 const definitions: { [category: string]: TagCategory } = {}
-
-document.body.innerHTML = html;
 
 const templateHubBox = el<HTMLTextAreaElement>("template-hub")
 const templateHubUrlBox = el<HTMLInputElement>("template-hub-url")
