@@ -1,7 +1,6 @@
 import { parse } from "toml"
 import {
-  Array as ArrayRT, Dictionary, Intersect, Number, Partial as PartialRT,
-  Static, String, Union
+  Array as ArrayRT, Intersect, Number, Record, Static, String, Union
 } from "runtypes"
 
 /* Types for processed tag configuration objects */
@@ -10,7 +9,7 @@ const TagRelationshipListRuntype = ArrayRT(
   Union(String, ArrayRT(String))
 )
 
-const TagRelationshipsRuntype = PartialRT({
+const TagRelationshipsRuntype = Record({
   requires: TagRelationshipListRuntype,
   similar: TagRelationshipListRuntype,
   related: TagRelationshipListRuntype,
@@ -23,7 +22,7 @@ const TagRelationshipsRuntype = PartialRT({
 type TagRelationships = Static<typeof TagRelationshipsRuntype>
 
 const TagRuntype = Intersect(
-  PartialRT({
+  Record({
     'description': String,
     'description-plain': String
   }),
@@ -31,10 +30,10 @@ const TagRuntype = Intersect(
 )
 export type Tag = Static<typeof TagRuntype>
 
-const TagDefinitionsRuntype = Dictionary(TagRuntype, "string")
+const TagDefinitionsRuntype = Record(TagRuntype, "string")
 type TagDefinitions = Static<typeof TagDefinitionsRuntype>
 
-const TagCategoryPropertiesRuntype = PartialRT({
+const TagCategoryPropertiesRuntype = Record({
   name: String,
   description: String,
   max: Number
@@ -66,7 +65,7 @@ const TagCategoryCategoryConfigRuntype = Intersect(
 const TagCategorySectionConfigRuntype = ArrayRT(
   Intersect(
     // Properties of the section
-    PartialRT({
+    Record({
       name: String,
       description: String
     }),
@@ -77,7 +76,7 @@ const TagCategorySectionConfigRuntype = ArrayRT(
 
 const TagCategoryConfigRuntype = Intersect(
   // Properties for category, defined on a key named <category>/, AND tags
-  Dictionary(
+  Record(
     Union(
       // Main category config
       TagCategoryCategoryConfigRuntype,
@@ -87,7 +86,7 @@ const TagCategoryConfigRuntype = Intersect(
     "string"
   ),
   // Tag sections
-  PartialRT({ section: TagCategorySectionConfigRuntype })
+  Record({ section: TagCategorySectionConfigRuntype })
 )
 
 /**
