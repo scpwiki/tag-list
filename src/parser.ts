@@ -1,6 +1,7 @@
 import { parse } from "toml"
 import {
-  Array as ArrayRT, Intersect, Number, Record, Static, String, Union
+  Array as ArrayRT, Dictionary, Intersect, Number, Partial as PartialRT,
+  Static, String, Union
 } from "runtypes"
 
 /* Types for processed tag configuration objects */
@@ -9,7 +10,7 @@ const TagRelationshipListRuntype = ArrayRT(
   Union(String, ArrayRT(String))
 )
 
-const TagRelationshipsRuntype = Record({
+const TagRelationshipsRuntype = PartialRT({
   requires: TagRelationshipListRuntype,
   similar: TagRelationshipListRuntype,
   related: TagRelationshipListRuntype,
@@ -22,7 +23,7 @@ const TagRelationshipsRuntype = Record({
 type TagRelationships = Static<typeof TagRelationshipsRuntype>
 
 const TagRuntype = Intersect(
-  Record({
+  PartialRT({
     'description': String,
     'description-plain': String
   }),
@@ -30,10 +31,10 @@ const TagRuntype = Intersect(
 )
 export type Tag = Static<typeof TagRuntype>
 
-const TagDefinitionsRuntype = Record(TagRuntype, "string")
+const TagDefinitionsRuntype = Dictionary(TagRuntype, "string")
 type TagDefinitions = Static<typeof TagDefinitionsRuntype>
 
-const TagCategoryPropertiesRuntype = Record({
+const TagCategoryPropertiesRuntype = PartialRT({
   name: String,
   description: String,
   max: Number
@@ -65,7 +66,7 @@ const TagCategoryCategoryConfigRuntype = Intersect(
 const TagCategorySectionConfigRuntype = ArrayRT(
   Intersect(
     // Properties of the section
-    Record({
+    PartialRT({
       name: String,
       description: String
     }),
@@ -76,7 +77,7 @@ const TagCategorySectionConfigRuntype = ArrayRT(
 
 const TagCategoryConfigRuntype = Intersect(
   // Properties for category, defined on a key named <category>/, AND tags
-  Record(
+  Dictionary(
     Union(
       // Main category config
       TagCategoryCategoryConfigRuntype,
@@ -86,7 +87,7 @@ const TagCategoryConfigRuntype = Intersect(
     "string"
   ),
   // Tag sections
-  Record({ section: TagCategorySectionConfigRuntype })
+  PartialRT({ section: TagCategorySectionConfigRuntype })
 )
 
 /**
