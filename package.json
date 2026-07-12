@@ -6,8 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "prettier --check . && eslint . && stylelint ./src/**/*.{css,scss,svelte}",
-    "lint:fix": "prettier --write . && eslint . --fix && stylelint ./src/**/*.{css,scss,svelte} --fix",
+    "lint": "prettier --check . && eslint . && stylelint ./src/**/*.css",
+    "lint:fix": "prettier --write . && eslint . --fix && stylelint ./src/**/*.css --fix",
     "format": "prettier --write .",
     "tests": "jest"
   },
