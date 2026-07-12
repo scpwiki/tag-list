@@ -1,7 +1,7 @@
 {
   "name": "tag-list",
   "version": "0.0.0",
-  "main": "src/index.ts",
+  "main": "src/main.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
