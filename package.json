@@ -24,7 +24,7 @@
     "ejs": "^6.0.1",
     "prettier": "^3.9.5",
     "prettier-plugin-organize-imports": "^4.3.0",
-    "runtypes": "^6.0.0",
+    "runtypes": "6.7.0",
     "toml": "^4.1.2",
     "typescript": "^6.0.2",
     "vite": "^8.1.4"
