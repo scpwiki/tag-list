@@ -9,24 +9,18 @@
     "lint": "prettier --check . && eslint . && stylelint ./src/**/*.css",
     "lint:fix": "prettier --write . && eslint . --fix && stylelint ./src/**/*.css --fix",
     "format": "prettier --write .",
-    "tests": "jest"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "ts"
-    ]
+    "tests": "vitest run"
   },
   "browserslist": "last 5 years",
   "devDependencies": {
     "@types/ejs": "^3.1.5",
-    "@types/jest": "^30.0.0",
     "ejs": "^6.0.1",
     "prettier": "^3.9.5",
     "prettier-plugin-organize-imports": "^4.3.0",
     "runtypes": "6.7.0",
     "toml": "^4.1.2",
     "typescript": "^6.0.2",
-    "vite": "^8.1.4"
+    "vite": "^8.1.4",
+    "vitest": "^4.1.10"
   }
 }
