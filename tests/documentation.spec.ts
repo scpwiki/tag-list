@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest"
 import { makeRelationshipsStringsForTag } from "../src/documentation"
 import { getTargets } from "../src/documentation"
 import { TagCategory } from "../src/parser"

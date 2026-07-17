@@ -70,8 +70,8 @@ const TagCategorySectionConfigRuntype = ArrayRT(
       name: String,
       description: String
     }),
-    // Tags in the section
-    TagDefinitionsRuntype
+    // Relationship properties applied to the section
+    TagRelationshipsRuntype
   )
 )
 
@@ -207,7 +207,7 @@ export function parseConfig (config: string): TagCategory {
         }
 
         // Remaining properties are tags
-        return { ...section, tags: sectionConfig }
+        return { ...section, tags: TagDefinitionsRuntype.check(sectionConfig) }
       })
       delete categoryConfig.section
     } else {

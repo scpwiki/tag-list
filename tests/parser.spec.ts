@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest"
 import { parseConfig, TomlParseError, ConfigParseError } from "../src/parser"
 
 describe("config parser", () => {

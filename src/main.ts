@@ -1,7 +1,6 @@
-import html from "./index.html"
 import "./root.css"
 
-import { render } from "ejs"
+import ejs from 'ejs';
 import {
   parseConfig, TagCategory, TomlParseError, ConfigParseError
 } from "./parser"
@@ -40,19 +39,13 @@ function reportError (
  * Gets a parameter from the URL query, returning a default if no value is
  * found.
  *
- * This function only works if the <script> tag that references the bundle
- * contains the URL query parameters in the URL that points to the bundle, and
- * it must also have id 'script'.
- *
  * @param paramName - The name of the parameter.
  * @param defaultValue - The value to return if the parameter in the URL query
  * is not present.
  */
 function getQueryParam(paramName: string, defaultValue: string): string {
   try {
-    const script = <HTMLScriptElement | null>document.getElementById("script")
-    if (!script) throw new Error("Script with #script not found")
-    const params = new URL(script.src).searchParams
+    const params = new URL(window.location.href).searchParams
     return params.get(paramName) ?? defaultValue
   } catch(error) {
     console.error(error)
@@ -77,8 +70,6 @@ const defaultsUrls = {
 let templates = { hub: "", data: "" }
 // Track the tag category definitions
 const definitions: { [category: string]: TagCategory } = {}
-
-document.body.innerHTML = html;
 
 const templateHubBox = el<HTMLTextAreaElement>("template-hub")
 const templateHubUrlBox = el<HTMLInputElement>("template-hub-url")
@@ -200,7 +191,7 @@ function makeOutput(template: string, outputBox: HTMLTextAreaElement, errors: HT
 
   let output
   try {
-    output = render(template, {
+    output = ejs.render(template, {
       getCategory: (name: string) => {
         if (!name.endsWith("/")) {
           throw new Error(
